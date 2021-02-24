@@ -1,0 +1,52 @@
+<form class="example-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title">
+      <mat-hint>Başlığı giriniz</mat-hint>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="outline">
+      <mat-label>Job Description</mat-label>
+      <input matInput placeholder="Job Description">
+      <mat-hint>İş tanımı</mat-hint>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select>
+        <mat-option value="one">Güvenlik</mat-option>
+        <mat-option value="two">Temizlik</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+90 &nbsp;</span>
+      <input type="tel" matInput placeholder="534-283-22-05">
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+        <mat-label>Select City</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1">Ankara</mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field appearance="fill">
+        <mat-label>Select Region</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="2">Cankaya</mat-option>
+          <mat-option value="3">Yenimahalle</mat-option>
+          <mat-option value="4">Kazan</mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput ></textarea>
+      </mat-form-field>
+    <br><br>
+    <div class="example-button-container">
+        <button mat-raised-button color="primary">Create Work Order</button>
+    </div>
+  </form>

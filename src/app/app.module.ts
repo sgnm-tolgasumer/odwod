@@ -32,6 +32,7 @@ import { SignupCustomerFormComponent } from './components/signup-customer-form/s
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import { CreateWorkorderFormComponent } from './components/create-workorder-form/create-workorder-form.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {MatSelectModule} from '@angular/material/select';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     WorkordersTableComponent,
-    SignupCustomerFormComponent
+    SignupCustomerFormComponent,
+    CreateWorkorderFormComponent
   ],
   imports: [
     BrowserModule,
