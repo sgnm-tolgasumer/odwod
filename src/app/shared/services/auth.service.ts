@@ -37,7 +37,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['nav']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -88,7 +88,7 @@ SendVerificationMail() {
     return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then((result) => {
         this.ngZone.run(() => {
-           this.router.navigate(['dashboard']);
+           this.router.navigate(['nav']);
          })
        this.SetUserData(result.user);
      }).catch((error) => {
@@ -101,7 +101,7 @@ SendVerificationMail() {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['nav']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
