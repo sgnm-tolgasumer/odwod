@@ -14,7 +14,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-
+import { HomeComponent } from './components/home/home.component';
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +33,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { CreateWorkorderFormComponent } from './components/create-workorder-form/create-workorder-form.component';
+import { NavComponent } from './components/nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -45,7 +53,9 @@ import { CreateWorkorderFormComponent } from './components/create-workorder-form
     VerifyEmailComponent,
     WorkordersTableComponent,
     SignupCustomerFormComponent,
-    CreateWorkorderFormComponent
+    CreateWorkorderFormComponent,
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +74,15 @@ import { CreateWorkorderFormComponent } from './components/create-workorder-form
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
+
   ],
   exports: [
     MatTableModule,
@@ -76,7 +94,14 @@ import { CreateWorkorderFormComponent } from './components/create-workorder-form
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
