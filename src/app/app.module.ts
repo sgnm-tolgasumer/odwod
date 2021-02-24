@@ -28,6 +28,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SignupCustomerFormComponent } from './components/signup-customer-form/signup-customer-form.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -38,7 +42,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    WorkordersTableComponent
+    WorkordersTableComponent,
+    SignupCustomerFormComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [
     MatTableModule,
@@ -63,7 +71,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
