@@ -41,6 +41,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import { IndexPageComponent } from './components/index-page/index-page.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SignupCustomerFormComponent,
     CreateWorkorderFormComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    IndexPageComponent
   ],
   imports: [
     BrowserModule,

@@ -10,16 +10,18 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AuthGuard } from "./shared/guard/auth.guard";
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
+import { IndexPageComponent } from './components/index-page/index-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: '', redirectTo: '/index-page', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'home', component:HomeComponent },
-  { path: 'nav', component:NavComponent }
+  { path: 'nav', component:NavComponent },
+  { path: 'index-page', component:IndexPageComponent}
 ];
 
 @NgModule({
