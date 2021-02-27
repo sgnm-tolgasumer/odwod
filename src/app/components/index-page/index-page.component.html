@@ -1,804 +1,39 @@
-<style>
-  .all {
-    font-family: 'Titillium Web' !important;
-    scroll-behavior: smooth;
-  }
-
-  .fixed-nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 60px;
-    background-color: #000000;
-  }
-
-  .fixed-nav-bar li,
-  .fixed-nav-bar a {
-    height: 50px;
-    line-height: 50px;
-  }
-
-  .nav-container .overlay-nav .container .indus .row .col-md-2 a .logo:hover {
-    opacity: 0.7;
-  }
-
-
-  .container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto
-  }
-
-  @media (min-width:768px) {
-    .container {
-      width: 750px
-    }
-  }
-
-  @media (min-width:992px) {
-    .container {
-      width: 970px
-    }
-  }
-
-  @media (min-width:1200px) {
-    .container {
-      width: 1170px
-    }
-  }
-
-  .container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto
-  }
-
-  .container-fluid>.navbar-collapse,
-  .container-fluid>.navbar-header,
-  .container>.navbar-collapse,
-  .container>.navbar-header {
-    margin-right: -15px;
-    margin-left: -15px
-  }
-
-  @media (min-width:768px) {
-
-    .container-fluid>.navbar-collapse,
-    .container-fluid>.navbar-header,
-    .container>.navbar-collapse,
-    .container>.navbar-header {
-      margin-right: 0;
-      margin-left: 0
-    }
-  }
-
-  @media (min-width:768px) {
-
-    .navbar>.container .navbar-brand,
-    .navbar>.container-fluid .navbar-brand {
-      margin-left: -15px
-    }
-  }
-
-  .container .jumbotron,
-  .container-fluid .jumbotron {
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 6px
-  }
-
-  .jumbotron .container {
-    max-width: 100%
-  }
-
-  @media screen and (min-width:768px) {
-    .jumbotron {
-      padding-top: 48px;
-      padding-bottom: 48px
-    }
-
-    .container .jumbotron,
-    .container-fluid .jumbotron {
-      padding-right: 60px;
-      padding-left: 60px
-    }
-
-    .jumbotron .h1,
-    .jumbotron h1 {
-      font-size: 63px
-    }
-  }
-
-  .container-fluid:after,
-  .container-fluid:before,
-  .container:after,
-  .container:before,
-  .row:after,
-  .row:before {
-    display: table;
-    content: " "
-  }
-
-  .container-fluid:after,
-  .container:after,
-  .row:after {
-    clear: both
-  }
-
-  .indus {
-    max-width: 1000px;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0px 15px;
-  }
-
-  .row {
-    margin-right: -15px;
-    margin-left: -15px
-  }
-
-  .col-md-2,
-  .col-md-8,
-  .col-md-12,
-  .col-md-4,
-  .col-md-3,
-  .col-sm-5,
-  .col-sm-6,
-  .col-md-10,
-  .col-sm-7,
-  .col-xs-9 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  @media (min-width:992px) {
-
-    .col-md-10,
-    .col-md-8,
-    .col-md-3,
-    .col-md-4,
-    .col-sm-5,
-    .col-sm-6,
-    .col-sm-7,
-    .col-md-12,
-    .col-md-2 {
-      float: left
-    }
-
-    .col-sm-5 {
-      width: 41.66666667%
-    }
-
-    .col-sm-7 {
-      width: 58.33333333%
-    }
-
-    .col-md-4 {
-      width: 33.33333333%
-    }
-
-    .col-md-3 {
-      width: 25%
-    }
-
-    .col-sm-6 {
-      width: 50%
-    }
-
-    .col-md-8 {
-      width: 66.66666667%
-    }
-
-    .col-md-12 {
-      width: 100%
-    }
-
-    .col-md-10 {
-      width: 83.33333333%
-    }
-
-    .col-md-2 {
-      width: 16.66666667%
-    }
-
-    .col-md-offset-2 {
-      margin-left: 16.66666667%
-    }
-
-  }
-
-  .menu {
-    width: 90%;
-    max-width: 960px;
-    margin: 0 auto;
-    display: inline-block;
-  }
-
-  .menu a,
-  .menu a:visited {
-    color: #ffffff;
-  }
-
-  .menu a:hover,
-  .menu a:target {
-    color: #ebebeb;
-  }
-
-  .menu-items {
-    display: inline-block;
-  }
-
-  .menu-items li {
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-
-  .menu-items a {
-    text-decoration: none;
-  }
-
-  .menu li {
-    padding-left: 16px;
-    padding-right: 16px;
-    list-style-type: none;
-    float: left;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-  }
-
-  .menu li a {
-    font-family: 'Titillium Web', sans-serif;
-    text-decoration: none;
-    color: #fff;
-    display: inline-block;
-    transition: all 0.3s ease-out;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-  }
-
-  @media only screen and (max-width: 800px) {
-    .menu {
-      position: relative;
-      width: 100%;
-    }
-
-    .menu-items {
-      display: none;
-      width: 100%;
-      margin-top: 50px;
-      background-color: #008378;
-    }
-
-    .menu-items li {
-      display: block;
-      text-align: center;
-    }
-
-    .show {
-      display: inline-block;
-    }
-
-    .hide {
-      display: none;
-    }
-
-    #menu:target .show {
-      display: none;
-    }
-
-    #menu:target .hide,
-    #menu:target .menu-items {
-      display: inline-block;
-    }
-  }
-
-  /*header*/
-  .header-div {
-    height: 600px;
-    font-family: "Titillium Web";
-    background-color: #19d3da;
-    background-image: url('/assets/worderizebanner2.png');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  /*header finish*/
-
-  @-webkit-keyframes bounceInDown {
-
-    from,
-    60%,
-    75%,
-    90%,
-    to {
-      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    }
-
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -3000px, 0);
-      transform: translate3d(0, -3000px, 0);
-    }
-
-    60% {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 25px, 0);
-      transform: translate3d(0, 25px, 0);
-    }
-
-    75% {
-      -webkit-transform: translate3d(0, -10px, 0);
-      transform: translate3d(0, -10px, 0);
-    }
-
-    90% {
-      -webkit-transform: translate3d(0, 5px, 0);
-      transform: translate3d(0, 5px, 0);
-    }
-
-    to {
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-
-  @keyframes bounceInDown {
-
-    from,
-    60%,
-    75%,
-    90%,
-    to {
-      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    }
-
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -3000px, 0);
-      transform: translate3d(0, -3000px, 0);
-    }
-
-    60% {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 25px, 0);
-      transform: translate3d(0, 25px, 0);
-    }
-
-    75% {
-      -webkit-transform: translate3d(0, -10px, 0);
-      transform: translate3d(0, -10px, 0);
-    }
-
-    90% {
-      -webkit-transform: translate3d(0, 5px, 0);
-      transform: translate3d(0, 5px, 0);
-    }
-
-    to {
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-
-  .bounceInDown {
-    -webkit-animation-name: bounceInDown;
-    animation-name: bounceInDown;
-  }
-
-  .text-center {
-    text-align: center
-  }
-
-  .slide-text {
-    color: #fff;
-    margin-top: 80px;
-  }
-
-  .slide-text h1 {
-    line-height: 60px;
-    font-size: 60px;
-    margin-bottom: 18px;
-  }
-
-  .slide-text p {
-    font-size: 17px;
-  }
-
-  /* Extra Small devices  */
-  @media (max-width: 480px) {
-
-    .more-features-div-description,
-    .more-features-div-heading {
-      width: 80%;
-    }
-
-
-    .slide-text {
-      color: #fff;
-      margin-top: 35px;
-    }
-
-    .slide-text p {
-      font-size: 12px;
-    }
-
-    .slide-text h1 {
-      line-height: 25px;
-      font-size: 25px;
-    }
-  }
-
-  /* Extra Small devices  */
-  @media (max-width: 767px) {
-    .slide-text h1 {
-      line-height: 30px;
-      font-size: 30px;
-    }
-
-    .slide-text p {
-      font-size: 13px;
-    }
-  }
-
-  /* Small devices (tablets, 768px and up) */
-  @media (min-width: 768px) {
-    .pricing-box {
-      margin-bottom: 20px;
-    }
-
-    .slide-text h1 {
-      line-height: 45px;
-      font-size: 45px;
-    }
-
-    .slide-text p {
-      font-size: 15px;
-    }
-  }
-
-  .main_heading {
-    margin: 50px 0px;
-  }
-
-  .main_heading h1 {
-    font-size: 45px;
-    font-weight: 300;
-    text-align: center;
-    line-height: 45px;
-    color: #777;
-  }
-
-  .call-action-color .main_heading h1 {
-    color: #fff;
-  }
-
-  .call-action-color .underline {
-    background-color: #fff;
-  }
-
-  @media (min-width: 1200px) {
-    .main_heading {
-      margin: 50px 0px;
-    }
-
-    .main_heading h1 {
-      font-size: 45px;
-      font-weight: 300;
-      text-align: center;
-      line-height: 45px;
-      color: #777;
-    }
-  }
-
-  .underline {
-    display: inline-block;
-    width: 160px;
-    height: 2px;
-    background-color: #65CD00;
-  }
-
-  /* Features CSS */
-  .features-div {
-    text-align: center;
-    -webkit-transition: all .15s linear;
-    -moz-transition: all .15s linear;
-    -ms-transition: all .15s linear;
-    -o-transition: all .15s linear;
-    transition: all .15s linear;
-  }
-
-  .features-div:hover {
-    margin-top: -10px;
-  }
-
-
-  .features-div i {
-    font-size: 35px;
-    font-weight: 300;
-    color: #65CD00;
-  }
-
-  .features-div h4 {
-    color: #393939;
-    font-weight: 400;
-  }
-
-  .features-div p {
-    color: #636363;
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 25px;
-  }
-
-  .more-features-div {
-    margin-top: 40px;
-    overflow: hidden;
-  }
-
-  .more-feature-div {
-    background: #f8f8f8;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin: 70px 0px;
-    margin-bottom: 0px;
-    padding: 50px 0px;
-  }
-
-  .more-feature-div .col-md-6 img {
-    width: 100%;
-  }
-
-
-  .more-features-div-icon {
-    float: left;
-    width: 60px;
-    height: 60px;
-    padding-top: 6px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    font-size: 30px;
-    line-height: 45px;
-    background-color: #19d3da;
-    color: #373a40;
-    text-align: center;
-  }
-
-  .more-features-div-heading {
-    float: left;
-    width: 33%;
-    margin-top: 0;
-    font-weight: 500;
-  }
-
-  .more-features-div-description {
-    float: right;
-    width: 86%;
-    font-weight: 300;
-  }
-
-  /* Services CSS */
-  .services-box-gray {
-    background: #f8f8f8;
-  }
-
-  .services-box {
-    text-align: center;
-    padding: 15px 0px;
-  }
-
-  .services-box i {
-    line-height: 75px;
-    font-size: 50px;
-  }
-
-  .services-box h4 {
-    font-size: 18px;
-    font-weight: 400;
-  }
-
-  .services-box p {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 25px;
-  }
-
-  /* Call Action */
-  .call-action-bg {
-    margin: 60px 0px;
-    text-align: center;
-    padding-bottom: 50px;
-    font-size: 16px;
-    line-height: 30px;
-    font-weight: 300;
-    background-size: cover;
-  }
-
-  .about-us-box {
-    padding-top: 30px;
-    padding-bottom: 15px;
-    text-align: center;
-  }
-
-  .about-us-box .about-us-photo {
-    position: relative;
-    width: 160px;
-    margin: 0 auto;
-  }
-
-
-  .about-us-box .about-us-photo .about-us-role {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    padding: 3px 5px;
-    background: #019299;
-    font-size: 14px;
-    color: #fff;
-    line-height: 15px;
-    text-transform: uppercase;
-  }
-
-  .about-us-box .about-us-social a {
-    color: #ddd;
-  }
-
-  .about-us-box .about-us-social {
-    margin-top: 5px;
-    font-size: 25px;
-    line-height: 36px;
-  }
-
-  .about-us-box h3 {
-    font-size: 24px;
-    font-weight: 400;
-  }
-
-  .about-us-box p {
-    font-size: 16px;
-    text-align: center;
-    font-weight: 300;
-    line-height: 25px;
-  }
-
-
-  @-webkit-keyframes fadeInUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
-
-    to {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
-
-    to {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-
-  .fadeInUp {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
-  }
-
-  .animated.flip {
-    -webkit-backface-visibility: visible;
-    backface-visibility: visible;
-    -webkit-animation-name: flip;
-    animation-name: flip;
-  }
-
-  .animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
-
-  .animated.infinite {
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-  }
-
-  .animated.hinge {
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-  }
-
-  .animated.flipOutX,
-  .animated.flipOutY,
-  .animated.bounceIn,
-  .animated.bounceOut {
-    -webkit-animation-duration: .75s;
-    animation-duration: .75s;
-  }
-
-  /* Footer */
-  footer {
-    padding: 40px 0 35px 0;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .footer-social {
-    font-size: 30px;
-    line-height: 50px;
-  }
-
-  .footer-social a {
-    color: #878787;
-  }
-
-  footer {
-    display: block;
-  }
-</style>
-
 <!-- Navbar -->
-<div class="all" style="font-family: 'Titillium Web'; background-color: #eeeeee;" id="first">
-  <div class="fixed-nav-bar" style="background: #19d3da;">
-    <nav id="nav-content" class="overlay-nav show-content">
+<div class="all" id="first">
+  <div class="fixed-nav-bar">
+    <nav id="nav-content" class="overlay-nav">
       <div class="container">
         <div class="indus">
           <div class="row">
-            <div class="col-md-2 vertical-aligner">
-              <a class="inner-link" href="#mainpage" style="font-size: 25px; text-decoration:none;" href="#first"><span
-                  style="color: #333333;">WORDERIZE</span></a>
+            <div class="col-md-2">
+              <a class="inner-link worderizeNavbar" href="#mainpage" href="#first">
+                <span>WORDERIZE</span>
+              </a>
             </div>
-            <div class="col-md-10 text-right vertical-aligner">
-              <ul class="menu vertical-aligner row">
-                <li class="has-dropdown col-sm-2 nav-bar-item">
-                  <a class="inner-link" href="#services"><span style="color: #333333;">SERVICES</span></a>
-                  <ul class="nav-dropdown">
-                  </ul>
+            <div class="col-md-10">
+              <ul class="menu row">
+                <li class="col-sm-2">
+                  <a class="inner-link navbarItems" href="#services">
+                    <span>SERVICES</span>
+                  </a>
                 </li>
-                <li class="has-dropdown col-sm-2 nav-bar-item">
-                  <a class="inner-link" href="#whyus"><span style="color: #333333;">WHY US?</span></a>
-                  <ul class="nav-dropdown">
-                  </ul>
+                <li class="col-sm-2">
+                  <a class="inner-link navbarItems" href="#whyus"><span>WHY US?</span></a>
                 </li>
-                <li class="has-dropdown col-sm-2 nav-bar-item">
-                  <a class="inner-link" href="#aboutus"><span style="color: #333333;">ABOUT US</span></a>
-                  <ul class="nav-dropdown">
-                  </ul>
+                <li class="col-sm-2">
+                  <a class="inner-link navbarItems" href="#aboutus">
+                    <span>ABOUT US</span>
+                  </a>
                 </li>
-                <li class="has-dropdown col-sm-2 nav-bar-item">
-                  <a class="inner-link" routerLink="/sign-in"><span style="color: #333333;"><b>LOG IN</b></span></a>
-                  <ul class="nav-dropdown">
-                  </ul>
+                <li class="col-sm-2">
+                  <a class="inner-link navbarItems" routerLink="/sign-in">
+                    <span><b>LOG IN</b></span>
+                  </a>
                 </li>
-                <li class="has-dropdown col-sm-2 nav-bar-item">
-                  <a class="inner-link" routerLink="/register-user"><span style="color: #333333;"><b>SIGN
-                        UP</b></span></a>
-                  <ul class="nav-dropdown">
-                  </ul>
+                <li class="col-sm-2">
+                  <a class="inner-link navbarItems" routerLink="/register-user">
+                    <span><b>SIGN UP</b></span>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -810,42 +45,40 @@
   <!-- End Navbar -->
 
   <!-- Header -->
-  <div class="header-div"
-    style="background-color: #19d3da; background-image: url('/assets/worderizebanner2.png'); background-repeat: no-repeat; background-position: center;">
-    <div class="container wow bounceInDown" data-wow-duration="5s">
+  <div class="header-div">
+    <div class="container bounceInDown" data-wow-duration="5s">
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center slide-text">
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
           <p>Worderize is a work order distribution system that just needs where you are and what you want.</p>
         </div>
-        <div class="col-md-offset-2"></div>
       </div>
     </div>
   </div>
   <!-- End Header -->
 
   <!-- Feature -->
-  <div id="alalim" style="background-color:#eeeeee">
+  <div class="services" id="alalim">
     <div class="container" id="services">
       <div class="row">
         <div class="col-md-12">
           <div class="main_heading" id="a">
-            <h1 style="color:#373a40;">Some Services</h1>
-            <div class="text-center"><span class="underline" style="background-color: #19d3da;"></span></div>
+            <h1 class="head">Some Services</h1>
+            <div class="text-center"><span class="underline line"></span></div>
           </div>
         </div>
       </div>
-      <div class="row" style="color:#373a40;">
+      <div class="row head">
         <div class="col-md-3 col-sm-6">
           <div class="features-div">
-            <i class="material-icons" style="color: #19d3da;">cleaning_services</i>
+            <i class="material-icons wIcon">cleaning_services</i>
             <h4>CLEANING</h4>
             <p>By using Worderize, you can have your home, workplace and warehouse cleaned by professional teams.</p>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="features-div">
-            <i class="material-icons" style="color: #19d3da;"> airport_shuttle </i>
+            <i class="material-icons wIcon"> airport_shuttle </i>
             <h4>TRANSPORTATION</h4>
             <p>By using Worderize, you can transport your home or business by professional teams that provide
               transportation services.</p>
@@ -853,7 +86,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="features-div">
-            <i class="material-icons" style="color: #19d3da;">build</i>
+            <i class="material-icons wIcon">build</i>
             <h4>RENOVATION</h4>
             <p>By using Worderize, you can get repair service by professional teams that provide renovation services.
             </p>
@@ -861,7 +94,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="features-div">
-            <i class="material-icons" style="color: #19d3da;"> add_shopping_cart </i>
+            <i class="material-icons wIcon"> add_shopping_cart </i>
             <h4>MARKET</h4>
             <p>Using Worderize, you can order your market needs to your home or workplace.</p>
           </div>
@@ -871,7 +104,7 @@
     <br>
 
     <!-- Macbook div -->
-    <div class="more-feature-div" style="background-color:#686d76">
+    <div class="more-feature-div">
       <br>
       <div class="container">
         <div class="row">
@@ -879,9 +112,8 @@
             <img src="assets/Macbook.png">
           </div>
           <div class="col-md-6">
-
-            <div class="more-features-div" style="color: #eeeeee;">
-              <div class="more-features-div-icon" style="background-color: #19d3da; color: #373a40;">
+            <div class="more-features-div">
+              <div class="more-features-div-icon">
                 <i class="fa fa-users"></i>
               </div>
               <h3 class="more-features-div-heading">If you are a customer;</h3>
@@ -889,8 +121,8 @@
                 Just register and write to us what you need and where you need it, so the process can begin.
               </div>
             </div>
-            <div class="more-features-div" style="color: #eeeeee;">
-              <div class="more-features-div-icon" style="background-color: #19d3da; color: #373a40;">
+            <div class="more-features-div">
+              <div class="more-features-div-icon">
                 <span class="material-icons"> work </span>
               </div>
               <h3 class="more-features-div-heading">If you are a worker;</h3>
@@ -907,59 +139,61 @@
   <!-- End Macbook dev -->
 
   <!-- Why Worderize? -->
-  <div id="whyusall" style="background-color: #eeeeee;">
+  <div id="whyusall">
     <div class="container" id="whyus">
       <br>
       <div class="row">
         <div class="col-md-12">
           <div class="main_heading">
-            <h1 style="color: #373a40;">Why Worderize?</h1>
-            <div class="text-center"><span class="underline" style="background-color: #19d3da;"></span></div>
+            <h1 class="head">Why Worderize?</h1>
+            <div class="text-center">
+              <span class="underline line"></span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4 services-box-gray col-sm-6" style="background-color: #686d76;">
-        <div class="services-box">
-          <i class="material-icons" style="color: #eeeeee;"> chat </i>
-          <h4 style="color: #eeeeee;">24/7 Support</h4>
-          <p style="color: #eeeeee;">Worderize provides transportation to your wishes and needs wherever you are and
+      <div class="col-md-4 why-worderize-box-first col-sm-6">
+        <div class="why-worderize-box">
+          <i class="material-icons"> chat </i>
+          <h4 class="head2">24/7 Support</h4>
+          <p class="head2">Worderize provides transportation to your wishes and needs wherever you are and
             provide 24/7 support for your needs.</p>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6" style="background-color: #92e4e7;">
-        <div class="services-box">
+      <div class="col-md-4 col-sm-6 why-worderize-box-second">
+        <div class="why-worderize-box">
           <i class="material-icons"> mouse </i>
           <h4>Easy to Use</h4>
           <p>Worderize lets you start the process by simply registering and telling what you want and where you want it.
           </p>
         </div>
       </div>
-      <div class="col-md-4 services-box-gray col-sm-6" style="background-color: #686d76;">
-        <div class="services-box">
-          <i class="material-icons" style="color: #eeeeee;"> how_to_reg </i>
-          <h4 style="color: #eeeeee;">Professionalism</h4>
-          <p style="color: #eeeeee;">Worderize categorizes your requests and matches you with whoever is an expert on
+      <div class="col-md-4 why-worderize-box-first col-sm-6">
+        <div class="why-worderize-box">
+          <i class="material-icons"> how_to_reg </i>
+          <h4 class="head2">Professionalism</h4>
+          <p class="head2">Worderize categorizes your requests and matches you with whoever is an expert on
             that job and aproved by Worderize.</p>
         </div>
       </div>
     </div>
   </div>
-  <!-- End Why Worderize? -->
+  <!-- End Why Worderize -->
 
   <!-- Be an employee -->
-  <div id="allemployee" style="background-color: #373a40;">
-    <div class="call-action-bg" id="Call-to-Action">
+  <div id="allemployee" class="allemployee">
+    <div class="employee">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="main_heading">
-              <h1 style="color: #eeeeee;">Be an Employee</h1>
-              <div class="text-center"><span class="underline" style="background-color: #19d3da;"></span></div>
+              <h1 class="head2">Be an Employee</h1>
+              <div class="text-center"><span class="underline line"></span></div>
             </div>
           </div>
         </div>
         <div class="col-md-12">
-          <p style="color: #eeeeee;">Just click to the sign up button and fill the necessary fields, we will contact you
+          <p class="head2">Just click to the sign up button and fill the necessary fields, we will contact you
             after your membership is approved.</p>
         </div>
       </div>
@@ -968,27 +202,27 @@
   <!-- End Be an employee -->
 
   <!-- About -->
-  <div id="allabout" style="background-color: #eeeeee;">
+  <div id="allabout" class="allabout">
     <div class="container" id="aboutus">
       <div class="row">
         <div class="col-md-12">
           <div class="main_heading">
-            <h1 style="color: #373a40;">About us</h1>
-            <div class="text-center"><span class="underline" style="background-color: #19d3da;"></span></div>
+            <h1 class="head">About us</h1>
+            <div class="text-center"><span class="underline line"></span></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 about-us-box wow fadeInUp animated">
+        <div class="col-md-4 about-us-box fadeInUp animated">
           <div class="about-us-photo">
             <img src="assets/1.jpg">
             <div class="about-us-role"></div>
           </div>
         </div>
-        <div class="col-md-4 about-us-box wow fadeInUp animated">
+        <div class="col-md-4 about-us-box fadeInUp animated">
           <div class="about-us-photo">
             <img src="assets/2.jpg" alt="">
-            <div class="about-us-role" style="background-color: #19d3da; color: #333333;">SUPPORT</div>
+            <div class="about-us-role">SUPPORT</div>
           </div>
           <h3>
             <span class="material-icons"> email </span>
@@ -996,7 +230,7 @@
           </h3>
           <p>Do not forget to send us an e-mail for any questions, complaints, suggestions about Worderize.</p>
         </div>
-        <div class="col-md-4 about-us-box wow fadeInUp animated">
+        <div class="col-md-4 about-us-box fadeInUp animated">
           <div class="about-us-photo">
             <img src="assets/3.jpg" alt="">
             <div class="about-us-role"></div>
@@ -1008,42 +242,34 @@
   <!-- End About -->
 
   <!-- Informations -->
-  <div class="footer-container" style="background:#373a40">
+  <div class="footer-container">
     <div class="indus">
       <footer class="short footer">
-        <div class="container" style="height: 100%">
-          <div class="row">
-            <div class="col-sm-7">
-              <h2 style="font-family: 'Titillium Web'"><span lang-bind="ABOUT_US"></span></h2>
-              <p style="font-family: 'Titillium Web';font-size: 14px;text-align: justify;color: white;"
-                lang-bind="ABOUT">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit velit deserunt expedita, quia
-                excepturi officiis veritatis enim cumque placeat debitis aliquam. Nulla vero nobis explicabo voluptates
-                magni consequatur totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum dolor
-                quaerat explicabo alias. Rem, ex perspiciatis nam quia quam dolorem quis nulla sequi, explicabo nostrum
-                laboriosam sed iste deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-                asperiores voluptates assumenda excepturi deserunt tempora explicabo molestiae, minima iusto pariatur
-                quam earum, quasi magnam rerum sunt blanditiis? Est, eligendi nobis.
-              </p>
-            </div>
+        <div class="row">
+          <div class="col-sm-7">
+            <h2><span lang-bind="ABOUT_US"></span></h2>
+            <p lang-bind="ABOUT">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit velit deserunt expedita, quia
+              excepturi officiis veritatis enim cumque placeat debitis aliquam. Nulla vero nobis explicabo voluptates
+              magni consequatur totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum dolor
+              quaerat explicabo alias. Rem, ex perspiciatis nam quia quam dolorem quis nulla sequi, explicabo nostrum
+              laboriosam sed iste deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+              asperiores voluptates assumenda excepturi deserunt tempora explicabo molestiae, minima iusto pariatur
+              quam earum, quasi magnam rerum sunt blanditiis? Est, eligendi nobis.
+            </p>
+          </div>
 
-            <div class="col-sm-5" style="color: white; text-align:start;">
-              <h2 style="font-family: 'Titillium Web';">
-                <span lang-bind="CONTACT"></span>
-              </h2>
-
-              <ul class="footer-contact" style="list-style-type:none;">
-                <li class="contactlist"></li><i class="fa fa-home"></i> <span lang-bind="C1">Address: Üniversiteler
-                  Mahallesi 1596 Cadde 5. AR-Ge Binası No: 8B Kat: 3 / 12 Beytepe 06800 Çankaya / Ankara</span>
-                <li class="contactlist" lang-bind="C2"></li>
-                <li class="contactlist" lang-bind="C3"></li>
-                <li class="contactlist"><i class="fa fa-phone"></i> <span lang-bind="C4">Phone: +90 312 491 28 13</span>
-                </li>
-                <li class="contactlist"><i class="fa fa-fax"></i> Fax: +90 312 491 28 13</li>
-                <li class="contactlist"><i class="fa fa-envelope-open"></i> <span lang-bind="C6">Email:
-                    info@worderize.com</span></li>
-              </ul>
-            </div>
+          <div class="col-sm-5">
+            <h2 class="footerRight">
+              <span lang-bind="CONTACT"></span>
+            </h2>
+            <ul class="footer-contact">
+              <li class="contactlist"><i class="fa fa-home"></i> <span>Address: Üniversiteler
+                  Mahallesi 1596 Cadde 5. AR-Ge Binası No: 8B Kat: 3 / 12 Beytepe 06800 Çankaya / Ankara</span></li>
+              <li class="contactlist"><i class="fa fa-phone"></i> <span>Phone: +90 312 491 28 13</span></li>
+              <li class="contactlist"><i class="fa fa-fax"></i> Fax: +90 312 491 28 13</li>
+              <li class="contactlist"><i class="fa fa-envelope-open"></i> <span>Email: info@worderize.com</span></li>
+            </ul>
           </div>
         </div>
       </footer>
@@ -1053,21 +279,21 @@
 
   <!-- Footer -->
   <div class="copyright">
-    <div class="row m-0" style="width: 100%;height: 48px;background: #19d3da;">
-      <div class="col-sm-7"
-        style="font-family: 'Titillium Web';font-size: 14px;margin: 0 auto;text-align: center;padding: 15px 0px; color: #373a40;">
+    <div class="row m-0 lastFooter">
+      <div class="col-sm-7">
         © Copyright 2021 | Worderize Aile Şirketi, All rights reserved.
       </div>
-      <div class="col-sm-5"
-        style="margin: 0 auto;text-align: center;font-size: 30px; text-align: center;padding: 10px; color:#373a40; display: inline-block;">
-        <a style="padding-right: 10px; color: #373a40;" href="https://www.facebook.com/worderize/"><i
-            class="fa fa-facebook-f"></i></a>
-        <a style="padding-right: 10px; color: #373a40;" href="https://www.instagram.com/worderize/"><i
-            class="fa fa-instagram"></i></a>
-        <a style="padding-right: 10px; color: #373a40;" href="https://tr.linkedin.com/company/worderize/"><i
-            class="fa fa-linkedin social-icon"></i></a>
+      <div class="col-sm-5">
+        <a href="https://www.facebook.com/worderize/">
+          <i class="fa fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/worderize/">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a href="https://tr.linkedin.com/company/worderize/">
+          <i class="fa fa-linkedin social-icon"></i>
+        </a>
       </div>
-      <div id="your-element-selector" style="width: 600px; height: 360px; margin-bottom: 10px;"></div>
     </div>
   </div>
 </div>
