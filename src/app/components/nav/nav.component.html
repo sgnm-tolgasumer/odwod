@@ -5,9 +5,10 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/home">Home</a>
+      <mat-list-item [routerLink]="['home']">Home</mat-list-item>
       <a mat-list-item href="#">Profile</a>
       <a mat-list-item href="#">Settings</a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,6 +24,6 @@
       <span>WORDERIZE | Customer</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
