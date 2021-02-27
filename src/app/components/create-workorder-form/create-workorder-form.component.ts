@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
 interface City {
@@ -23,7 +23,7 @@ interface Type {
   styleUrls: ['./create-workorder-form.component.css']
 })
 export class CreateWorkorderFormComponent implements OnInit {
-  
+
   selectedValue: string;
   selectedValueregion: string;
   selectedValuetype: string;
@@ -44,17 +44,17 @@ export class CreateWorkorderFormComponent implements OnInit {
   ];
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(f: NgForm){
 
-    const url='http://localhost:8080/';
-    this.http.post(url,f.value)
+    const url = 'http://localhost:8080/';
+    this.http.post(url, f.value)
     .subscribe(
-      (result)=>{
+      (result) => {
         this.ngOnInit();
       }
     );

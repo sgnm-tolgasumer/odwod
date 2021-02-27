@@ -91,6 +91,7 @@ import { IndexPageComponent } from './components/index-page/index-page.component
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    HttpClientModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
