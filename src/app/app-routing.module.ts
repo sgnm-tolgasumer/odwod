@@ -11,6 +11,8 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { IndexPageComponent } from './components/index-page/index-page.component';
+import {NavWorkerComponent} from './components/nav-worker/nav-worker.component';
+import {HomeWorkerComponent} from './components/home-worker/home-worker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index-page', pathMatch: 'full' },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'nav', component: NavComponent, children: [
       { path: 'home', component: HomeComponent }]},
+  { path: 'nav-worker', component: NavWorkerComponent, children: [
+      { path: 'home-worker', component: HomeWorkerComponent }]},
   { path: 'index-page', component: IndexPageComponent}
 ];
 
