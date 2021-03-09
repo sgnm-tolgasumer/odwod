@@ -42,6 +42,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { IndexPageComponent } from './components/index-page/index-page.component';
+import { NavWorkerComponent } from './components/nav-worker/nav-worker.component';
+import { HomeWorkerComponent } from './components/home-worker/home-worker.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { IndexPageComponent } from './components/index-page/index-page.component
     CreateWorkorderFormComponent,
     NavComponent,
     HomeComponent,
-    IndexPageComponent
+    IndexPageComponent,
+    NavWorkerComponent,
+    HomeWorkerComponent
   ],
   imports: [
     BrowserModule,
