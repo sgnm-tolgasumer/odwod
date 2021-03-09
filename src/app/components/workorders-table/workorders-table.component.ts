@@ -3,18 +3,28 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import {FormControl, Validators} from '@angular/forms';
 import { WorkOrders } from 'src/app/shared/services/workorders';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import { stringify } from '@angular/compiler/src/util';
+
 @Component({
   selector: 'app-workorders-table',
   templateUrl: './workorders-table.component.html',
-  styleUrls: ['./workorders-table.component.css']
+  styleUrls: ['./workorders-table.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class WorkordersTableComponent implements OnInit {
 
   ELEMENT_DATA : WorkOrders[];
-  displayedColumns: string[] = ['id', 'title', 'type', 'addressCity', 'addressDistrict'];
+  displayedColumns: string[] = [ 'title', 'type', 'addressCity', 'addressDistrict'];
   dataSource;
+  expandedElement: WorkOrders | null;
 
   constructor(private service:WorkordersTableService) { }
 
@@ -39,4 +49,10 @@ export class WorkordersTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  getTheJobButtonClick(workOrder: any){
+    var toReplaced = /\"status\":0/gi;
+    var workOrderJson = JSON.stringify(workOrder).replace(toReplaced, "\"status\":1" );
+    var json = JSON.parse(workOrderJson);
+    this.service.getTheJob(json);
+  }
 }
