@@ -50,6 +50,10 @@ export class CreateWorkorderFormComponent implements OnInit {
   }
 
   onSubmit(f: NgForm){
+    var deneme= JSON.stringify(f.value);
+    console.log(deneme);
+    var ekleme=f.value;
+    ekleme["status"]="0";
 
     const url = 'http://localhost:8080/';
     this.http.post(url, f.value)
