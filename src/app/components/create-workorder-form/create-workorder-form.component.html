@@ -2,51 +2,56 @@
   <mat-form-field appearance="outline">
     <mat-label>Title</mat-label>
     <input matInput placeholder="Title" type="text" name="title" ngModel>
-    <mat-hint>Başlığı giriniz</mat-hint>
+    <mat-hint>Enter the title of the work</mat-hint>
   </mat-form-field>
   <br><br>
   <mat-form-field appearance="outline">
     <mat-label>Job Description</mat-label>
-    <input matInput placeholder="Job Description" type="text" name="job" ngModel>
-    <mat-hint>İş tanımı</mat-hint>
+    <input matInput placeholder="Job Description" type="text" name="description" ngModel>
+    <mat-hint>Enter the description of the work</mat-hint>
   </mat-form-field>
   <br><br>
   <mat-form-field appearance="fill">
-    <mat-label>Type</mat-label>
+    <mat-label>Job Type</mat-label>
     <mat-select [(ngModel)]="selectedValuetype" name="type">
       <mat-option *ngFor="let type of types" [value]="type.valuetype">
         {{type.viewValuetype}}
       </mat-option>
     </mat-select>
+    <mat-hint>Select type of the work</mat-hint>
   </mat-form-field>
   <br><br>
   <mat-form-field class="example-full-width">
     <mat-label>Telephone</mat-label>
     <span matPrefix>+90 &nbsp;</span>
     <input type="tel" name="telephone" ngModel matInput placeholder="534-283-22-05">
+    <mat-hint>Enter your telephone number for contact information</mat-hint>
   </mat-form-field>
   <br><br>
   <mat-form-field appearance="fill">
     <mat-label>City</mat-label>
-    <mat-select [(ngModel)]="selectedValue" name="city">
+    <mat-select [(ngModel)]="selectedValue" name="addressCity">
       <mat-option *ngFor="let city of cities" [value]="city.value">
         {{city.viewValue}}
       </mat-option>
     </mat-select>
+    <mat-hint>Select the City</mat-hint>
   </mat-form-field>
     &nbsp;&nbsp;
     <mat-form-field appearance="fill">
-      <mat-label>Region</mat-label>
-      <mat-select [(ngModel)]="selectedValueregion" name="region">
+      <mat-label>District</mat-label>
+      <mat-select [(ngModel)]="selectedValueregion" name="addressDistrict">
         <mat-option *ngFor="let region of regions" [value]="region.valueregion">
           {{region.viewValueregion}}
         </mat-option>
       </mat-select>
+      <mat-hint>Select the district</mat-hint>
     </mat-form-field>
     &nbsp;&nbsp;
     <mat-form-field class="example-full-width">
-      <mat-label>Address</mat-label>
-      <textarea matInput name="address" ngModel ></textarea>
+      <mat-label>Open Address</mat-label>
+      <textarea matInput name="openAddress" ngModel ></textarea>
+      <mat-hint>Enter the open address</mat-hint>
     </mat-form-field>
   <br><br>
   <div class="example-button-container">
