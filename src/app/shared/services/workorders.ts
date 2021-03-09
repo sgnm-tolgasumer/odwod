@@ -1,7 +1,11 @@
 export interface WorkOrders {
-    id: number,
-    title: string,
-    type: string,
+    userId: string,
+    telephone: string,
+    status: number,
     addressCity: string,
-    addressDistrict: string
+    addressDistrict: string,
+    description: string,
+    openAddress: string,
+    title: string,
+    type: string
 }
