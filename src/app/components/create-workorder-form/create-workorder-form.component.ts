@@ -1,5 +1,5 @@
+import { CreateWorkorderFormService } from './../../shared/services/create-workorder-form.service';
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
 interface City {
@@ -39,30 +39,25 @@ export class CreateWorkorderFormComponent implements OnInit {
   ];
 
   types: Type[] = [
-    {valuetype: 'Temizlik', viewValuetype: 'Temizlik'},
-    {valuetype: 'Güvenlik', viewValuetype: 'Güvenlik'}
+    {valuetype: 'Fix Jobs', viewValuetype: 'Fix Jobs'},
+    {valuetype: 'Security', viewValuetype: 'Security'},
+    {valuetype: 'Home Jobs', viewValuetype: 'Home Jobs'},
+    {valuetype: 'Cleaning', viewValuetype: 'Cleaning'},
+    {valuetype: 'Recondition', viewValuetype: 'Recondition'}
   ];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private service:CreateWorkorderFormService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(f: NgForm){
-    var deneme= JSON.stringify(f.value);
-    console.log(deneme);
-    var ekleme=f.value;
-    ekleme["status"]="0";
 
-    const url = 'http://localhost:8080/';
-    this.http.post(url, f.value)
-    .subscribe(
-      (result) => {
-        this.ngOnInit();
-      }
-    );
-    console.log(f.value);
+    var workOrder=f.value;
+    workOrder["status"]=0;
+    this.service.createWorkOrder(workOrder);
+    f.resetForm();
   }
 
 }
