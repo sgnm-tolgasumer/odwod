@@ -21,12 +21,6 @@ export class SignupCustomerFormComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
-
-  selectedValue: string;
-  cities: City[] = [
-    {value: 'Ankara', viewValue: 'Ankara'},
-  ];
-  
   constructor(private http:HttpClient) {
 
    }
