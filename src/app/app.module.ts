@@ -46,6 +46,7 @@ import { NavWorkerComponent } from './components/nav-worker/nav-worker.component
 import { HomeWorkerComponent } from './components/home-worker/home-worker.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { SignupWorkerFormComponent } from './components/signup-worker-form/signup-worker-form.component';
 
 
 
@@ -65,7 +66,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     HomeComponent,
     IndexPageComponent,
     NavWorkerComponent,
-    HomeWorkerComponent
+    HomeWorkerComponent,
+    SignupWorkerFormComponent
   ],
   imports: [
     BrowserModule,
