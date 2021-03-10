@@ -44,6 +44,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { IndexPageComponent } from './components/index-page/index-page.component';
 import { NavWorkerComponent } from './components/nav-worker/nav-worker.component';
 import { HomeWorkerComponent } from './components/home-worker/home-worker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
+
 
 
 @NgModule({
@@ -87,7 +91,9 @@ import { HomeWorkerComponent } from './components/home-worker/home-worker.compon
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatNativeDateModule,
+    MatDatepickerModule
 
   ],
   exports: [
@@ -108,7 +114,9 @@ import { HomeWorkerComponent } from './components/home-worker/home-worker.compon
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

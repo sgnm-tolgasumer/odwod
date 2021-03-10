@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EmailValidator, FormControl, NgForm, Validators} from '@angular/forms';
+import {EmailValidator, FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http'
+
+
 
 interface City {
   value: string;
@@ -13,6 +15,7 @@ interface City {
   styleUrls: ['./signup-customer-form.component.css']
 })
 export class SignupCustomerFormComponent implements OnInit {
+  
   hide = true;
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -31,16 +34,19 @@ export class SignupCustomerFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm){
+  onSubmit(f: NgForm,name,mail,surname,telephone,password,date){
 
+    var send1={"name": name,"surname":surname,"telephone":telephone,"password":password,"date":date}
+    
+    
     const url='http://localhost:8080/';
-    this.http.post(url,f.value)
+    this.http.post(url,send1)
     .subscribe(
       (result)=>{
         this.ngOnInit();
       }
     );
-    console.log(f.value);
+    console.log(send1);
   }
 
 }
