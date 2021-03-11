@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {EmailValidator, FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { AuthService } from "../../shared/services/auth.service";
 
 interface City {
   value: string;
   viewValue: string;
 }
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Component({
   selector: 'app-signup-worker-form',
@@ -33,24 +39,24 @@ export class SignupWorkerFormComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm,name,surname,password,telephone,mail,date,city,region,work){
+  onSubmit(f: NgForm,name,surname,password,telephone,mail,date,addressCity,workableDistricts,jobTypes){
 
-    var jsonobject={"name": name,"surname":surname,"password":password,"telephone":telephone,"mail":mail,"date":date,"city":city,"region":region,"work":work}
-    
-    
-    const url='http://localhost:8080/';
-    this.http.post(url,jsonobject)
-    .subscribe(
-      (result)=>{
-        this.ngOnInit();
-      }
-    );
-    console.log(jsonobject);
-  }
+    let uid = this.authService.SignUp(mail, password);
+    uid.then( (value) => {
+      console.log(value);
+      var workerCreate={"userId": value, "name": name,"surname":surname,"telephone":telephone,"birthDate":date, "mail": mail, "addressCity": addressCity, "workableDistricts": workableDistricts, "jobTypes": jobTypes};
+      console.log(workerCreate);
+      this.http.post("http://localhost:8080/worker", workerCreate,  httpOptions).subscribe(data =>
+    {
+
+    });
+
+    });
+}
 
 }

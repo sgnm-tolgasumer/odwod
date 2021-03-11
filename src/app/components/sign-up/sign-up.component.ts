@@ -8,6 +8,8 @@ import { AuthService } from "../../shared/services/auth.service";
 })
 export class SignUpComponent implements OnInit {
 
+  public isWorker = false;
+  
   constructor(
     public authService: AuthService
   ) { }
@@ -15,4 +17,10 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showCustomerForm(){
+    if (this.isWorker == true)
+      this.isWorker = false;
+    else
+      this.isWorker = true;
+  }
 }

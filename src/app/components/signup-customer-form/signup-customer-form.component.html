@@ -1,4 +1,4 @@
-<form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f,name.value,mail.value,surname.value,telephone.value,password.value,date.value)">
+<form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f,name.value,mail.value,surname.value,telephone.value,date.value, password.value)">
   <mat-form-field class="example-full-width">
     <mat-label>Name</mat-label>
     <input matInput #name type="text" name="name" value="{{name.getValue}}">
@@ -7,6 +7,17 @@
   <mat-form-field class="example-full-width">
     <mat-label>Surname</mat-label>
     <input matInput type="text" name="surname" #surname  value="{{surname.getValue}}">
+  </mat-form-field>
+  <br><br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" name="email" #mail value="{{mail.getValue}}"  matInput [formControl]="emailFormControl">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <br><br>
   <mat-form-field appearance="fill">
@@ -21,17 +32,6 @@
     <mat-label>Telephone</mat-label>
     <span matPrefix>+90 &nbsp;</span>
     <input type="tel" name="telephone" #telephone value="{{telephone.getValue}}" matInput placeholder="534-283-22-05">
-  </mat-form-field>
-  <br><br>
-  <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input type="email" name="email" #mail value="{{mail.getValue}}"  matInput [formControl]="emailFormControl">
-    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-      Please enter a valid email address
-    </mat-error>
-    <mat-error *ngIf="emailFormControl.hasError('required')">
-      Email is <strong>required</strong>
-    </mat-error>
   </mat-form-field>
   <br><br>
   <mat-form-field appearance="fill">
