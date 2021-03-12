@@ -46,35 +46,43 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email, password) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign
-        up and returns promise */
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+  SignUp(email, password): Promise<any> {
+    var uid;
+    this.afAuth.createUserWithEmailAndPassword(email, password)
+    .then((result) => {
+      /* Call the SendVerificaitonMail() function when new user sign
+      up and returns promise */
+      this.SendVerificationMail();
+      this.SetUserData(result.user);
+      uid = result.user.uid;
+    }).catch((error) => {
+      window.alert(error.message)
+    });
+    return new Promise(function(resolve, reject) {
+      setTimeout(()=> {
+        resolve(uid); // returns a primitive or an object or nothing, it implicitly calls the callback for "fulfillment" or "then"
+      }, 3000) ;
+  
+    });
   }
 
 
-// Email verification when new user register
-SendVerificationMail() {
+  // Email verification when new user register
+  SendVerificationMail() {
     return this.afAuth.currentUser.then(u => u.sendEmailVerification())
-    .then(() => {
-      this.router.navigate(['verify-email']);
-    })
+      .then(() => {
+        this.router.navigate(['verify-email-address']);
+      })
   }
 
   // Reset Forggot password
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
-    .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
-    }).catch((error) => {
-      window.alert(error)
-    })
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+      }).catch((error) => {
+        window.alert(error)
+      })
   }
 
   // Returns true when user is looged in and email is verified
@@ -83,11 +91,12 @@ SendVerificationMail() {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-   // Sign in with Google
+  // Sign in with Google
   GoogleAuth() {
     return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    .then((result) => {
+      .then((result) => {
         this.ngZone.run(() => {
+
            this.router.navigate(['nav/initial-page-customer']);
          })
        this.SetUserData(result.user);
@@ -103,10 +112,10 @@ SendVerificationMail() {
        this.ngZone.run(() => {
           this.router.navigate(['nav/initial-page-customer']);
         })
-      this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error)
-    })
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error)
+      })
   }
 
   /* Setting up user data when sign in with username/password,

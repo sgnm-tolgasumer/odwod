@@ -1,0 +1,69 @@
+<form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f,name.value,surname.value,password.value,telephone.value,mail.value,date.value,city.value,region.value,work.value)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput #name type="text" name="name" value="{{name.getValue}}">
+    </mat-form-field>
+    <br><br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Surname</mat-label>
+      <input matInput type="text" name="surname" #surname  value="{{surname.getValue}}">
+    </mat-form-field>
+    <br><br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" name="email" #mail value="{{mail.getValue}}"  matInput [formControl]="emailFormControl">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput  [type]="hide ? 'password' : 'text'" #password name="password" value="{{password.getValue}}">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+90 &nbsp;</span>
+      <input type="tel" name="telephone" #telephone value="{{telephone.getValue}}" matInput placeholder="534-283-22-05">
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" name="date" #date value="{{date.getValue}}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+    <br><br>
+  <mat-form-field appearance="fill">
+    <mat-label>City</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="city" #city >
+      <mat-option *ngFor="let city of cities" [value]="city.value" value="{{city.getValue}}">
+        {{city.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-hint>Select the City</mat-hint>
+  </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Region</mat-label>
+      <mat-select [formControl]="regions" multiple #region>
+        <mat-option *ngFor="let region of regionsList" [value]="region" value="{{region.getValue}}">{{region}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Work Type</mat-label>
+      <mat-select [formControl]="works" multiple #work>
+        <mat-option *ngFor="let work of worksList" [value]="work" value="{{work.getValue}}">{{work}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+    <button type="submit" mat-raised-button color="primary">Sign-up</button>
+    </form>

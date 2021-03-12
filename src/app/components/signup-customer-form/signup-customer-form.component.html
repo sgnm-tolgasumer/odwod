@@ -1,17 +1,17 @@
-<form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f,name.value,mail.value,surname.value,telephone.value,date.value, password.value)">
   <mat-form-field class="example-full-width">
     <mat-label>Name</mat-label>
-    <input matInput type="text" name="name" ngModel>
+    <input matInput #name type="text" name="name" value="{{name.getValue}}">
   </mat-form-field>
   <br><br>
   <mat-form-field class="example-full-width">
     <mat-label>Surname</mat-label>
-    <input matInput type="text" name="surname" ngModel >
+    <input matInput type="text" name="surname" #surname  value="{{surname.getValue}}">
   </mat-form-field>
   <br><br>
   <mat-form-field class="example-full-width">
     <mat-label>Email</mat-label>
-    <input type="email" name="email" ngModel matInput [formControl]="emailFormControl" >
+    <input type="email" name="email" #mail value="{{mail.getValue}}"  matInput [formControl]="emailFormControl">
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
       Please enter a valid email address
     </mat-error>
@@ -22,7 +22,7 @@
   <br><br>
   <mat-form-field appearance="fill">
     <mat-label>Enter your password</mat-label>
-    <input type="password" name="password" ngModel matInput [type]="hide ? 'password' : 'text'">
+    <input matInput  [type]="hide ? 'password' : 'text'" #password name="password" value="{{password.getValue}}">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -31,17 +31,14 @@
   <mat-form-field class="example-full-width">
     <mat-label>Telephone</mat-label>
     <span matPrefix>+90 &nbsp;</span>
-    <input type="tel" name="telephone" ngModel matInput placeholder="534-283-22-05">
-    <mat-icon matSuffix>home</mat-icon>
+    <input type="tel" name="telephone" #telephone value="{{telephone.getValue}}" matInput placeholder="534-283-22-05">
   </mat-form-field>
   <br><br>
   <mat-form-field appearance="fill">
-    <mat-label>City</mat-label>
-    <mat-select [(ngModel)]="selectedValue" name="city">
-      <mat-option *ngFor="let city of cities" [value]="city.value">
-        {{city.viewValue}}
-      </mat-option>
-    </mat-select>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" name="date" #date value="{{date.getValue}}">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
   </mat-form-field>
   <br><br>
   <button type="submit" mat-raised-button color="primary">Sign-up</button>

@@ -27,11 +27,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupCustomerFormComponent } from './components/signup-customer-form/signup-customer-form.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { CreateWorkorderFormComponent } from './components/create-workorder-form/create-workorder-form.component';
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -44,10 +44,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { IndexPageComponent } from './components/index-page/index-page.component';
 import { NavWorkerComponent } from './components/nav-worker/nav-worker.component';
 import { HomeWorkerComponent } from './components/home-worker/home-worker.component';
-import { InitialPageCustomerComponent } from './components/initial-page-customer/initial-page-customer.component';
-import { InitialPageWorkerComponent } from './components/initial-page-worker/initial-page-worker.component';
-import { CustomerProfileComponent } from './components/customer-profile/customer-profile.component';
-import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SignupWorkerFormComponent } from './components/signup-worker-form/signup-worker-form.component';
+
 
 
 @NgModule({
@@ -66,10 +66,8 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     IndexPageComponent,
     NavWorkerComponent,
     HomeWorkerComponent,
-    InitialPageCustomerComponent,
-    InitialPageWorkerComponent,
-    CustomerProfileComponent,
-    WorkerProfileComponent
+    SignupWorkerFormComponent
+
   ],
   imports: [
     BrowserModule,
@@ -95,7 +93,9 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatNativeDateModule,
+    MatDatepickerModule
 
   ],
   exports: [
@@ -116,7 +116,9 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
