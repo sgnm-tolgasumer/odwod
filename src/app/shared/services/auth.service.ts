@@ -37,7 +37,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['nav']);
+          this.router.navigate(['nav/initial-page-customer']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -96,20 +96,21 @@ export class AuthService {
     return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['nav']);
-        })
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error)
-      })
+
+           this.router.navigate(['nav/initial-page-customer']);
+         })
+       this.SetUserData(result.user);
+     }).catch((error) => {
+       window.alert(error)
+     })
   }
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['nav']);
+    .then((result) => {
+       this.ngZone.run(() => {
+          this.router.navigate(['nav/initial-page-customer']);
         })
         this.SetUserData(result.user);
       }).catch((error) => {

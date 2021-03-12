@@ -13,6 +13,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { IndexPageComponent } from './components/index-page/index-page.component';
 import {NavWorkerComponent} from './components/nav-worker/nav-worker.component';
 import {HomeWorkerComponent} from './components/home-worker/home-worker.component';
+import {InitialPageCustomerComponent} from './components/initial-page-customer/initial-page-customer.component';
+import {InitialPageWorkerComponent} from './components/initial-page-worker/initial-page-worker.component';
+import {WorkerProfileComponent} from './components/worker-profile/worker-profile.component';
+import {CustomerProfileComponent} from './components/customer-profile/customer-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index-page', pathMatch: 'full' },
@@ -22,9 +26,13 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'nav', component: NavComponent, children: [
-      { path: 'home', component: HomeComponent }]},
+      { path: 'home', component: HomeComponent },
+      { path: 'initial-page-customer', component: InitialPageCustomerComponent },
+      { path: 'customer-profile', component: CustomerProfileComponent }]},
   { path: 'nav-worker', component: NavWorkerComponent, children: [
-      { path: 'home-worker', component: HomeWorkerComponent }]},
+      { path: 'home-worker', component: HomeWorkerComponent },
+      { path: 'initial-page-worker', component: InitialPageWorkerComponent },
+      { path: 'worker-profile', component: WorkerProfileComponent }]},
   { path: 'index-page', component: IndexPageComponent}
 ];
 

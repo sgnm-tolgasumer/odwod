@@ -50,7 +50,6 @@ import { SignupWorkerFormComponent } from './components/signup-worker-form/signu
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +67,7 @@ import { SignupWorkerFormComponent } from './components/signup-worker-form/signu
     NavWorkerComponent,
     HomeWorkerComponent,
     SignupWorkerFormComponent
+
   ],
   imports: [
     BrowserModule,
