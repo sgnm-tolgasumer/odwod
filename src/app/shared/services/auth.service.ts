@@ -37,7 +37,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['nav']);
+          this.router.navigate(['nav/initial-page-customer']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -57,7 +57,7 @@ export class AuthService {
         window.alert(error.message)
       })
   }
-  
+
 
 // Email verification when new user register
 SendVerificationMail() {
@@ -88,7 +88,7 @@ SendVerificationMail() {
     return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then((result) => {
         this.ngZone.run(() => {
-           this.router.navigate(['nav']);
+           this.router.navigate(['nav/initial-page-customer']);
          })
        this.SetUserData(result.user);
      }).catch((error) => {
@@ -101,7 +101,7 @@ SendVerificationMail() {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['nav']);
+          this.router.navigate(['nav/initial-page-customer']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -120,7 +120,7 @@ SendVerificationMail() {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
-      
+
     }
     return userRef.set(userData, {
       merge: true

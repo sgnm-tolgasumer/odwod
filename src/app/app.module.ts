@@ -44,6 +44,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { IndexPageComponent } from './components/index-page/index-page.component';
 import { NavWorkerComponent } from './components/nav-worker/nav-worker.component';
 import { HomeWorkerComponent } from './components/home-worker/home-worker.component';
+import { InitialPageCustomerComponent } from './components/initial-page-customer/initial-page-customer.component';
+import { InitialPageWorkerComponent } from './components/initial-page-worker/initial-page-worker.component';
+import { CustomerProfileComponent } from './components/customer-profile/customer-profile.component';
+import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 
 
 @NgModule({
@@ -61,7 +65,11 @@ import { HomeWorkerComponent } from './components/home-worker/home-worker.compon
     HomeComponent,
     IndexPageComponent,
     NavWorkerComponent,
-    HomeWorkerComponent
+    HomeWorkerComponent,
+    InitialPageCustomerComponent,
+    InitialPageWorkerComponent,
+    CustomerProfileComponent,
+    WorkerProfileComponent
   ],
   imports: [
     BrowserModule,
