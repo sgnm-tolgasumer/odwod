@@ -31,7 +31,10 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/three/build/three.min.js",
+              "./src/app/shared/scripts/vanta.topology.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,7 +98,10 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/three/build/three.min.js",
+              "./src/app/shared/scripts/vanta.topology.min.js"
+            ]
           }
         },
         "lint": {
