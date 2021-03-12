@@ -47,7 +47,10 @@ import { HomeWorkerComponent } from './components/home-worker/home-worker.compon
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SignupWorkerFormComponent } from './components/signup-worker-form/signup-worker-form.component';
-
+import { InitialPageCustomerComponent } from './components/initial-page-customer/initial-page-customer.component';
+import { InitialPageWorkerComponent } from './components/initial-page-worker/initial-page-worker.component';
+import { CustomerProfileComponent } from './components/customer-profile/customer-profile.component';
+import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 
 
 @NgModule({
@@ -66,7 +69,11 @@ import { SignupWorkerFormComponent } from './components/signup-worker-form/signu
     IndexPageComponent,
     NavWorkerComponent,
     HomeWorkerComponent,
-    SignupWorkerFormComponent
+    SignupWorkerFormComponent,
+    InitialPageCustomerComponent,
+    InitialPageWorkerComponent,
+    CustomerProfileComponent,
+    WorkerProfileComponent
 
   ],
   imports: [
