@@ -622,8 +622,12 @@ footer.classic .social-profiles {
   transition: transform 0.6s;
 }
 
-.social-icon:hover {
+.social-icon{
   color: white;
+}
+
+.social-icon:hover {
+  color: orange;
 }
 
 
