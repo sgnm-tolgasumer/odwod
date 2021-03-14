@@ -29,20 +29,24 @@ export class AuthService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    })
+    });
   }
 
   // Sign in with email/password
-  SignIn(email, password) {
+  SignIn(email, password, userType) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['nav/initial-page-customer']);
+          if (userType == "customer") {
+            this.router.navigate(['nav/initial-page-customer']);
+          } else {
+            this.router.navigate(['nav-worker/initial-page-worker']);
+          }
         });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
-      })
+      });
   }
 
   // Sign up with email/password
@@ -72,7 +76,7 @@ export class AuthService {
     return this.afAuth.currentUser.then(u => u.sendEmailVerification())
       .then(() => {
         this.router.navigate(['verify-email-address']);
-      })
+      });
   }
 
   // Reset Forggot password
@@ -82,7 +86,7 @@ export class AuthService {
         window.alert('Password reset email sent, check your inbox.');
       }).catch((error) => {
         window.alert(error)
-      })
+      });
   }
 
   // Returns true when user is looged in and email is verified
@@ -102,7 +106,7 @@ export class AuthService {
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error)
-      })
+      });
   }
 
   // Auth logic to run auth providers
@@ -115,7 +119,7 @@ export class AuthService {
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error)
-      })
+      });
   }
 
   /* Setting up user data when sign in with username/password,
@@ -133,7 +137,7 @@ export class AuthService {
     }
     return userRef.set(userData, {
       merge: true
-    })
+    });
   }
 
   // Sign out
@@ -141,7 +145,7 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
-    })
+    });
   }
 
   getCurrentUser() {

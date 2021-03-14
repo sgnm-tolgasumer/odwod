@@ -8,11 +8,20 @@ import { AuthService } from "../../shared/services/auth.service";
 })
 export class SignInComponent implements OnInit {
 
+  public isWorker = false;
+
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  showCustomerForm(){
+    if (this.isWorker == true)
+      this.isWorker = false;
+    else
+      this.isWorker = true;
   }
 
 }
