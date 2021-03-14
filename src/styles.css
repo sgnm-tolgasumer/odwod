@@ -1,4 +1,5 @@
 @import 'https://use.fontawesome.com/releases/v5.5.0/css/all.css';
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 
 * {
   -webkit-box-sizing: border-box;
@@ -13,7 +14,7 @@ body {
   font-weight: 400;
   width: 100%;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Titillium Web', sans-serif !important;
 }
 
 .feather {
@@ -29,6 +30,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+  font-family: 'Titillium Web', sans-serif !important;
 }
 
 .media-body h1 {
@@ -666,4 +668,4 @@ body .table thead th {
 }/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
