@@ -1,6 +1,7 @@
 import { CreateWorkorderFormService } from './../../shared/services/create-workorder-form.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from "../../shared/services/auth.service";
 
 interface City {
   value: string;
@@ -29,33 +30,38 @@ export class CreateWorkorderFormComponent implements OnInit {
   selectedValuetype: string;
 
   cities: City[] = [
-    {value: 'Ankara', viewValue: 'Ankara'},
+    { value: 'Ankara', viewValue: 'Ankara' },
   ];
 
   regions: Region[] = [
-    {valueregion: 'Cankaya', viewValueregion: 'Cankaya'},
-    {valueregion: 'Yenimahalle', viewValueregion: 'Yenimahalle'},
-    {valueregion: 'Kazan', viewValueregion: 'Kazan'}
+    { valueregion: 'Cankaya', viewValueregion: 'Cankaya' },
+    { valueregion: 'Yenimahalle', viewValueregion: 'Yenimahalle' },
+    { valueregion: 'Kazan', viewValueregion: 'Kazan' },
+    { valueregion: 'Bilkent', viewValueregion: 'Bilkent' },
+    { valueregion: 'Mamak', viewValueregion: 'Mamak' }
   ];
 
   types: Type[] = [
-    {valuetype: 'Fix Jobs', viewValuetype: 'Fix Jobs'},
-    {valuetype: 'Security', viewValuetype: 'Security'},
-    {valuetype: 'Home Jobs', viewValuetype: 'Home Jobs'},
-    {valuetype: 'Cleaning', viewValuetype: 'Cleaning'},
-    {valuetype: 'Recondition', viewValuetype: 'Recondition'}
+    { valuetype: 'Fix Jobs', viewValuetype: 'Fix Jobs' },
+    { valuetype: 'Security', viewValuetype: 'Security' },
+    { valuetype: 'Home Jobs', viewValuetype: 'Home Jobs' },
+    { valuetype: 'Cleaning', viewValuetype: 'Cleaning' },
+    { valuetype: 'Recondition', viewValuetype: 'Recondition' }
   ];
 
 
-  constructor(private service:CreateWorkorderFormService) { }
+  constructor(private service: CreateWorkorderFormService, public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm){
+  onSubmit(f: NgForm) {
 
-    var workOrder=f.value;
-    workOrder["status"]=0;
+    var workOrder = f.value;
+    workOrder["status"] = 0;
+    var user = this.authService.getCurrentUser();
+    workOrder["userId"] = user.uid;
+    console.log(workOrder);
     this.service.createWorkOrder(workOrder);
     f.resetForm();
   }
