@@ -49,20 +49,20 @@ export class AuthService {
   SignUp(email, password): Promise<any> {
     var uid;
     this.afAuth.createUserWithEmailAndPassword(email, password)
-    .then((result) => {
-      /* Call the SendVerificaitonMail() function when new user sign
-      up and returns promise */
-      this.SendVerificationMail();
-      this.SetUserData(result.user);
-      uid = result.user.uid;
-    }).catch((error) => {
-      window.alert(error.message)
-    });
-    return new Promise(function(resolve, reject) {
-      setTimeout(()=> {
+      .then((result) => {
+        /* Call the SendVerificaitonMail() function when new user sign
+        up and returns promise */
+        this.SendVerificationMail();
+        this.SetUserData(result.user);
+        uid = result.user.uid;
+      }).catch((error) => {
+        window.alert(error.message)
+      });
+    return new Promise(function (resolve, reject) {
+      setTimeout(() => {
         resolve(uid); // returns a primitive or an object or nothing, it implicitly calls the callback for "fulfillment" or "then"
-      }, 3000) ;
-  
+      }, 3000);
+
     });
   }
 
@@ -97,19 +97,19 @@ export class AuthService {
       .then((result) => {
         this.ngZone.run(() => {
 
-           this.router.navigate(['nav/initial-page-customer']);
-         })
-       this.SetUserData(result.user);
-     }).catch((error) => {
-       window.alert(error)
-     })
+          this.router.navigate(['nav/initial-page-customer']);
+        })
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error)
+      })
   }
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
-    .then((result) => {
-       this.ngZone.run(() => {
+      .then((result) => {
+        this.ngZone.run(() => {
           this.router.navigate(['nav/initial-page-customer']);
         })
         this.SetUserData(result.user);
@@ -142,6 +142,11 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
+  }
+
+  getCurrentUser() {
+    var user = firebase.auth().currentUser;
+    return user;
   }
 
 }
