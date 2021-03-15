@@ -51,6 +51,8 @@ import { InitialPageCustomerComponent } from './components/initial-page-customer
 import { InitialPageWorkerComponent } from './components/initial-page-worker/initial-page-worker.component';
 import { CustomerProfileComponent } from './components/customer-profile/customer-profile.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -73,7 +75,7 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     InitialPageCustomerComponent,
     InitialPageWorkerComponent,
     CustomerProfileComponent,
-    WorkerProfileComponent
+    WorkerProfileComponent,
 
   ],
   imports: [
@@ -102,7 +104,8 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     MatCardModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
 
   ],
   exports: [
@@ -125,7 +128,8 @@ import { WorkerProfileComponent } from './components/worker-profile/worker-profi
     MatCardModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
