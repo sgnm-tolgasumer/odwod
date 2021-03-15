@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { WorkOrders } from 'src/app/shared/services/workorders';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AuthService } from "../../shared/services/auth.service";
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-workorders-table',
@@ -26,7 +27,15 @@ export class WorkordersTableComponent implements OnInit {
   dataSource;
   expandedElement: WorkOrders | null;
 
-  constructor(private service: WorkordersTableService, public authService: AuthService) { }
+  constructor(private service: WorkordersTableService, public authService: AuthService,public dialog: MatDialog) { }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(workorderscontent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
@@ -56,3 +65,8 @@ export class WorkordersTableComponent implements OnInit {
     this.service.getTheJob(workOrder);
   }
 }
+@Component({
+  selector: 'workorderscontent',
+  templateUrl: 'workorderscontent.html',
+})
+export class workorderscontent {}
