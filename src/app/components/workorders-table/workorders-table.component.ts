@@ -22,7 +22,7 @@ import { AuthService } from "../../shared/services/auth.service";
 export class WorkordersTableComponent implements OnInit {
 
   ELEMENT_DATA: WorkOrders[];
-  displayedColumns: string[] = ['title', 'type', 'addressCity', 'addressDistrict'];
+  displayedColumns: string[] = ['workOrderId', 'title', 'type', 'addressCity', 'addressDistrict'];
   dataSource;
   expandedElement: WorkOrders | null;
 
