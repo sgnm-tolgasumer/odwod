@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from "../../shared/services/auth.service";
+import {MatDialog} from '@angular/material/dialog';
 
 interface City {
   value: string;
@@ -39,7 +40,14 @@ export class SignupWorkerFormComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private http: HttpClient, public authService: AuthService) { }
+  constructor(private http: HttpClient, public authService: AuthService,public dialog: MatDialog) { }
+  openDialog() {
+    const dialogRef = this.dialog.open(contentworker);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -59,3 +67,8 @@ export class SignupWorkerFormComponent implements OnInit {
   }
 
 }
+@Component({
+  selector: 'contentworker',
+  templateUrl: 'contentworker.html',
+})
+export class contentworker {}
