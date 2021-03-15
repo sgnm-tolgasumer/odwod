@@ -2,15 +2,8 @@
   <div class="displayTableCell">
 
     <div class="authBlock" style="border-radius: 9px">
-      <h3>Sign In</h3>
-      <button type="button" *ngIf="isWorker !== true" class="btn" (click)="showCustomerForm()">
-        <i class="fa fa-truck"></i>
-        Sign in as Worker
-      </button>
-      <button type="button" *ngIf="isWorker === true" class="btn" (click)="showCustomerForm()">
-        <i class="fa fa-user-circle"></i>
-        Sign in as Customer
-      </button>
+      <h3 style="font-size: 35px">Sign In</h3>
+
       <br><br>
       <div class="formGroup">
         <input type="text" class="formControl" placeholder="Username" #userName required>
@@ -40,6 +33,20 @@
           Log in with Google
         </button>
       </div>
+
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+
+      <button style="background-color: orange;color: #470000" type="button" *ngIf="isWorker !== true" class="btn" (click)="showCustomerForm()">
+        <i class="fa fa-truck"></i>
+        Sign in as Worker
+      </button>
+
+      <button style="background-color: orange;color: #470000" type="button" *ngIf="isWorker === true" class="btn" (click)="showCustomerForm()">
+        <i class="fa fa-user-circle"></i>
+        Sign in as Customer
+      </button>
 
       <div class="forgotPassword">
         <span routerLink="/forgot-password">Forgot Password?</span>
