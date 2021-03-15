@@ -7,5 +7,6 @@ export interface WorkOrders {
     description: string,
     openAddress: string,
     title: string,
-    type: string
+    type: string,
+    workOrderId: string
 }
