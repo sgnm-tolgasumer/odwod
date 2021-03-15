@@ -2,6 +2,7 @@ import { CreateWorkorderFormService } from './../../shared/services/create-worko
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../../shared/services/auth.service";
+import {MatDialog} from '@angular/material/dialog';
 
 interface City {
   value: string;
@@ -50,8 +51,17 @@ export class CreateWorkorderFormComponent implements OnInit {
   ];
 
 
-  constructor(private service: CreateWorkorderFormService, public authService: AuthService) { }
+  constructor(private service: CreateWorkorderFormService, public authService: AuthService,public dialog: MatDialog) { }
 
+
+  openDialog() {
+    const dialogRef = this.dialog.open(createworkordercontent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  
   ngOnInit(): void {
   }
 
@@ -67,3 +77,8 @@ export class CreateWorkorderFormComponent implements OnInit {
   }
 
 }
+@Component({
+  selector: 'createworkordercontent',
+  templateUrl: 'createworkordercontent.html',
+})
+export class createworkordercontent {}
