@@ -2,7 +2,6 @@ import { ANALYZE_FOR_ENTRY_COMPONENTS, Component, OnInit } from '@angular/core';
 import {EmailValidator, FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { AuthService } from "../../shared/services/auth.service";
-import {MatDialog} from '@angular/material/dialog';
 
 
 interface City {
@@ -34,16 +33,10 @@ export class SignupCustomerFormComponent implements OnInit {
     {value: 'Ankara', viewValue: 'Ankara'},
   ];
   
-  constructor(private http:HttpClient, public authService: AuthService,public dialog: MatDialog) {
+  constructor(private http:HttpClient, public authService: AuthService) {
 
    }
-   openDialog() {
-    const dialogRef = this.dialog.open(contentcustomer);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
 
   ngOnInit(): void {
@@ -66,8 +59,4 @@ export class SignupCustomerFormComponent implements OnInit {
   }
 
 }
-@Component({
-  selector: 'contentcustomer',
-  templateUrl: 'contentcustomer.html',
-})
-export class contentcustomer {}
+
