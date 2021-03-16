@@ -25,7 +25,7 @@ nav .logo {
 }
 
 .vertical-aligner {
-  margin-top: auto;
+  margin-top: 10px;
   margin-bottom: auto;
 }
 
@@ -151,7 +151,7 @@ nav {
 }
 
 .overlay-nav {
-  padding-top: 30px;
+  padding-top: 5px;
   position: fixed;
   z-index: 10;
   width: 100%;
