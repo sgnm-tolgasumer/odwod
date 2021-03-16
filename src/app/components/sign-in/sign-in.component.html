@@ -2,7 +2,7 @@
   <div class="displayTableCell">
 
     <div class="authBlock" style="border-radius: 9px">
-      <h3 style="font-size: 35px">Sign In</h3>
+      <h3 style="font-size: 35px;color: #470000">Sign In</h3>
 
       <br><br>
       <div class="formGroup">
@@ -39,13 +39,13 @@
       </div>
 
       <button style="background-color: orange;color: #470000" type="button" *ngIf="isWorker !== true" class="btn" (click)="showCustomerForm()">
-        <i class="fa fa-truck"></i>
-        Sign in as Worker
+        <i class="fa fa-truck" style="font-size: 20px"></i>
+        Sign-in as Worker
       </button>
 
       <button style="background-color: orange;color: #470000" type="button" *ngIf="isWorker === true" class="btn" (click)="showCustomerForm()">
-        <i class="fa fa-user-circle"></i>
-        Sign in as Customer
+        <i class="fa fa-user-circle" style="font-size: 20px"></i>
+        Sign-in as Customer
       </button>
 
       <div class="forgotPassword">
