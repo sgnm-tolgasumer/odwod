@@ -1,6 +1,6 @@
 import { ANALYZE_FOR_ENTRY_COMPONENTS, Component, OnInit } from '@angular/core';
-import {EmailValidator, FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { EmailValidator, FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from "../../shared/services/auth.service";
 
 
@@ -11,7 +11,7 @@ interface City {
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -21,7 +21,7 @@ const httpOptions = {
   styleUrls: ['./signup-customer-form.component.css']
 })
 export class SignupCustomerFormComponent implements OnInit {
-  
+
   hide = true;
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -30,32 +30,31 @@ export class SignupCustomerFormComponent implements OnInit {
 
   selectedValue: string;
   cities: City[] = [
-    {value: 'Ankara', viewValue: 'Ankara'},
+    { value: 'Ankara', viewValue: 'Ankara' },
   ];
-  
-  constructor(private http:HttpClient, public authService: AuthService) {
 
-   }
+  constructor(private http: HttpClient, public authService: AuthService) {
+
+  }
 
 
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm,name,mail,surname,telephone,date, password){
+  onSubmit(f: NgForm, name, mail, surname, telephone, date, password) {
 
-    let uid = this.authService.SignUp(mail, password);
-    uid.then( (value) => {
-      var customerCreate={"userId": value, "name": name,"surname":surname,"telephone":telephone,"birthDate":date, "mail": mail};
+    let uid = this.authService.SignUp(mail, password, name, surname);
+    uid.then((value) => {
+      var customerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail };
 
-      this.http.post("http://localhost:8080/customer",customerCreate,  httpOptions).subscribe(data =>
-    {
+      this.http.post("http://localhost:8080/customer", customerCreate, httpOptions).subscribe(data => {
+
+      });
 
     });
 
-    });
-  
-    
+
   }
 
 }
