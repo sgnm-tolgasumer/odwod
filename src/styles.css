@@ -291,7 +291,7 @@ input:-moz-placeholder {
 .sidebar a:hover,
 a:not([href]):not([tabindex]):focus,
 a:not([href]):not([tabindex]):hover {
-  color: #E91E63;
+  color: #ff9900;
   background: #efefef;
 }
 

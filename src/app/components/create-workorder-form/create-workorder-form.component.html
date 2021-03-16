@@ -1,60 +1,86 @@
 <form class="example-form"  #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-  <mat-form-field appearance="outline">
-    <mat-label>Title</mat-label>
-    <input matInput placeholder="Title" type="text" name="title" ngModel>
-    <mat-hint>Enter the title of the work</mat-hint>
-  </mat-form-field>
-  <br><br>
-  <mat-form-field appearance="outline">
-    <mat-label>Job Description</mat-label>
-    <input matInput placeholder="Job Description" type="text" name="description" ngModel>
-    <mat-hint>Enter the description of the work</mat-hint>
-  </mat-form-field>
-  <br><br>
-  <mat-form-field appearance="fill">
-    <mat-label>Job Type</mat-label>
-    <mat-select [(ngModel)]="selectedValuetype" name="type">
-      <mat-option *ngFor="let type of types" [value]="type.valuetype">
-        {{type.viewValuetype}}
-      </mat-option>
-    </mat-select>
-    <mat-hint>Select type of the work</mat-hint>
-  </mat-form-field>
-  <br><br>
-  <mat-form-field class="example-full-width">
-    <mat-label>Telephone</mat-label>
-    <span matPrefix>+90 &nbsp;</span>
-    <input type="tel" name="telephone" ngModel matInput placeholder="534-283-22-05">
-    <mat-hint>Enter your telephone number for contact information</mat-hint>
-  </mat-form-field>
-  <br><br>
-  <mat-form-field appearance="fill">
-    <mat-label>City</mat-label>
-    <mat-select [(ngModel)]="selectedValue" name="addressCity">
-      <mat-option *ngFor="let city of cities" [value]="city.value">
-        {{city.viewValue}}
-      </mat-option>
-    </mat-select>
-    <mat-hint>Select the City</mat-hint>
-  </mat-form-field>
-    &nbsp;&nbsp;
-    <mat-form-field appearance="fill">
-      <mat-label>District</mat-label>
-      <mat-select [(ngModel)]="selectedValueregion" name="addressDistrict">
-        <mat-option *ngFor="let region of regions" [value]="region.valueregion">
-          {{region.viewValueregion}}
-        </mat-option>
-      </mat-select>
-      <mat-hint>Select the district</mat-hint>
+
+  <div style="display: inline-flex">
+    <div style="height: 250px">
+      <mat-form-field appearance="outline" style="width: 250px;margin-right: 10px">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" type="text" name="title" ngModel>
+        <mat-hint>Enter the title of the work</mat-hint>
+      </mat-form-field>
+
+      <br><br>
+
+      <mat-form-field appearance="fill" style="width: 250px;margin-right: 10px;margin-top: 25px">
+        <mat-label>Job Type</mat-label>
+        <mat-select [(ngModel)]="selectedValuetype" name="type">
+          <mat-option *ngFor="let type of types" [value]="type.valuetype">
+            {{type.viewValuetype}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Select type of the work</mat-hint>
+      </mat-form-field>
+
+      <br><br>
+
+      <mat-form-field class="example-full-width" style="width: 250px;margin-right: 10px;margin-top: 23px">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+90 &nbsp;</span>
+        <input type="tel" name="telephone" ngModel matInput placeholder="534-283-22-05">
+        <mat-hint>Enter your telephone number for contact information</mat-hint>
+      </mat-form-field>
+
+    </div>
+
+    <br><br>
+
+    <mat-form-field class="example-full-width" style="width: 250px;margin-left: 10px">
+      <mat-label>Job Description</mat-label>
+      <textarea class="text-areas" style="min-height: 250px;max-height:250px" matInput placeholder="Job Description" name="description" ngModel ></textarea>
+      <mat-hint>Enter the description of the work</mat-hint>
     </mat-form-field>
-    &nbsp;&nbsp;
-    <mat-form-field class="example-full-width">
+
+  </div>
+
+  <br><br>
+
+  <div style="display: inline-flex">
+    <div style="display: grid;height: 250px">
+      <mat-form-field appearance="fill" style="width: 250px;margin-right: 10px">
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="addressCity">
+          <mat-option *ngFor="let city of cities" [value]="city.value">
+            {{city.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Select the City</mat-hint>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field appearance="fill" style="width: 250px;margin-right: 10px;margin-top: 20px">
+        <mat-label>District</mat-label>
+        <mat-select [(ngModel)]="selectedValueregion" name="addressDistrict">
+          <mat-option *ngFor="let region of regions" [value]="region.valueregion">
+            {{region.viewValueregion}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Select the district</mat-hint>
+      </mat-form-field>
+
+      <br><br>
+
+      <div class="example-button-container">
+        <button mat-raised-button style="width: 250px;height: 50px;margin-top: 3px;background-color: #ff9900" type="submit" (click)="openDialog()">Create Work Order</button>
+      </div>
+
+    </div>
+
+    <br><br>
+
+    <mat-form-field class="example-full-width" style="width: 250px;margin-left: 10px">
       <mat-label>Open Address</mat-label>
-      <textarea matInput name="openAddress" ngModel ></textarea>
+      <textarea class="text-areas" style="min-height: 235px;max-height:235px" matInput name="openAddress" ngModel ></textarea>
       <mat-hint>Enter the open address</mat-hint>
     </mat-form-field>
-  <br><br>
-  <div class="example-button-container">
-      <button mat-raised-button color="primary" type="submit" (click)="openDialog()">Create Work Order</button>
+
   </div>
+
 </form>
