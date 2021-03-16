@@ -52,6 +52,7 @@ import { InitialPageWorkerComponent } from './components/initial-page-worker/ini
 import { CustomerProfileComponent } from './components/customer-profile/customer-profile.component';
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { WorkerCurrentJobComponent } from './components/worker-current-job/worker-current-job.component';
 
 
 
@@ -76,6 +77,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     InitialPageWorkerComponent,
     CustomerProfileComponent,
     WorkerProfileComponent,
+    WorkerCurrentJobComponent,
 
   ],
   imports: [

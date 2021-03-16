@@ -50,7 +50,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email, password): Promise<any> {
+  SignUp(email, password, name, surname): Promise<any> {
     var uid;
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -59,6 +59,9 @@ export class AuthService {
         this.SendVerificationMail();
         this.SetUserData(result.user);
         uid = result.user.uid;
+        result.user.updateProfile({
+          displayName: name + " " + surname
+        })
       }).catch((error) => {
         window.alert(error.message)
       });

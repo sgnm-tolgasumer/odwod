@@ -1,0 +1,19 @@
+<mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title *ngIf="authService.userData as user" >{{(user.displayName) ? user.displayName : 'User'}} </mat-card-title>
+    <mat-card-subtitle>Your Current Job</mat-card-subtitle>
+  </mat-card-header>
+  <img  mat-card-image src="../../../assets/worker-in-progress.jpg">
+  <mat-card-content *ngIf="workOrder['title'] != null">
+    <div>
+      Job Description: {{workOrder.description}} <br>
+      Open Address: {{workOrder.openAddress}} <br>
+      Telephone: {{workOrder.telephone}}
+    </div>
+  </mat-card-content>
+  <mat-card-content *ngIf="workOrder['title'] == null">
+    <div>
+      You Have No Job Currently :(
+    </div>
+  </mat-card-content>
+  

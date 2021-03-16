@@ -1,3 +1,4 @@
+import { WorkorderTransferService } from './../../shared/services/workorder-transfer.service';
 import { WorkordersTableService } from './../../shared/services/workorders-table.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,7 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { WorkOrders } from 'src/app/shared/services/workorders';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AuthService } from "../../shared/services/auth.service";
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-workorders-table',
@@ -27,7 +28,9 @@ export class WorkordersTableComponent implements OnInit {
   dataSource;
   expandedElement: WorkOrders | null;
 
-  constructor(private service: WorkordersTableService, public authService: AuthService,public dialog: MatDialog) { }
+  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private transfer: WorkorderTransferService) { }
+
+  workOrderToTransfer: any;
 
   openDialog() {
     const dialogRef = this.dialog.open(workorderscontent);
@@ -61,12 +64,12 @@ export class WorkordersTableComponent implements OnInit {
   getTheJobButtonClick(workOrder: any) {
     workOrder["workerId"] = this.authService.getCurrentUser().uid;
     workOrder["status"] = 1;
-    console.log(workOrder);
     this.service.getTheJob(workOrder);
+    this.transfer.setWorkOrder(workOrder);
   }
 }
 @Component({
   selector: 'workorderscontent',
   templateUrl: 'workorderscontent.html',
 })
-export class workorderscontent {}
+export class workorderscontent { }
