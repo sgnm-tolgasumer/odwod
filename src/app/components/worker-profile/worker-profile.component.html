@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Profile</h1>
-  <mat-grid-list cols="2" rowHeight="340px">
+  <mat-grid-list cols="2" rowHeight="360px">
 
 
     <mat-grid-tile colspan="2">
@@ -15,10 +15,10 @@
               <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                    alt="{{user.displayName}}">
               <div>
-                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                <p>User ID: <strong>{{user.uid}}</strong></p>
-                <p>Email: <strong>{{user.email}}</strong></p>
-                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                <h1>Hello...  <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">User ID |</span> <strong style="margin-left: 5px">{{user.uid}}</strong></p>
+                <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail |</span> <strong style="margin-left: 5px">{{user.email}}</strong></p>
+                <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail Verified |</span> <strong style="margin-left: 5px">{{user.emailVerified}}</strong></p>
               </div>
             </div>
           </div>
