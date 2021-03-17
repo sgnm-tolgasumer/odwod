@@ -38,7 +38,7 @@ table {
 
   .example-element-diagram {
     min-width: 80px;
-    border: 2px solid black;
+    border: 2px solid #ff9900;
     padding: 8px;
     font-weight: lighter;
     margin: 8px 0;
@@ -47,12 +47,14 @@ table {
 
   .example-element-symbol {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
     line-height: normal;
   }
 
   .example-element-description {
     padding: 16px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 
   .example-element-description-attribution {
@@ -108,4 +110,8 @@ table {
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
   background-color: #ff9900 !important;;
+}
+
+.font-titilium{
+  font-family: 'Titillium Web', sans-serif;
 }
