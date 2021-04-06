@@ -61,6 +61,7 @@ import { FaqCustomerComponent } from './components/faq-customer/faq-customer.com
 import { FaqWorkerComponent } from './components/faq-worker/faq-worker.component';
 
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 
 
@@ -92,6 +93,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ContactWorkerComponent,
     FaqCustomerComponent,
     FaqWorkerComponent,
+    ContactPageComponent,
 
   ],
   imports: [
