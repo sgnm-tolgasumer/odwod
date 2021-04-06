@@ -1,0 +1,65 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Contact Us</h1>
+  <mat-grid-list cols="6" rowHeight="330px">
+    <mat-grid-tile colspan="5" rowspan="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header style="color: #470000">
+          <mat-card-title style="color: #470000">
+          </mat-card-title>
+        </mat-card-header>
+        <form class="example-form"  novalidate>
+
+          <div style="height: 500px">
+            <mat-form-field appearance="outline" style="width: 400px;margin-right: 10px">
+              <mat-label>E-Mail</mat-label>
+              <input matInput type="text" name="title" ngModel>
+              <mat-hint>Enter Your E-Mail Address</mat-hint>
+            </mat-form-field>
+
+            <br><br>
+
+            <mat-form-field appearance="outline" style="width: 400px;margin-right: 10px">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" name="title" ngModel>
+              <mat-hint>Enter Your Full Name</mat-hint>
+            </mat-form-field>
+
+            <br><br>
+
+            <mat-form-field class="example-full-width" style="width: 400px;">
+              <mat-label style="padding: 10px">Message</mat-label>
+              <textarea class="text-areas" style="border-radius:8px;background-color: rgba(0,0,0,.04);min-height: 250px;max-height:250px" matInput name="description" ngModel ></textarea>
+              <mat-hint>Enter Message</mat-hint>
+            </mat-form-field>
+
+          </div>
+
+          <br><br>
+
+          <div style="display: inline-flex">
+
+            <div class="example-button-container">
+              <button mat-raised-button style="width: 400px;height: 50px;margin-top: 3px;background-color: #ff9900" type="submit">Send Message</button>
+            </div>
+
+          </div>
+
+
+
+        </form>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
