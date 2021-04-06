@@ -1,0 +1,89 @@
+<!-- Navbar -->
+<div class="nav-container">
+    <nav id="nav-content" class="overlay-nav show-content">
+        <div class="container">
+            <div class="indus">
+                <div class="row">
+                    <div class="col-md-2 vertical-aligner">
+                        <a class="inner-link worderizeNavbar" href="#mainpage" href="#first">
+                            <img src="/assets/worderizelogo.png" style="height: 50px;">
+                        </a>
+                    </div>
+                    <div class="col-md-10 text-right vertical-aligner">
+                        <ul class="menu row vertical-aligner">
+                            <li class="has-dropdown nav-bar-item col-sm-2">
+                                <a class="inner-link " href="#services">
+                                    <span>SERVICES</span>
+                                </a>
+                            </li>
+                            <li class="col-sm-2">
+                                <a class="inner-link" href="#whyus"><span>WHY US?</span></a>
+                            </li>
+                            <li class="col-sm-2">
+                                <a class="inner-link" href="#aboutus">
+                                    <span>ABOUT US</span>
+                                </a>
+                            </li>
+                            <li class="col-sm-2">
+                                <a class="inner-link" routerLink="/contact-page">
+                                    <span>CONTACT</span>
+                                </a>
+                            </li>
+                            <li class="col-sm-2">
+                                <a class="inner-link" routerLink="/sign-in">
+                                    <span><b>LOG IN</b></span>
+                                </a>
+                            </li>
+                            <li class="col-sm-2">
+                                <a class="inner-link" routerLink="/register-user">
+                                    <span><b>SIGN UP</b></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- End Navbar -->
+<!-- first contact form
+        <div>
+            <form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
+                Name
+                <input [formControl]="name" required>
+                Email
+                <input [formControl]="email" placeholder="email@example.com" required>
+                Message
+                <textarea [formControl]="message" maxlength="256" placeholder="I'm interested in..."
+                    required></textarea>
+                <button [disabled]="isLoading" class="submit" type="submit">Submit</button>
+                <input [formControl]="honeypot" class="hidden" type="text" />
+                <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+                    <span>{{responseMessage}}</span>
+                </div>
+            </form>
+        </div>
+        end first contact form-->
+<div class="displayTable" style="background-color: #96031a;">
+    <div class="displayTableCell">
+        <div class="authBlock" style="border-radius: 9px">
+            <div class="formGroup">
+                <h3 style="font-size: 35px;color: #470000">Mail us</h3>
+                <form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
+                    <input class="formControl" style="color: #96031a;" placeholder="Name" input [formControl]="name"
+                        required>
+                    <input class="formControl" placeholder="email@example.com" input [formControl]="email" required>
+                    <textarea [formControl]="message" maxlength="512" class="formControl"
+                        style="min-height: 250px; max-height: 250px;" placeholder="I have worried about..."
+                        required></textarea>
+                    <button [disabled]="isLoading" class="submit" type="submit">Submit</button>
+                    <input [formControl]="honeypot" class="hidden" type="text" />
+                    <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+                        <span>{{responseMessage}}</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
