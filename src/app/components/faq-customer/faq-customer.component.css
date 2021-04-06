@@ -1,0 +1,15 @@
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+a {
+  margin-top: 20px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 17px;
+  padding: 12px;
+  border-radius: 7px;
+  background-color: #470000;
+  color: #ff9900;
+  text-decoration: none;
+}
+

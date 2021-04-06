@@ -53,6 +53,14 @@ import { CustomerProfileComponent } from './components/customer-profile/customer
 import { WorkerProfileComponent } from './components/worker-profile/worker-profile.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { WorkerCurrentJobComponent } from './components/worker-current-job/worker-current-job.component';
+import { SettingsCustomerComponent } from './components/settings-customer/settings-customer.component';
+import { SettingsWorkerComponent } from './components/settings-worker/settings-worker.component';
+import { ContactCustomerComponent } from './components/contact-customer/contact-customer.component';
+import { ContactWorkerComponent } from './components/contact-worker/contact-worker.component';
+import { FaqCustomerComponent } from './components/faq-customer/faq-customer.component';
+import { FaqWorkerComponent } from './components/faq-worker/faq-worker.component';
+
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -78,6 +86,12 @@ import { WorkerCurrentJobComponent } from './components/worker-current-job/worke
     CustomerProfileComponent,
     WorkerProfileComponent,
     WorkerCurrentJobComponent,
+    SettingsCustomerComponent,
+    SettingsWorkerComponent,
+    ContactCustomerComponent,
+    ContactWorkerComponent,
+    FaqCustomerComponent,
+    FaqWorkerComponent,
 
   ],
   imports: [
@@ -107,7 +121,8 @@ import { WorkerCurrentJobComponent } from './components/worker-current-job/worke
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule,
 
   ],
   exports: [
@@ -131,7 +146,8 @@ import { WorkerCurrentJobComponent } from './components/worker-current-job/worke
     MatMenuModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

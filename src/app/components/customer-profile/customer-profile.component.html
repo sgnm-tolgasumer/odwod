@@ -10,24 +10,26 @@
           </mat-card-title>
         </mat-card-header>
         <!-- Show user data when logged in -->
-        <div *ngIf="authService.userData as user">
-          <div>
+        <div *ngIf="authService.userData as user" style="padding-top: 25px; padding-left: 15px;">
+          <div style="display: inline-flex">
             <div>
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+              <img style="border-radius:9px;height: 200px;width: 200px;" class="img-fluid" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                    alt="{{user.displayName}}">
-              <div>
-                <h1>Hello...  <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">User ID |</span> <strong style="margin-left: 5px">{{user.uid}}</strong></p>
-                <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail |</span> <strong style="margin-left: 5px">{{user.email}}</strong></p>
-                <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail Verified |</span> <strong style="margin-left: 5px">{{user.emailVerified}}</strong></p>
-              </div>
+
+            </div>
+            <div style="padding-left: 50px;">
+              <h1>Hello...  <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+              <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">User ID |</span> <strong style="margin-left: 5px">{{user.uid}}</strong></p>
+              <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail |</span> <strong style="margin-left: 5px">{{user.email}}</strong></p>
+              <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail Verified |</span> <strong style="margin-left: 5px">{{user.emailVerified}}</strong></p>
             </div>
           </div>
         </div>
       </mat-card>
     </mat-grid-tile>
+  </mat-grid-list>
 
-
+  <mat-grid-list cols="2" rowHeight="250px">
     <mat-grid-tile>
       <mat-card class="dashboard-card">
         <mat-card-header>
