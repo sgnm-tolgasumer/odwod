@@ -32,7 +32,7 @@ export class CustomersTableComponent implements OnInit {
   /*
   It calls the customers-table service's deleteJobType() function to delete job type with given id.
   */
-  public deleteJobType(id: string){
+  public deleteCustomer(id: string){
     this.service.deleteCustomer(id);
   }
 }
