@@ -65,6 +65,7 @@ import { FaqCustomerComponent } from './components/faq-customer/faq-customer.com
 import { FaqWorkerComponent } from './components/faq-worker/faq-worker.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { JobTypeTableComponent } from './components/job-type-table/job-type-table.component';
+import { DistrictsTableComponent } from './components/districts-table/districts-table.component';
 
 
 
@@ -98,6 +99,7 @@ import { JobTypeTableComponent } from './components/job-type-table/job-type-tabl
     FaqWorkerComponent,
     ContactPageComponent,
     JobTypeTableComponent,
+    DistrictsTableComponent,
 
   ],
   imports: [
