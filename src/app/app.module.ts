@@ -67,6 +67,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import { JobTypeTableComponent } from './components/job-type-table/job-type-table.component';
 import { DistrictsTableComponent } from './components/districts-table/districts-table.component';
 import { CustomersTableComponent } from './components/customers-table/customers-table.component';
+import { WorkersTableComponent } from './components/workers-table/workers-table.component';
 
 
 
@@ -102,6 +103,7 @@ import { CustomersTableComponent } from './components/customers-table/customers-
     JobTypeTableComponent,
     DistrictsTableComponent,
     CustomersTableComponent,
+    WorkersTableComponent,
 
   ],
   imports: [

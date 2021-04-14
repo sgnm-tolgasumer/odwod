@@ -33,11 +33,17 @@
         <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
     </ng-container>
 
-    <!-- Customer UID Column -->
+    <!-- City Column -->
+    <ng-container matColumnDef="addressCity">
+        <th mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.addressCity}} </td>
+    </ng-container>
+
+    <!-- Worker UID Column -->
     <ng-container matColumnDef="userId">
         <th mat-header-cell *matHeaderCellDef> UID </th>
         <td mat-cell *matCellDef="let element"> {{element.userId}} <button mat-raised-button color="warn"
-                (click)="deleteCustomer(element.id)"> Delete</button></td>
+                (click)="deleteWorker(element.id)"> Delete</button></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
