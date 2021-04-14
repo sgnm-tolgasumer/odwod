@@ -34,7 +34,7 @@ export class DistrictsTableService {
   }
 
   /*
-  Sends http DELETE request to MySQL database server to delete a district with given id from MySQL database.
+  Sends http DELETE request to MySQL database server to delete a district with given id.
   */ 
   public deleteDistrict(id: string){
     return this.http.delete("http://localhost:8080/district/" + id).subscribe(data => {

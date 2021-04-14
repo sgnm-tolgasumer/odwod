@@ -19,7 +19,7 @@
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
   
-    <!-- Job Type Name Column -->
+    <!-- District Name Column -->
     <ng-container matColumnDef="districtName">
       <th mat-header-cell *matHeaderCellDef> District Name </th>
       <td mat-cell *matCellDef="let element"> {{element.districtName}} <button mat-raised-button color="warn" (click)="deleteDistrict(element.id)"> Delete</button></td>
