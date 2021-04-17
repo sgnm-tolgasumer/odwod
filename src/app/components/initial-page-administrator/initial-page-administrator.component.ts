@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-initial-page-administrator',
@@ -29,5 +30,27 @@ export class InitialPageAdministratorComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  workerCount: any;
+  customerCount: any;
+
+  constructor(private breakpointObserver: BreakpointObserver, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit(): void {
+    this.getCountWorkers();
+    this.getCountCustomers();
+  }
+
+  public getCountWorkers() {
+    let countWorker = this.http.get("http://localhost:8080/worker?workerCount=worker");
+    countWorker.subscribe(response => this.workerCount = response);
+  }
+
+  public getCountCustomers() {
+    let countCustomer = this.http.get("http://localhost:8080/customer?customerCount=customer");
+    countCustomer.subscribe(response => this.customerCount = response);
+  }
 }
