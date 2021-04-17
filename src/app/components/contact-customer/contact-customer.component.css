@@ -71,3 +71,5 @@
   /*change color of underline when focused*/
   background-color: #ff9900 !important;;
 }
+
+input{line-height: initial;}
