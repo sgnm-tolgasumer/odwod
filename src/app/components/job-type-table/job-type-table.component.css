@@ -1,3 +1,91 @@
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
+.table-container {
+  overflow: auto;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+
+}
+
+.sticky-paginator{
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+
+.sticky-button{
+  right: 0px;
+  position: relative;
+  z-index: 10;
+
+}
+
+.sticky-button button{
+  right: 20px;
+  position: absolute;
+  bottom: 6px;
+}
+
+.example-form-field{
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.example-form{
+  color: #470000 !important;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: #ff9900!important;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #ff9900!important;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #ff9900!important;
+}
+
+::ng-deep .mat-input-element {
+  caret-color: #ff9900!important;
+}
+
+::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+  caret-color: #ff9900!important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: #ff9900 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #ff9900!important;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #ff9900!important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #ff9900 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #ff9900 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #ff9900 !important;;
+}
+
+
+.mat-fab.mat-primary {
+  background-color: #ff9900!important;
+}

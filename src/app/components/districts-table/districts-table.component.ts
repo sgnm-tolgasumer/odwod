@@ -1,7 +1,9 @@
 import { DistrictsTableService } from './../../shared/services/districts-table.service';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Districts } from 'src/app/shared/services/districts';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 
 @Component({
@@ -43,6 +45,14 @@ export class DistrictsTableComponent implements OnInit {
   */
   public deleteDistrict(id: string){
     this.service.deleteDistrict(id);
+  }
+
+  /*The sorting regarding the alphabetical and numerical values of the table*/
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 }

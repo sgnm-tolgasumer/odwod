@@ -4,7 +4,6 @@
 
 a {
   margin-top: 20px;
-  font-family: 'Titillium Web', sans-serif;
   font-size: 17px;
   padding: 12px;
   border-radius: 7px;
@@ -13,3 +12,8 @@ a {
   text-decoration: none;
 }
 
+
+.faq-title{
+  font-size: large;
+  color: #470000
+}
