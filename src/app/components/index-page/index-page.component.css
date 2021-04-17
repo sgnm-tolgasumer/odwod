@@ -696,15 +696,17 @@ footer.classic .social-profiles {
   transition: all .7s ease-in-out;
 }
 
-.slide h2 {
+.slide p {
   width: 100%;
   height: 100%;
   font-size: 100px;
   color: orange;
+  font-family: 'Titillium Web';
   font-weight: bold;
   text-align: center;
+  font-size: 80px;
   padding-top: 65px;
-  margin-top: 200px;
+  margin-top: 170px;
 }
 
 .nav label {
@@ -720,11 +722,10 @@ footer.classic .social-profiles {
   transition: opacity .2s;
 
   color: #FFF;
-  font-size: 156pt;
+  font-size: 150pt;
   text-align: center;
   line-height: 380px;
   font-family: "Varela Round", sans-serif;
-  background-color: rgba(255, 255, 255, .3);
   text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
 
@@ -776,4 +777,44 @@ input#img-4:checked ~ .nav-dots label#img-dot-4,
 input#img-5:checked ~ .nav-dots label#img-dot-5,
 input#img-6:checked ~ .nav-dots label#img-dot-6 {
 background: wheat;
+}
+/* Custom Button */
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
