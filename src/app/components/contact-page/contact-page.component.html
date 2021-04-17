@@ -77,7 +77,9 @@
                     <textarea [formControl]="message" maxlength="512" class="formControl"
                         style="min-height: 250px; max-height: 250px;" placeholder="I have worried about..."
                         required></textarea>
-                    <button [disabled]="isLoading" class="submit" type="submit">Submit</button>
+                    <button [disabled]="isLoading" style="background-color: orange;color: #470000" type="submit" class="btn">
+                    Send Message
+                    </button>
                     <input [formControl]="honeypot" class="hidden" type="text" />
                     <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
                         <span>{{responseMessage}}</span>
