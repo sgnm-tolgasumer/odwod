@@ -68,7 +68,12 @@ import { JobTypeTableComponent } from './components/job-type-table/job-type-tabl
 import { DistrictsTableComponent } from './components/districts-table/districts-table.component';
 import { CustomersTableComponent } from './components/customers-table/customers-table.component';
 import { WorkersTableComponent } from './components/workers-table/workers-table.component';
-
+import { NavAdministratorComponent } from './components/nav-administrator/nav-administrator.component';
+import { InitialPageAdministratorComponent } from './components/initial-page-administrator/initial-page-administrator.component';
+import { AdministratorLoginComponent } from './components/administrator-login/administrator-login.component';
+import { AdminCustomerOperationsComponent } from './components/admin-customer-operations/admin-customer-operations.component';
+import { AdminWorkerOperationsComponent } from './components/admin-worker-operations/admin-worker-operations.component';
+import { DistrictJobtypeOperationsComponent } from './components/district-jobtype-operations/district-jobtype-operations.component';
 
 
 @NgModule({
@@ -104,6 +109,12 @@ import { WorkersTableComponent } from './components/workers-table/workers-table.
     DistrictsTableComponent,
     CustomersTableComponent,
     WorkersTableComponent,
+    NavAdministratorComponent,
+    InitialPageAdministratorComponent,
+    AdministratorLoginComponent,
+    AdminCustomerOperationsComponent,
+    AdminWorkerOperationsComponent,
+    DistrictJobtypeOperationsComponent,
 
   ],
   imports: [

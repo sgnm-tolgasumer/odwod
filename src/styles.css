@@ -5,6 +5,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 html,
@@ -14,7 +15,6 @@ body {
   font-weight: 400;
   width: 100%;
   height: 100%;
-  font-family: 'Titillium Web', sans-serif !important;
 }
 
 .feather {
@@ -30,7 +30,6 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  font-family: 'Titillium Web', sans-serif !important;
 }
 
 .media-body h1 {
@@ -670,3 +669,17 @@ body .table thead th {
 
 html, body { height: 100%; }
 body { margin: 0; }
+
+
+.font-family-angular{
+  font-family: 'Titillium Web', sans-serif!important;
+}
+
+.grid-container h1{
+  font-family: 'Titillium Web', sans-serif!important;
+  color: #470000;
+}
+
+.mat-typography h2, mat-toolbar {
+  font-family: 'Titillium Web', sans-serif!important;
+}

@@ -1,7 +1,9 @@
 import { JobTypeTableService } from './../../shared/services/job-type-table.service';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { JobTypes } from 'src/app/shared/services/jobtypes';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-job-type-table',
@@ -42,4 +44,11 @@ export class JobTypeTableComponent implements OnInit {
     this.service.deleteJobType(id);
   }
 
+  /*The sorting regarding the alphabetical and numerical values of the table*/
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 }

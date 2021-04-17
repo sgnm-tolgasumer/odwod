@@ -6,7 +6,7 @@
 </mat-form-field>
 <div class="mat-elevation-z8">
 
-    <table class="font-titilium" mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
         <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -30,19 +30,19 @@
         </ng-container>
 
         <!-- Address City Column -->
-        <ng-container  class="font-titilium" matColumnDef="addressCity">
+        <ng-container matColumnDef="addressCity">
             <th style="font-size: 17px" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
             <td mat-cell *matCellDef="let element"> {{element.addressCity}} </td>
         </ng-container>
 
         <!-- Address District Column -->
-        <ng-container class="font-titilium" matColumnDef="addressDistrict">
+        <ng-container matColumnDef="addressDistrict">
             <th style="font-size: 17px" mat-header-cell *matHeaderCellDef mat-sort-header> District </th>
             <td mat-cell *matCellDef="let element"> {{element.addressDistrict}} </td>
         </ng-container>
 
         <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-        <ng-container class="font-titilium" matColumnDef="expandedDetail">
+        <ng-container matColumnDef="expandedDetail">
             <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
               <div class="example-element-detail"
                    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
@@ -74,5 +74,5 @@
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
     </table>
 
-    <mat-paginator class="font-titilium" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

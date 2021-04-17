@@ -1,7 +1,9 @@
 import { WorkersTableService } from './../../shared/services/workers-table.service';
 import { Workers } from './../../shared/services/workers';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 
 @Component({
@@ -35,4 +37,15 @@ export class WorkersTableComponent implements OnInit {
     this.service.deleteWorker(id);
   }
 
+  /*The sorting regarding the alphabetical and numerical values of the table*/
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
