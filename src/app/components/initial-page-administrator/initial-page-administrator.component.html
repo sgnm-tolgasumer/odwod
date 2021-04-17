@@ -8,6 +8,14 @@
           <mat-card-title style="color: #470000">User
           </mat-card-title>
         </mat-card-header>
+        <mat-card-content *ngIf="customerCount != null">
+          <div>
+            <p class="font-titilium">
+              <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Customer Count</span>
+              <br> {{customerCount.count}} <br>
+            </p>
+          </div>
+        </mat-card-content>
 
       </mat-card>
     </mat-grid-tile>
@@ -18,7 +26,14 @@
           <mat-card-title style="color: #470000">
           </mat-card-title>
         </mat-card-header>
-
+        <mat-card-content *ngIf="workerCount != null">
+          <div>
+            <p class="font-titilium">
+              <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Worker Count</span>
+              <br> {{workerCount.count}} <br>
+            </p>
+          </div>
+        </mat-card-content>
       </mat-card>
     </mat-grid-tile>
 
