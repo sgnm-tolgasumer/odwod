@@ -63,7 +63,6 @@ export class WorkordersTableComponent implements OnInit {
 
   getTheJobButtonClick(workOrder: any) {
     workOrder["workerId"] = this.authService.getCurrentUser().uid;
-    workOrder["status"] = 1;
     this.service.getTheJob(workOrder);
     this.transfer.setWorkOrder(workOrder);
   }
