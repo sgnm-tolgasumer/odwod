@@ -1,10 +1,11 @@
+import { AuthService } from './auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -14,17 +15,23 @@ const httpOptions = {
 })
 export class WorkordersTableService {
 
-  constructor(private http:HttpClient) { }
-  
-  public workorderList(){
-  
-    return this.http.get("http://localhost:8080/workorder?topicId=pending");
+  constructor(private http: HttpClient, public authService: AuthService) { }
+
+  /**
+   * It will get all workorders by worker's job preferences and selected workable districts.
+   */
+  public workorderList() {
+    var user = this.authService.getCurrentUser();
+
+    return this.http.get("http://localhost:8080/workorder/" + user.uid);
   }
 
-  public getTheJob(workOrder: any){
-    
-    this.http.post("http://localhost:8080/workorder", workOrder, httpOptions).subscribe(data =>
-    {
+  /**
+   * It will transfer the workorder into in_progress topic from pending topic. 
+   */
+  public getTheJob(workOrder: any) {
+
+    this.http.post("http://localhost:8080/workorder/transfer/" + workOrder["workOrderId"] + "/" + "pending" + "/in_progress/" + workOrder["workerId"], httpOptions).subscribe(data => {
 
     });
   }
