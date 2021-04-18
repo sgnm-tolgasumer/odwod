@@ -1,3 +1,7 @@
+import { Districts } from 'src/app/shared/services/districts';
+import { JobTypes } from './../../shared/services/jobtypes';
+import { DistrictsTableService } from './../../shared/services/districts-table.service';
+import { JobTypeTableService } from './../../shared/services/job-type-table.service';
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -22,16 +26,17 @@ const httpOptions = {
 export class SignupWorkerFormComponent implements OnInit {
 
   selectedValue: string;
-
+  dataSourceTypes: JobTypes[];
+  dataSourceDistricts: Districts[];
   cities: City[] = [
     { value: 'Ankara', viewValue: 'Ankara' },
   ];
 
   regions = new FormControl();
-  regionsList: string[] = ['Yenimahalle', 'Kazan', 'Mamak', 'Cankaya', 'Bilkent'];
+  regionsList: string[] = [];
 
   works = new FormControl();
-  worksList: string[] = ['Cleaning', 'Security', 'Health', 'Paint', 'Renovation', 'Transportation', 'Maintenance'];
+  worksList: string[] = [];
 
   hide = true;
   emailFormControl = new FormControl('', [
@@ -39,10 +44,13 @@ export class SignupWorkerFormComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private http: HttpClient, public authService: AuthService) { }
- 
+  constructor(private http: HttpClient, public authService: AuthService, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService) { }
+  
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.getRegionsList();
+    this.getWorkList();
   }
 
   onSubmit(f: NgForm, name, surname, password, telephone, mail, date, addressCity, workableDistricts, jobTypes) {
@@ -55,6 +63,33 @@ export class SignupWorkerFormComponent implements OnInit {
 
       });
 
+    });
+  }
+
+  /**
+   * It fills the regionslist from MySQL database over REST API.
+   */
+  public getRegionsList() {
+    this.districtNameService.districtsList().subscribe(data => {
+      this.dataSourceDistricts = data as Districts[];
+      this.dataSourceDistricts.forEach(element => {
+
+        this.regionsList.push(element.districtName);
+
+      });
+    });
+  }
+
+  /**
+   * It fills the work types list from MySQL database over REST API.
+   */
+  public getWorkList() {
+    this.jobTypeService.jobTypeList().subscribe(data => {
+      this.dataSourceTypes = data as JobTypes[];
+      this.dataSourceTypes.forEach(element => {
+        
+        this.worksList.push(element.workType);
+      });
     });
   }
 
