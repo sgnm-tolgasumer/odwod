@@ -2,6 +2,18 @@ table {
     width: 100%;
   }
 
+.table-container {
+  overflow: auto;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+.sticky-paginator{
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  position: sticky;
+  z-index: 10;
+}
   th.mat-sort-header-sorted {
     color: black;
   }

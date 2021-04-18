@@ -683,3 +683,7 @@ body { margin: 0; }
 .mat-typography h2, mat-toolbar {
   font-family: 'Titillium Web', sans-serif!important;
 }
+
+mat-card{
+  border-radius: 9px!important;
+}
