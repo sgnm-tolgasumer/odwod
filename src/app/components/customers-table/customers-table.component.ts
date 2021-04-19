@@ -27,8 +27,10 @@ export class CustomersTableComponent implements OnInit {
   It gets all Customers via the customer-table service's customersList() function.
   */
   public getAllCustomers() {
-    let resp = this.service.customersList();
-    resp.subscribe(report => this.dataSource.data = report as Customers[]);
+    setTimeout(() => {
+      let resp = this.service.customersList();
+      resp.subscribe(report => this.dataSource.data = report as Customers[]);
+    }, 1000); 
   }
 
   /*
@@ -36,6 +38,8 @@ export class CustomersTableComponent implements OnInit {
   */
   public deleteCustomer(id: string){
     this.service.deleteCustomer(id);
+    this.getAllCustomers();
+    this.dataSource = new MatTableDataSource<Customers>(this.CUSTOMERS);
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/

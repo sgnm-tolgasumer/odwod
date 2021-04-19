@@ -1,9 +1,9 @@
 import { DistrictsTableService } from './../../shared/services/districts-table.service';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Districts } from 'src/app/shared/services/districts';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -27,24 +27,31 @@ export class DistrictsTableComponent implements OnInit {
   It gets all districts via the districts-table service's districtsList() function.
   */
   public getAllDistricts() {
-    let resp = this.service.districtsList();
-    resp.subscribe(report => this.dataSource.data = report as Districts[]);
+    setTimeout(() => {
+      let resp = this.service.districtsList();
+      resp.subscribe(report => this.dataSource.data = report as Districts[]);
+    }, 1000);
   }
 
   /*
   It calls the districts-table service's addDistrict() function to add new districts.
   */
   public addDistrict(name: string) {
-    var district = "{\"districtName\": \""+ name +"\" }";
-    console.log(district);
+
+    var district = "{\"districtName\": \"" + name + "\" }";
     this.service.addDistrict(district);
+    this.getAllDistricts();
+    this.dataSource = new MatTableDataSource<Districts>(this.DISTRICT_NAMES);
   }
 
   /*
   It calls the districts-table service's deleteDistrict() function to delete district with given id.
   */
-  public deleteDistrict(id: string){
+  public deleteDistrict(id: string) {
+
     this.service.deleteDistrict(id);
+    this.getAllDistricts();
+    this.dataSource = new MatTableDataSource<Districts>(this.DISTRICT_NAMES);
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/
