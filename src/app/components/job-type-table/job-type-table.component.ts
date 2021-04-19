@@ -24,8 +24,10 @@ export class JobTypeTableComponent implements OnInit {
   It gets all job types via the job-type-table service's jobTypeList() function.
   */
   public getAllJobTypes() {
-    let resp = this.service.jobTypeList();
-    resp.subscribe(report => this.dataSource.data = report as JobTypes[]);
+    setTimeout(() => {
+      let resp = this.service.jobTypeList();
+      resp.subscribe(report => this.dataSource.data = report as JobTypes[]);
+    }, 1000);
   }
 
   /*
@@ -33,8 +35,9 @@ export class JobTypeTableComponent implements OnInit {
   */
   public addJobType(name: string) {
     var jobType = "{\"workType\": \""+ name +"\" }";
-    console.log(jobType);
     this.service.addJobType(jobType);
+    this.getAllJobTypes();
+    this.dataSource = new MatTableDataSource<JobTypes>(this.JOB_TYPES);
   }
 
   /*
@@ -42,6 +45,8 @@ export class JobTypeTableComponent implements OnInit {
   */
   public deleteJobType(id: string){
     this.service.deleteJobType(id);
+    this.getAllJobTypes();
+    this.dataSource = new MatTableDataSource<JobTypes>(this.JOB_TYPES);
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/

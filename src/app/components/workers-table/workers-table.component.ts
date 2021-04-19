@@ -26,8 +26,10 @@ export class WorkersTableComponent implements OnInit {
   It gets all Customers via the customer-table service's customersList() function.
   */
   public getAllWorkers() {
-    let resp = this.service.workersList();
-    resp.subscribe(report => this.dataSource.data = report as Workers[]);
+    setTimeout(() => {
+      let resp = this.service.workersList();
+      resp.subscribe(report => this.dataSource.data = report as Workers[]);
+    }, 1000);  
   }
 
   /*
@@ -35,6 +37,8 @@ export class WorkersTableComponent implements OnInit {
   */
   public deleteWorker(id: string){
     this.service.deleteWorker(id);
+    this.getAllWorkers();
+    this.dataSource = new MatTableDataSource<Workers>(this.WORKERS);
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/
