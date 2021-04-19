@@ -42,7 +42,6 @@ export class WorkordersTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
-    this.getAllReports();
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -50,11 +49,27 @@ export class WorkordersTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getAllReports();
   }
 
-  public getAllReports() {
-    let resp = this.service.workorderList();
-    resp.subscribe(report => this.dataSource.data = report as WorkOrders[]);
+  /**
+   * It will call the service which sends http request according to worker's uid. That's why user's uid forwarded as a parameter. 
+   */
+  getAllReports() {
+    var uid;
+    this.authService.afAuth.onAuthStateChanged(function (user) {
+      if (user) {
+        uid = user.uid;
+      } else {
+        
+        // No user is signed in.
+      }
+    }).then((value) => {
+      setTimeout(() => {
+        let resp = this.service.workorderList(uid);
+        resp.subscribe(report => this.dataSource.data = report as WorkOrders[]);
+      }, 1000);
+    });
   }
 
   applyFilter(filterValue: string) {

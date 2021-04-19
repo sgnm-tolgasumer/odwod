@@ -20,10 +20,10 @@ export class WorkordersTableService {
   /**
    * It will get all workorders by worker's job preferences and selected workable districts.
    */
-  public workorderList() {
-    var user = this.authService.getCurrentUser();
-
-    return this.http.get("http://localhost:8080/workorder/" + user.uid);
+  public workorderList(uid: string) {
+    //console.log(uid);
+    //var user = this.authService.getCurrentUser();
+    return this.http.get("http://localhost:8080/workorder/" + uid);
   }
 
   /**
