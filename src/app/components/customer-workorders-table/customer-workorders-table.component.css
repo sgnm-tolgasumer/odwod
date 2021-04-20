@@ -48,9 +48,15 @@ table {
     overflow: hidden;
     display: flex;
   }
+.example-element-detail p {
+  padding-bottom: 0!important;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  padding-top: 7px;
+}
 
   .example-element-diagram {
-    min-width: 80px;
+    width: 162px;
     border: 2px solid #ff9900;
     padding: 8px;
     font-weight: lighter;
@@ -132,4 +138,12 @@ td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.pending {
+  color: #ff9900;
+}
+
+.in-progress {
+  color: #2b9100;
 }
