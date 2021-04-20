@@ -86,3 +86,7 @@ table {
   /*change color of underline when focused*/
   background-color: #ff9900 !important;;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
