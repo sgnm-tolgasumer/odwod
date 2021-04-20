@@ -35,4 +35,14 @@ export class WorkordersTableService {
 
     });
   }
+
+  public workorderListCustomer(uid: string) {
+    //console.log(uid);
+    //var user = this.authService.getCurrentUser();
+    return this.http.get("http://localhost:8080/workorder/customer/" + uid);
+  }
+
+  public workorderStatus(workOrderId: string) {
+    return this.http.get("http://localhost:8080/workorder/status/" + workOrderId, { responseType: 'text' });
+  }
 }
