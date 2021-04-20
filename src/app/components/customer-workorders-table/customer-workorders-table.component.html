@@ -34,12 +34,14 @@
             <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
                 <div class="example-element-detail"
                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                    <div class="example-element-diagram" style="min-width: max-content">
+                    <div class="example-element-diagram">
                         <div class="example-element-position"> Current Status </div>
-                        <div style="color: #470000" class="example-element-symbol"> {{workOrderStatus}} </div>
+                        <div [ngClass]="{'pending' : workOrderStatus==='Pending','in-progress' :workOrderStatus==='In Progress'}"
+                             class="example-element-symbol">{{workOrderStatus}}
+                        </div>
                         <div class="example-element-name"> {{element.addressCity}} </div>
                     </div>
-                    <p style="width: 200px;" class="example-element-description">
+                    <p style="width: 170px;" class="example-element-description">
                         <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job
                             Description</span><br> {{element.description}}
                     </p>

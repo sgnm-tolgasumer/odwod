@@ -48,3 +48,12 @@
   /*change color of underline when focused*/
   background-color: #ff9900 !important;;
 }
+
+.text-area-form{
+  border-radius:8px;
+  background-color: rgba(0,0,0,.04);
+  min-height: 225px;
+  max-height:225px;
+  padding: 10px;
+  line-height: 150%;
+}
