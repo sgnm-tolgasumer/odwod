@@ -71,12 +71,9 @@
             <div class="formGroup">
                 <h3 style="font-size: 35px;color: #470000">Contact Us</h3>
                 <form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
-                    <input class="formControl" style="color: #96031a;" placeholder="Name" input [formControl]="name"
-                        required>
+                    <input class="formControl" style="color: #96031a;" placeholder="Name" input [formControl]="name" required>
                     <input class="formControl" placeholder="email@example.com" input [formControl]="email" required>
-                    <textarea [formControl]="message" maxlength="512" class="formControl"
-                        style="min-height: 250px; max-height: 250px;" placeholder="I have worried about..."
-                        required></textarea>
+                    <textarea [formControl]="message" maxlength="512" class="formControl" style="min-height: 250px; max-height: 250px;" placeholder="I have worried about..." required></textarea>
                     <button [disabled]="isLoading" style="background-color: orange;color: #470000" type="submit" class="btn">
                     Send Message
                     </button>
