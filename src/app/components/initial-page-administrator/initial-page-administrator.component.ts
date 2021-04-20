@@ -45,12 +45,12 @@ export class InitialPageAdministratorComponent {
   }
 
   public getCountWorkers() {
-    let countWorker = this.http.get("http://localhost:8080/worker?workerCount=worker");
+    let countWorker = this.http.get("http://localhost:8080/worker/workerCount");
     countWorker.subscribe(response => this.workerCount = response);
   }
 
   public getCountCustomers() {
-    let countCustomer = this.http.get("http://localhost:8080/customer?customerCount=customer");
+    let countCustomer = this.http.get("http://localhost:8080/customer/customerCount");
     countCustomer.subscribe(response => this.customerCount = response);
   }
 }
