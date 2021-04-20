@@ -21,10 +21,15 @@
     <mat-grid-tile rowspan="2">
       <mat-card class="dashboard-card mat-elevation-z8">
         <mat-card-header>
-          <mat-card-title>
-          </mat-card-title>
+          <mat-card-title> Work Orders
+          </mat-card-title> In-progress / Pending
         </mat-card-header>
-        <app-customer-workorders-table></app-customer-workorders-table>
+        <div style="width: 100%; height: 100%">
+          <div style="display:block; height: inherit !important" >
+            <app-customer-workorders-table></app-customer-workorders-table>
+          </div>
+        </div>
+
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>

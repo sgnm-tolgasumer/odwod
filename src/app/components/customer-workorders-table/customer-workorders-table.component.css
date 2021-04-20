@@ -3,6 +3,7 @@ table {
   }
 
 .table-container {
+  height: 530px;
   overflow: auto;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
@@ -122,4 +123,13 @@ table {
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
   background-color: #ff9900 !important;;
+}
+
+td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
+  padding-right: 0!important;
+  padding-left: 0!important;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
