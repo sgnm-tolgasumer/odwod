@@ -74,6 +74,7 @@ import { AdministratorLoginComponent } from './components/administrator-login/ad
 import { AdminCustomerOperationsComponent } from './components/admin-customer-operations/admin-customer-operations.component';
 import { AdminWorkerOperationsComponent } from './components/admin-worker-operations/admin-worker-operations.component';
 import { DistrictJobtypeOperationsComponent } from './components/district-jobtype-operations/district-jobtype-operations.component';
+import { CustomerWorkordersTableComponent } from './components/customer-workorders-table/customer-workorders-table.component';
 
 
 @NgModule({
@@ -115,6 +116,7 @@ import { DistrictJobtypeOperationsComponent } from './components/district-jobtyp
     AdminCustomerOperationsComponent,
     AdminWorkerOperationsComponent,
     DistrictJobtypeOperationsComponent,
+    CustomerWorkordersTableComponent,
 
   ],
   imports: [
