@@ -4,6 +4,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class WorkersTableComponent implements OnInit {
   WORKERS: Workers[];
   displayedColumns: string[] = ['id', 'name', 'surname', 'mail', 'telephone', 'addressCity',  'userId'];
   dataSource;
-  constructor(private service: WorkersTableService) { }
+  constructor(private service: WorkersTableService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Workers>(this.WORKERS);
@@ -39,6 +40,9 @@ export class WorkersTableComponent implements OnInit {
     this.service.deleteWorker(id);
     this.getAllWorkers();
     this.dataSource = new MatTableDataSource<Workers>(this.WORKERS);
+    this._snackBar.open('Worker Deleted Successfully', 'Close', {
+      duration: 3000
+    });
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/
