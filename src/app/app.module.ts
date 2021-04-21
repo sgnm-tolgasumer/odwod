@@ -75,7 +75,7 @@ import { AdminCustomerOperationsComponent } from './components/admin-customer-op
 import { AdminWorkerOperationsComponent } from './components/admin-worker-operations/admin-worker-operations.component';
 import { DistrictJobtypeOperationsComponent } from './components/district-jobtype-operations/district-jobtype-operations.component';
 import { CustomerWorkordersTableComponent } from './components/customer-workorders-table/customer-workorders-table.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -148,6 +148,7 @@ import { CustomerWorkordersTableComponent } from './components/customer-workorde
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
+    MatSnackBarModule,
 
   ],
   exports: [
@@ -173,6 +174,7 @@ import { CustomerWorkordersTableComponent } from './components/customer-workorde
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
+    MatSnackBarModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
