@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Districts } from 'src/app/shared/services/districts';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class DistrictsTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'districtName'];
   dataSource;
 
-  constructor(private service: DistrictsTableService) { }
+  constructor(private service: DistrictsTableService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Districts>(this.DISTRICT_NAMES);
@@ -52,6 +53,9 @@ export class DistrictsTableComponent implements OnInit {
     this.service.deleteDistrict(id);
     this.getAllDistricts();
     this.dataSource = new MatTableDataSource<Districts>(this.DISTRICT_NAMES);
+    this._snackBar.open('District Deleted Successfully', 'Close', {
+      duration: 3000
+    });
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/
