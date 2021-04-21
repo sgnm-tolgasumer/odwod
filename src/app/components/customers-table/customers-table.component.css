@@ -83,3 +83,11 @@ table {
 ::-webkit-scrollbar {
   display: none;
 }
+
+
+::ng-deep .mat-snack-bar-container{
+
+}
+::ng-deep .mat-simple-snackbar-action {
+  color: #ff9900;
+}
