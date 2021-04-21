@@ -17,3 +17,8 @@ a {
   font-size: large;
   color: #470000
 }
+
+#btn-contact{
+  position: absolute;
+  bottom: 10px;
+}

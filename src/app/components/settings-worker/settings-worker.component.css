@@ -19,3 +19,11 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+#version{
+  text-align: center;color: #ff9900
+}
+
+mat-card-title,mat-card-header{
+  color: #470000;
+}

@@ -12,3 +12,8 @@ a {
   color: #ff9900;
   text-decoration: none;
 }
+
+#btn-contact{
+  position: absolute;
+  bottom: 10px;
+}

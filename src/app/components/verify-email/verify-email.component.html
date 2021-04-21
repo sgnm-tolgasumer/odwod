@@ -1,8 +1,8 @@
 <div class="displayTable">
     <div class="displayTableCell">
 
-      <div class="authBlock" style="border-radius: 9px">
-        <h3 style="font-size: 25px; color:#470000;">Thank You for Registering</h3>
+      <div id="wrapper-verify" class="authBlock">
+        <h3 id="header-verify">Thank You for Registering</h3>
 
         <div class="formGroup" *ngIf="authService.userData as user">
           <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>

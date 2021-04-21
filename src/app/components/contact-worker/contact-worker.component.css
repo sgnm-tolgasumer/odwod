@@ -20,6 +20,7 @@
   text-align: center;
 }
 
+
 .example-form{
   color: #470000 !important;
 }
@@ -72,3 +73,34 @@
 }
 
 input{line-height: initial;}
+
+mat-card-title,mat-card-header{
+  color: #470000;
+}
+mat-form-field{
+  width: 400px;
+}
+.text-areas{
+  border-radius:8px;
+  background-color: rgba(0,0,0,.04);
+  padding: 10px;
+  line-height: 150%;
+  min-height: 240px;
+  max-height:240px;
+  max-width: 380px;
+  min-width: 380px;
+}
+.btn-contact{
+  width: 400px;
+  height: 50px;
+  margin-top: 3px;
+  background-color: #ff9900;
+}
+
+mat-form-field mat-label{
+  padding: 10px;
+}
+
+form-h{
+  height: 500px;
+}
