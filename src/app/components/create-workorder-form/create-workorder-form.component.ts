@@ -2,7 +2,7 @@ import { CreateWorkorderFormService } from './../../shared/services/create-worko
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../../shared/services/auth.service";
-import {MatDialog} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 interface City {
   value: string;
@@ -51,29 +51,32 @@ export class CreateWorkorderFormComponent implements OnInit {
   ];
 
 
-  constructor(private service: CreateWorkorderFormService, public authService: AuthService,public dialog: MatDialog) { }
-
-
-  openDialog() {
-    const dialogRef = this.dialog.open(createworkordercontent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  constructor(private service: CreateWorkorderFormService, public authService: AuthService,private _snackBar: MatSnackBar) { }
   
   ngOnInit(): void {
   }
 
   onSubmit(f: NgForm) {
-
+    
     var workOrder = f.value;
-    workOrder["status"] = 0;
-    var user = this.authService.getCurrentUser();
-    workOrder["userId"] = user.uid;
-    console.log(workOrder);
-    this.service.createWorkOrder(workOrder);
-    f.resetForm();
+    if(workOrder["title"]==null || workOrder["type"]==null || workOrder["telephone"]==null || workOrder["description"]=='' || workOrder["addressCity"]==null || workOrder["addressDistrict"]==null || workOrder["openAddress"]=='')
+    {
+      this._snackBar.open('Fields cannot be empty', 'Close', {
+        duration: 3000
+      });
+    }
+    else{
+      workOrder["status"] = 0;
+      var user = this.authService.getCurrentUser();
+      workOrder["userId"] = user.uid;
+      console.log(workOrder);
+      this.service.createWorkOrder(workOrder);
+      this._snackBar.open('Your Work Order Created Successfully', 'Close', {
+        duration: 3000
+      });
+      f.resetForm();
+    }
+
   }
 
 }
