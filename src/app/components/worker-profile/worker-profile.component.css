@@ -19,3 +19,21 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+.user-info{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+#usr-img{
+  border-radius:9px;
+  height: 200px;
+  width: 200px;
+}
+#user-wrapper{
+  padding-top: 25px;
+  padding-left: 15px;
+}
+#info-wrapper{
+  padding-left: 50px;
+}

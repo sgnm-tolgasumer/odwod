@@ -3,14 +3,14 @@
   <mat-grid-list cols="6" rowHeight="330px">
     <mat-grid-tile colspan="5" rowspan="2">
       <mat-card class="dashboard-card mat-elevation-z8">
-        <mat-card-header style="color: #470000">
-          <mat-card-title style="color: #470000">
+        <mat-card-header>
+          <mat-card-title>
           </mat-card-title>
         </mat-card-header>
         <form class="example-form"  novalidate [formGroup]="form" method="post" (ngSubmit)="onSubmit()" >
 
-            <div style="height: 500px">
-              <mat-form-field appearance="outline" style="width: 400px;margin-right: 10px">
+            <div id="form-h">
+              <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
                 <input matInput type="text" name="title" ngModel input [formControl]="name"
                        required>
@@ -19,7 +19,7 @@
 
               <br><br>
 
-              <mat-form-field appearance="outline" style="width: 400px;margin-right: 10px">
+              <mat-form-field appearance="outline">
                 <mat-label>E-Mail</mat-label>
                 <input matInput type="text" name="title" ngModel [formControl]="email" required>
                 <mat-hint>Enter Your E-Mail Address</mat-hint>
@@ -27,20 +27,20 @@
 
             <br><br>
 
-            <mat-form-field class="example-full-width" style="width: 400px;">
-              <mat-label style="padding: 10px">Message</mat-label>
-              <textarea [formControl]="message" class="text-areas" style="border-radius:8px;background-color: rgba(0,0,0,.04);min-height: 250px;max-height:250px" matInput name="description" ngModel ></textarea>
+            <mat-form-field class="example-full-width">
+              <mat-label>Message</mat-label>
+              <textarea [formControl]="message" class="text-areas" matInput name="description" ngModel ></textarea>
               <mat-hint>Enter Message</mat-hint>
             </mat-form-field>
 
           </div>
 
-          <br><br>
+          <br>
 
           <div style="display: inline-flex">
 
               <div class="example-button-container">
-                <button [disabled]="isLoading" mat-raised-button style="width: 400px;height: 50px;margin-top: 3px;background-color: #ff9900" type="submit">Send Message</button>
+                <button class="btn-contact" [disabled]="isLoading" mat-raised-button type="submit">Send Message</button>
               </div>
 
           </div>

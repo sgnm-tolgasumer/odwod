@@ -19,3 +19,87 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+@property --n {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.number {
+  animation: animate var(--duration) forwards var(--timing, linear);
+  counter-reset: num var(--n);
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+  margin: 15px;
+}
+.number::before {
+  content: counter(num);
+}
+
+@keyframes animate {
+  from {
+    --n: var(--from);
+  }
+  to {
+    --n: var(--to);
+  }
+}
+
+.wrapper{
+
+  border-radius: 9px;
+  display: flex;
+  margin: 10px!important;
+  align-items: center;
+  height: -webkit-fill-available;
+}
+
+.wrapper:hover{
+  opacity: 0.85;
+}
+
+mat-card-content{
+  margin-bottom: 0!important;
+}
+
+.left-space{
+  padding-left: 45px;
+}
+
+.user-type-icon{
+  width: 50px;
+  font-size: 50px;
+  margin-right: 25px;
+}
+
+.user-type-span{
+  color:white;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 15px;
+}
+
+mat-card-header,mat-card-title{
+  color: #470000;
+}
+.stats{
+  height: 29%;
+}
+
+#active-work-order{
+  color: white;background: linear-gradient(90deg, rgba(0,73,108,1) 0%,
+rgba(1,117,168,1) 25%, rgba(0,149,210,1) 50%, rgba(84,199,255,1) 75%, rgba(101,208,255,1) 100%);
+}
+
+#customer{
+  color:white;background: linear-gradient(90deg, rgba(17,142,79,1) 0%,
+rgba(27,186,106,1) 25%, rgba(29,209,118,1) 50%, rgba(31,230,129,1) 75%, rgba(33,255,143,1) 100%);
+}
+
+#worker{
+  color: white;background: linear-gradient(90deg, rgba(255,64,0,1) 0%, rgba(255,115,0,1) 25%,
+rgba(255,124,0,1) 50%, rgba(255,153,0,1) 75%, rgba(255,171,45,1) 100%);
+}

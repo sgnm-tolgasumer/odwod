@@ -10,18 +10,18 @@
           </mat-card-title>
         </mat-card-header>
         <!-- Show user data when logged in -->
-        <div *ngIf="authService.userData as user" style="padding-top: 25px; padding-left: 15px;">
+        <div id="user-wrapper" *ngIf="authService.userData as user">
           <div style="display: inline-flex">
             <div>
-              <img style="border-radius:9px;height: 200px;width: 200px;" class="img-fluid" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+              <img id="usr-img" class="img-fluid" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                    alt="{{user.displayName}}">
 
             </div>
-            <div style="padding-left: 50px;">
+            <div id="info-wrapper">
               <h1>Hello...  <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-              <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">User ID |</span> <strong style="margin-left: 5px">{{user.uid}}</strong></p>
-              <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail |</span> <strong style="margin-left: 5px">{{user.email}}</strong></p>
-              <p><span style="font-size: 18px;font-weight: bold;margin-bottom: 3px;">E-mail Verified |</span> <strong style="margin-left: 5px">{{user.emailVerified}}</strong></p>
+              <p><span class="user-info">User ID |</span> <strong style="margin-left: 5px">{{user.uid}}</strong></p>
+              <p><span class="user-info">E-mail |</span> <strong style="margin-left: 5px">{{user.email}}</strong></p>
+              <p><span class="user-info">E-mail Verified |</span> <strong style="margin-left: 5px">{{user.emailVerified}}</strong></p>
             </div>
           </div>
         </div>
@@ -48,7 +48,5 @@
         </mat-card-header>
       </mat-card>
     </mat-grid-tile>
-
-
   </mat-grid-list>
 </div>
