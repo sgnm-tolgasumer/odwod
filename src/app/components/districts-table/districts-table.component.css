@@ -89,3 +89,12 @@ table {
 .mat-fab.mat-primary {
   background-color: #ff9900!important;
 }
+
+
+::ng-deep .mat-snack-bar-container{
+
+}
+::ng-deep .mat-simple-snackbar-action {
+  color: #ff9900;
+}
+
