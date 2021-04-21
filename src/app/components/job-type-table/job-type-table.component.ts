@@ -4,6 +4,7 @@ import { JobTypes } from 'src/app/shared/services/jobtypes';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-job-type-table',
@@ -14,7 +15,7 @@ export class JobTypeTableComponent implements OnInit {
   JOB_TYPES: JobTypes[];
   displayedColumns: string[] = ['id', 'workType'];
   dataSource;
-  constructor(private service: JobTypeTableService) { }
+  constructor(private service: JobTypeTableService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<JobTypes>(this.JOB_TYPES);
@@ -47,6 +48,9 @@ export class JobTypeTableComponent implements OnInit {
     this.service.deleteJobType(id);
     this.getAllJobTypes();
     this.dataSource = new MatTableDataSource<JobTypes>(this.JOB_TYPES);
+    this._snackBar.open('Job Type Deleted Successfully', 'Close', {
+      duration: 3000
+    });
   }
 
   /*The sorting regarding the alphabetical and numerical values of the table*/
