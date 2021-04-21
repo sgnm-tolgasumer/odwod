@@ -2,6 +2,7 @@ import { ANALYZE_FOR_ENTRY_COMPONENTS, Component, OnInit } from '@angular/core';
 import { EmailValidator, FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from "../../shared/services/auth.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 interface City {
@@ -33,7 +34,7 @@ export class SignupCustomerFormComponent implements OnInit {
     { value: 'Ankara', viewValue: 'Ankara' },
   ];
 
-  constructor(private http: HttpClient, public authService: AuthService) {
+  constructor(private http: HttpClient, public authService: AuthService,private _snackBar: MatSnackBar) {
 
   }
 
@@ -44,15 +45,26 @@ export class SignupCustomerFormComponent implements OnInit {
 
   onSubmit(f: NgForm, name, mail, surname, telephone, date, password) {
 
-    let uid = this.authService.SignUp(mail, password, name, surname);
-    uid.then((value) => {
-      var customerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail };
+    var signupcustomer=f.value;
 
-      this.http.post("http://localhost:8080/customer", customerCreate, httpOptions).subscribe(data => {
-
+    if(signupcustomer["name"] == null || signupcustomer["surname"]==null || signupcustomer["email"]==null || signupcustomer["password"]==null || signupcustomer["telephone"]==null || signupcustomer["date"]==null){
+      this._snackBar.open('Fields cannot be empty', 'Close', {
+        duration: 3000
       });
+    }
+    else{
+      let uid = this.authService.SignUp(mail, password, name, surname);
+      uid.then((value) => {
+        var customerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail };
+  
+        this.http.post("http://localhost:8080/customer", customerCreate, httpOptions).subscribe(data => {
+  
+        });
+  
+      });
+    }
 
-    });
+
 
 
   }

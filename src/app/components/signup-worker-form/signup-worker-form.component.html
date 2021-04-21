@@ -70,7 +70,7 @@
     <br><br>
     <mat-form-field appearance="fill" style="width: 180px;margin-left: 5px;">
       <mat-label>Districts</mat-label>
-      <mat-select [formControl]="regions" multiple #region>
+      <mat-select [formControl]="regions" multiple #region name="region">
         <mat-option *ngFor="let region of regionsList" [value]="region" value="{{region.getValue}}">{{region}}
         </mat-option>
       </mat-select>
@@ -83,7 +83,7 @@
   <div style="display: inline-flex;padding-top: 30px">
     <mat-form-field appearance="fill" style="width: 180px;margin-right: 5px;">
       <mat-label>Work Type</mat-label>
-      <mat-select [formControl]="works" multiple #work>
+      <mat-select [formControl]="works" multiple #work name="work">
         <mat-option *ngFor="let work of worksList" [value]="work" value="{{work.getValue}}">{{work}}</mat-option>
       </mat-select>
       <mat-hint>Select Appropriate Job Types for You</mat-hint>

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from "../../shared/services/auth.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 interface City {
   value: string;
@@ -44,7 +45,7 @@ export class SignupWorkerFormComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private http: HttpClient, public authService: AuthService, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService) { }
+  constructor(private http: HttpClient, public authService: AuthService, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService,private _snackBar: MatSnackBar) { }
   
   ngOnInit(): void {}
 
@@ -54,16 +55,25 @@ export class SignupWorkerFormComponent implements OnInit {
   }
 
   onSubmit(f: NgForm, name, surname, password, telephone, mail, date, addressCity, workableDistricts, jobTypes) {
+    
+    var signupworker=f.value;
 
-    let uid = this.authService.SignUp(mail, password, name, surname);
-    uid.then((value) => {
-      console.log(value);
-      var workerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail, "addressCity": addressCity, "workableDistricts": workableDistricts.join(), "jobTypes": jobTypes.join() };
-      this.http.post("http://localhost:8080/worker", workerCreate, httpOptions).subscribe(data => {
-
+    if(signupworker["name"]==null || signupworker["surname"]==null || signupworker["email"]==null || signupworker["password"]==null || signupworker["telephone"]==null || signupworker["date"]==null || signupworker["city"]==null || signupworker["region"]==null || signupworker["work"]==null ){
+      this._snackBar.open('Fields cannot be empty', 'Close', {
+        duration: 3000
       });
-
-    });
+    }
+    else{
+      let uid = this.authService.SignUp(mail, password, name, surname);
+      uid.then((value) => {
+        console.log(value);
+        var workerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail, "addressCity": addressCity, "workableDistricts": workableDistricts.join(), "jobTypes": jobTypes.join() };
+        this.http.post("http://localhost:8080/worker", workerCreate, httpOptions).subscribe(data => {
+  
+        });
+  
+      });
+    }
   }
 
   /**
