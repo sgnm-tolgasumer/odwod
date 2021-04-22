@@ -8,6 +8,7 @@ import { WorkOrders } from 'src/app/shared/services/workorders';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AuthService } from "../../shared/services/auth.service";
 import { MatDialog } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-workorders-table',
@@ -28,17 +29,10 @@ export class WorkordersTableComponent implements OnInit {
   dataSource;
   expandedElement: WorkOrders | null;
 
-  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private transfer: WorkorderTransferService) { }
+  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private transfer: WorkorderTransferService, private _snackBar: MatSnackBar) { }
 
   workOrderToTransfer: any;
 
-  openDialog() {
-    const dialogRef = this.dialog.open(workorderscontent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
@@ -53,7 +47,7 @@ export class WorkordersTableComponent implements OnInit {
   }
 
   /**
-   * It will call the service which sends http request according to worker's uid. That's why user's uid forwarded as a parameter. 
+   * It will call the service which sends http request according to worker's uid. That's why user's uid forwarded as a parameter.
    */
   getAllReports() {
     var uid;
@@ -61,7 +55,7 @@ export class WorkordersTableComponent implements OnInit {
       if (user) {
         uid = user.uid;
       } else {
-        
+
         // No user is signed in.
       }
     }).then((value) => {
@@ -80,6 +74,9 @@ export class WorkordersTableComponent implements OnInit {
     workOrder["workerId"] = this.authService.getCurrentUser().uid;
     this.service.getTheJob(workOrder);
     this.transfer.setWorkOrder(workOrder);
+    this._snackBar.open('You Got The Job Successfully !!!!', 'Close', {
+      duration: 3000
+    });
   }
 }
 @Component({

@@ -13,7 +13,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class JobTypeTableComponent implements OnInit {
   JOB_TYPES: JobTypes[];
-  displayedColumns: string[] = ['id', 'workType'];
+  displayedColumns: string[] = ['workType'];
   dataSource;
   constructor(private service: JobTypeTableService,private _snackBar: MatSnackBar) { }
 
@@ -35,10 +35,19 @@ export class JobTypeTableComponent implements OnInit {
   It calls the job-type-table service's addJobType() function to add new job types.
   */
   public addJobType(name: string) {
-    var jobType = "{\"workType\": \""+ name +"\" }";
-    this.service.addJobType(jobType);
-    this.getAllJobTypes();
-    this.dataSource = new MatTableDataSource<JobTypes>(this.JOB_TYPES);
+    if ( name === ''){
+      this._snackBar.open('Job Type Field Cannot be Empty', 'Close', {
+        duration: 3000
+      });
+    }else {
+      var jobType = "{\"workType\": \"" + name + "\" }";
+      this.service.addJobType(jobType);
+      this.getAllJobTypes();
+      this.dataSource = new MatTableDataSource<JobTypes>(this.JOB_TYPES);
+      this._snackBar.open('New Job Type Added Successfully', 'Close', {
+        duration: 3000
+      });
+    }
   }
 
   /*

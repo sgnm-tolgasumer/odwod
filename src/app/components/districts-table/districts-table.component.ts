@@ -14,7 +14,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class DistrictsTableComponent implements OnInit {
   DISTRICT_NAMES: Districts[];
-  displayedColumns: string[] = ['id', 'districtName'];
+  displayedColumns: string[] = ['districtName'];
   dataSource;
 
   constructor(private service: DistrictsTableService,private _snackBar: MatSnackBar) { }
@@ -38,11 +38,19 @@ export class DistrictsTableComponent implements OnInit {
   It calls the districts-table service's addDistrict() function to add new districts.
   */
   public addDistrict(name: string) {
-
-    var district = "{\"districtName\": \"" + name + "\" }";
-    this.service.addDistrict(district);
-    this.getAllDistricts();
-    this.dataSource = new MatTableDataSource<Districts>(this.DISTRICT_NAMES);
+    if ( name === ''){
+      this._snackBar.open('District Field Cannot be Empty', 'Close', {
+        duration: 3000
+      });
+    }else{
+      var district = "{\"districtName\": \"" + name + "\" }";
+      this.service.addDistrict(district);
+      this.getAllDistricts();
+      this.dataSource = new MatTableDataSource<Districts>(this.DISTRICT_NAMES);
+      this._snackBar.open('New District Added Successfully', 'Close', {
+        duration: 3000
+      });
+    }
   }
 
   /*

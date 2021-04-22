@@ -2,7 +2,7 @@ import { Districts } from 'src/app/shared/services/districts';
 import { JobTypes } from './../../shared/services/jobtypes';
 import { DistrictsTableService } from './../../shared/services/districts-table.service';
 import { JobTypeTableService } from './../../shared/services/job-type-table.service';
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { EmailValidator, FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from "../../shared/services/auth.service";
@@ -24,7 +24,7 @@ const httpOptions = {
   templateUrl: './signup-worker-form.component.html',
   styleUrls: ['./signup-worker-form.component.css']
 })
-export class SignupWorkerFormComponent implements OnInit {
+export class SignupWorkerFormComponent implements OnInit, AfterViewInit {
 
   selectedValue: string;
   dataSourceTypes: JobTypes[];
@@ -45,8 +45,8 @@ export class SignupWorkerFormComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private http: HttpClient, public authService: AuthService, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService,private _snackBar: MatSnackBar) { }
-  
+  constructor(private http: HttpClient, public authService: AuthService, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService, private _snackBar: MatSnackBar) { }
+
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
@@ -55,25 +55,14 @@ export class SignupWorkerFormComponent implements OnInit {
   }
 
   onSubmit(f: NgForm, name, surname, password, telephone, mail, date, addressCity, workableDistricts, jobTypes) {
-    
-    var signupworker=f.value;
-
-    if(signupworker["name"]==null || signupworker["surname"]==null || signupworker["email"]==null || signupworker["password"]==null || signupworker["telephone"]==null || signupworker["date"]==null || signupworker["city"]==null || signupworker["region"]==null || signupworker["work"]==null ){
-      this._snackBar.open('Fields cannot be empty', 'Close', {
-        duration: 3000
-      });
-    }
-    else{
       let uid = this.authService.SignUp(mail, password, name, surname);
       uid.then((value) => {
         console.log(value);
         var workerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail, "addressCity": addressCity, "workableDistricts": workableDistricts.join(), "jobTypes": jobTypes.join() };
         this.http.post("http://localhost:8080/worker", workerCreate, httpOptions).subscribe(data => {
-  
+
         });
-  
       });
-    }
   }
 
   /**
@@ -97,7 +86,7 @@ export class SignupWorkerFormComponent implements OnInit {
     this.jobTypeService.jobTypeList().subscribe(data => {
       this.dataSourceTypes = data as JobTypes[];
       this.dataSourceTypes.forEach(element => {
-        
+
         this.worksList.push(element.workType);
       });
     });

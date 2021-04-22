@@ -14,7 +14,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class CustomersTableComponent implements OnInit {
   CUSTOMERS: Customers[];
-  displayedColumns: string[] = ['id', 'name', 'surname', 'mail', 'telephone', 'userId'];
+  displayedColumns: string[] = ['name', 'surname', 'mail', 'telephone', 'userId'];
   dataSource;
 
   constructor(private service: CustomersTableService,private _snackBar: MatSnackBar) { }
@@ -31,7 +31,7 @@ export class CustomersTableComponent implements OnInit {
     setTimeout(() => {
       let resp = this.service.customersList();
       resp.subscribe(report => this.dataSource.data = report as Customers[]);
-    }, 1000); 
+    }, 1000);
   }
 
   /*
