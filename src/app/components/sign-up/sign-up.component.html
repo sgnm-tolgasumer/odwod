@@ -7,16 +7,7 @@
       <app-signup-customer-form *ngIf = "isWorker !== true"></app-signup-customer-form>
       <app-signup-worker-form *ngIf = "isWorker === true"></app-signup-worker-form>
       <br>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Continue with Google -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-          <i class="fab fa-google"></i>
-          Continue with Google
-        </button>
-      </div>
+
 
       <div class="formGroup">
         <span class="or"><span class="orInner">Or</span></span>

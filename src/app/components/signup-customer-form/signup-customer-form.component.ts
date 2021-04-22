@@ -45,28 +45,13 @@ export class SignupCustomerFormComponent implements OnInit {
 
   onSubmit(f: NgForm, name, mail, surname, telephone, date, password) {
 
-    var signupcustomer=f.value;
-
-    if(signupcustomer["name"] == null || signupcustomer["surname"]==null || signupcustomer["email"]==null || signupcustomer["password"]==null || signupcustomer["telephone"]==null || signupcustomer["date"]==null){
-      this._snackBar.open('Fields cannot be empty', 'Close', {
-        duration: 3000
-      });
-    }
-    else{
       let uid = this.authService.SignUp(mail, password, name, surname);
       uid.then((value) => {
         var customerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail };
-  
+
         this.http.post("http://localhost:8080/customer", customerCreate, httpOptions).subscribe(data => {
-  
         });
-  
       });
-    }
-
-
-
-
   }
 
 }
