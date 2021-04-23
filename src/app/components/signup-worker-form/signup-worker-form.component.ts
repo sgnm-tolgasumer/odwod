@@ -55,6 +55,12 @@ export class SignupWorkerFormComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(f: NgForm, name, surname, password, telephone, mail, date, addressCity, workableDistricts, jobTypes) {
+    if(name=='' || surname=='' || password=='' || telephone=='' || mail=='' || date=='' || addressCity==null || workableDistricts ==null || jobTypes==null){
+      this._snackBar.open('Fields cannot be empty', 'Close', {
+        duration: 3000
+      });
+    }
+    else {
       let uid = this.authService.SignUp(mail, password, name, surname);
       uid.then((value) => {
         console.log(value);
@@ -63,6 +69,7 @@ export class SignupWorkerFormComponent implements OnInit, AfterViewInit {
 
         });
       });
+    }
   }
 
   /**
