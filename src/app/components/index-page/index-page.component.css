@@ -66,7 +66,6 @@ nav {
     opacity: 1;
 }
 
-.footer-container,
 .nav-container,
 nav {
     background: #96031a;
@@ -339,6 +338,9 @@ footer.classic .social-profiles {
 .cap-text {
     font-size: 14px;
     color: #000027;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
 }
 
 .cap-text-head {
@@ -347,38 +349,19 @@ footer.classic .social-profiles {
     font-weight: bold;
 }
 
-.copyright {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.social-icon {
-    color: white;
-}
-
-.social-icon:hover {
-    color: orange;
-}
-
-.be-an-emp {
-    height: 200px;
-    background-color: white;
-    opacity: 0.7;
-    border-radius: 180px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.why-us {
-    text-align: center;
-    width: 300px;
-    margin: 0 auto;
-    padding: 30px;
-}
-
 
 /* Vanta Slider */
+
+#vanta {
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    height: 600px;
+}
+
+.onSlider {
+    vertical-align: middle;
+}
 
 .slides {
     padding: 0;
@@ -556,4 +539,275 @@ input#img-6:checked~.nav-dots label#img-dot-6 {
 
 .worderizeLogo {
     height: 50px;
+    opacity: 1!important;
+}
+
+
+/* Services */
+
+.services {
+    padding-top: 30px;
+}
+
+.servicesHeader {
+    font-size: 32px;
+    color: #96031a;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+/* Work with us */
+
+.work-with-us {
+    background-image: url('/assets/worker-customer.jpg');
+    background-size: cover;
+    height: 480px;
+    padding-top: 80px;
+}
+
+.wwu {
+    margin: 25px auto;
+}
+
+#wwu-div {
+    display: inline-flex;
+}
+
+.fa-users,
+.fa-briefcase {
+    font-size: 50px;
+}
+
+.fa-briefcase {
+    margin-left: 5px;
+}
+
+#fa-users-p {
+    margin-left: 60px;
+}
+
+#fa-briefcase-p {
+    margin-left: 55px;
+}
+
+
+/* Why Worderize? */
+
+.why-us {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.why-worderize {
+    margin: 0 auto;
+    text-align: center;
+    display: inline;
+}
+
+#why-header {
+    margin-bottom: 50px;
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* Be an employee */
+
+.employee {
+    background-image: url('/assets/be-an-employee.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+.be-an-emp {
+    height: 200px;
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 180px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.inline {
+    display: inline;
+}
+
+.main-color {
+    color: #96031a;
+}
+
+
+/* About us */
+
+.footer-container {
+    background: white;
+    max-width: 100%;
+    margin: 0px auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.height {
+    height: 100%;
+}
+
+.about-p {
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+/* Copyright */
+
+.copyright {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 48px;
+    background: #96031a;
+}
+
+.copy-p {
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px 0px;
+    color: #fff;
+}
+
+.copy-icons {
+    margin: 7px auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+.social-icon {
+    color: white;
+    margin: 0 7px auto;
+}
+
+.social-icon:hover {
+    color: orange;
+}
+
+.hidden {
+    display: none;
+}
+
+.fa-bars {
+    text-align: center;
+    opacity: 0.8;
+}
+
+
+/* narrow style */
+
+@media screen and (min-width: 770px) {
+    #toggle {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .menu {
+        display: none;
+    }
+    .hidden {
+        display: inline;
+    }
+    .hiddenul {
+        display: grid;
+        text-align: left;
+        margin-bottom: 3px;
+    }
+    .fa-bars {
+        display: inline;
+        font-size: 24px;
+        color: white;
+    }
+    .menu li {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .menu li {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 801px) {
+    .menu li {
+        font-size: 12px;
+    }
+}
+
+.toggleLink {
+    color: white;
+    text-decoration: none;
+}
+
+.toggleLink:hover {
+    color: orange;
+}
+
+.btnbar {
+    background-color: hsl(351, 66%, 35%);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+input {
+    display: none;
+}
+
+.menulabel {
+    cursor: pointer;
+    display: block;
+    padding: 5px 10px;
+    color: #FFF;
+    -webkit-transition: background-color 0.1s, color 0.1s;
+}
+
+.menulabel:hover {
+    background: #96031a;
+    color: #000;
+}
+
+.test {
+    -webkit-transition: height 1s ease;
+    height: 0;
+    width: 765px;
+    overflow: hidden;
+    background: #96031a;
+    float: right;
+}
+
+input:checked+.test {
+    height: 500px;
+    opacity: 1;
+}
+
+.hiddenmenu {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.hiddenmenu h1 {
+    font-size: 22px;
+}
+
+hr.new1 {
+    border-top: 1px solid white;
 }
