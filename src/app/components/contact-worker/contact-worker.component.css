@@ -97,6 +97,10 @@ mat-form-field{
   background-color: #ff9900;
 }
 
+.btn-contact:hover{
+  opacity: 0.88;
+}
+
 mat-form-field mat-label{
   padding: 10px;
 }

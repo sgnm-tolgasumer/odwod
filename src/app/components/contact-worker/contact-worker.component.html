@@ -1,7 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">Contact Us</h1>
-  <mat-grid-list cols="6" rowHeight="330px">
-    <mat-grid-tile colspan="5" rowspan="2">
+  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" cols="2" rowHeight="330px">
+    <mat-grid-tile colspan="1" rowspan="2">
       <mat-card class="dashboard-card mat-elevation-z8">
         <mat-card-header>
           <mat-card-title>

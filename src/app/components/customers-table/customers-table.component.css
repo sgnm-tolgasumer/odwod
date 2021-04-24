@@ -28,6 +28,9 @@ table {
   bottom: 6px;
 }
 
+.sticky-button button:hover{
+  opacity: 0.88;
+}
 
 .example-form{
   color: #470000 !important;

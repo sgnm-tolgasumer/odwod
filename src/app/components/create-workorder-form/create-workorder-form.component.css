@@ -66,3 +66,7 @@
 ::ng-deep .mat-simple-snackbar-action {
   color: #ff9900;
 }
+
+.form-line-height{
+  line-height: initial;
+}

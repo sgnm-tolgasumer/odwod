@@ -1,50 +1,94 @@
 <!-- Navbar -->
 <div class="nav-container">
-    <nav id="nav-content" class="overlay-nav show-content">
-        <div class="container">
-            <div class="indus">
-                <div class="row">
-                    <div class="col-md-2 vertical-aligner">
-                        <a class="inner-link worderizeNavbar" href="#mainpage" href="#first">
-                            <img src="/assets/worderizelogo.png" style="height: 50px;">
-                        </a>
-                    </div>
-                    <div class="col-md-10 text-right vertical-aligner">
-                        <ul class="menu row vertical-aligner">
-                            <li class="has-dropdown nav-bar-item col-sm-2">
-                                <a class="inner-link " href="#services">
-                                    <span>SERVICES</span>
-                                </a>
-                            </li>
-                            <li class="col-sm-2">
-                                <a class="inner-link" href="#whyus"><span>WHY US?</span></a>
-                            </li>
-                            <li class="col-sm-2">
-                                <a class="inner-link" href="#aboutus">
-                                    <span>ABOUT US</span>
-                                </a>
-                            </li>
-                            <li class="col-sm-2">
-                                <a class="inner-link" routerLink="/contact-page">
-                                    <span>CONTACT</span>
-                                </a>
-                            </li>
-                            <li class="col-sm-2">
-                                <a class="inner-link" routerLink="/sign-in">
-                                    <span><b>LOG IN</b></span>
-                                </a>
-                            </li>
-                            <li class="col-sm-2">
-                                <a class="inner-link" routerLink="/register-user">
-                                    <span><b>SIGN UP</b></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <nav id="nav-content" class="overlay-nav show-content">
+    <div class="container">
+      <div class="indus">
+        <div class="row">
+          <div style="display: inline-flex;" class="col-md-2 vertical-aligner">
+            <a class="inner-link worderizeNavbar" href="#mainpage" href="#first">
+              <img src="/assets/worderizelogo.png" class="worderizeLogo" style="float: center; text-align: center;">
+            </a>
+            <label for="smallmenu" class="menulabel hidden hiddenul">
+              <i class="fa fa-bars btnbar hidden hiddenul menu row vertical-aligner"
+                 style="margin-top: 5px; margin-left: auto;height: 25px;width: 60px;"></i>
+            </label>
+            <br>
+          </div>
+          <input id="smallmenu" type="checkbox" style="display: hidden;">
+          <div class="test hidden hiddenul">
+            <ul class="row vertical-aligner hidden hiddenul small-menu-ul" style="display: block;">
+              <h1 class="inner-link toggleLink hiddenmenu">
+                <b style="color: #ff9900;font-size: 24px">MENU</b>
+              </h1>
+              <hr class="new1">
+              <li class="nav-bar-item hiddenmenu">
+                <a class="inner-link toggleLink" href="#services">
+                  <span>SERVICES</span>
+                </a>
+              </li>
+              <li class="nav-bar-item hiddenmenu">
+                <a class="inner-link toggleLink" href="#whyus">
+                  <span>WHY US?</span></a>
+              </li>
+              <li class="nav-bar-item hiddenmenu">
+                <a class="inner-link toggleLink" href="#aboutus">
+                  <span>ABOUT US</span>
+                </a>
+              </li>
+              <li class="nav-bar-item hiddenmenu">
+                <a class="inner-link toggleLink" routerLink="/contact-page">
+                  <span>CONTACT</span>
+                </a>
+              </li>
+              <li class="nav-bar-item hiddenmenu">
+                <a class="inner-link toggleLink" routerLink="/sign-in">
+                  <span><b>LOG IN</b></span>
+                </a>
+              </li>
+              <li class="nav-bar-item hiddenmenu" style="margin-bottom: 5px;">
+                <a class="inner-link toggleLink" routerLink="/register-user">
+                  <span><b>SIGN UP</b></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-10 text-right vertical-aligner">
+            <ul class="menu row vertical-aligner">
+              <li class="has-dropdown nav-bar-item col-sm-2">
+                <a class="inner-link " href="#services">
+                  <span>SERVICES</span>
+                </a>
+              </li>
+              <li class="col-sm-2 nav-bar-item">
+                <a class="inner-link" href="#whyus"><span>WHY US?</span></a>
+              </li>
+              <li class="col-sm-2 nav-bar-item">
+                <a class="inner-link" href="#aboutus">
+                  <span>ABOUT US</span>
+                </a>
+              </li>
+              <li class="col-sm-2 nav-bar-item">
+                <a class="inner-link" routerLink="/contact-page">
+                  <span>CONTACT</span>
+                </a>
+              </li>
+              <li class="col-sm-2 nav-bar-item">
+                <a class="inner-link" routerLink="/sign-in">
+                  <span><b>LOG IN</b></span>
+                </a>
+              </li>
+              <li class="col-sm-2 nav-bar-item">
+                <a class="inner-link" routerLink="/register-user">
+                  <span><b>SIGN UP</b></span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </div>
 <!-- End Navbar -->
 <!-- first contact form
@@ -65,9 +109,9 @@
             </form>
         </div>
         end first contact form-->
-<div class="displayTable" style="background-color: #96031a;">
+<div class="displayTable shadow-contact" style="background-color: #96031a;">
     <div class="displayTableCell">
-        <div class="authBlock" style="border-radius: 9px">
+        <div class="authBlock shadow-contact" style="border-radius: 9px">
             <div class="formGroup">
                 <h3 style="font-size: 35px;color: #470000">Contact Us</h3>
                 <form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
