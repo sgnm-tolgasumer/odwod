@@ -9,6 +9,10 @@ nav .logo {
     transition: width 200ms ease-in-out;
   }
 
+#logo-op{
+  opacity: 1.0;
+}
+
   .nav-container .overlay-nav .container .indus .row .col-md-2 a .logo:hover {
     opacity: 0.7;
   }
@@ -688,4 +692,126 @@ button {
 button:hover:enabled{
     color: white;
     background-color: black;
+}
+
+@media screen and (min-width: 770px) {
+  #toggle {
+    display: none!important;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .menu {
+    display: none;
+  }
+  .hidden {
+  }
+  .hiddenul {
+    display: grid;
+    text-align: left;
+    margin-bottom: 3px;
+  }
+  .fa-bars {
+    display: inline;
+    font-size: 24px;
+    color: white;
+  }
+  .menu li {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .menu li {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 801px) {
+  .menu li {
+    font-size: 12px;
+  }
+}
+
+.toggleLink {
+  color: white;
+  text-decoration: none;
+}
+
+.toggleLink:hover {
+  color: orange;
+}
+
+.btnbar {
+  background-color: hsl(351, 66%, 35%);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#smallmenu {
+  display: none;
+}
+
+.menulabel {
+  margin-left: auto;
+  cursor: pointer;
+  display: block;
+  padding: 5px 10px;
+  color: #FFF;
+  -webkit-transition: background-color 0.1s, color 0.1s;
+}
+
+.menulabel:hover {
+  background: #96031a;
+  color: #000;
+}
+
+.test {
+  -webkit-transition: height 1s ease;
+  height: 0;
+  width: 765px;
+  overflow: hidden;
+  background: #96031a;
+  float: right;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+
+input:checked+.test {
+  height: 500px;
+  opacity: 1;
+}
+
+.hiddenmenu {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hiddenmenu h1 {
+  font-size: 22px;
+}
+
+hr.new1 {
+  border-top: 2px solid white;
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+.small-menu-ul{
+  text-align: left;
+  list-style-type: none;
+  font-size: 14px;
+  padding: 0!important;
+}
+
+.small-menu-ul li{
+  margin-top: 40px!important;
+}
+
+
+.shadow-contact{
+  box-shadow: 0 0 20px 0 rgb(70 0 0)!important;
 }

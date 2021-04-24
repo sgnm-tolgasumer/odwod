@@ -29,6 +29,10 @@ table {
   bottom: 6px;
 }
 
+.sticky-button button:hover{
+  opacity: 0.88;
+}
+
 .example-form-field{
   margin-top: 10px;
   margin-right: 15px;

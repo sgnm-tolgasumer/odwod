@@ -17,3 +17,7 @@ a {
   position: absolute;
   bottom: 10px;
 }
+
+#btn-contact:hover{
+  opacity: 0.88;
+}

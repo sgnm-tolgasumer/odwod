@@ -29,7 +29,15 @@ export class ContactWorkerComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void {
+
+  breakpoint: number;
+
+  ngOnInit() {
+    this.breakpoint = (window.innerWidth <= 1179) ? 1 : 2;
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 1179) ? 1 : 2;
   }
 
   onSubmit() {

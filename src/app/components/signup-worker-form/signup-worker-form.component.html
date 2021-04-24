@@ -2,12 +2,12 @@
   (ngSubmit)="onSubmit(f,name.value,surname.value,password.value,telephone.value,mail.value,date.value,city.value,region.value,work.value)">
 
   <div style="display: inline-flex">
-   <mat-form-field class="example-full-width" style="width:180px;margin-right: 5px">
+   <mat-form-field class="form-line-height example-full-width" style="width:180px;margin-right: 5px">
      <mat-label>Name</mat-label>
      <input matInput #name type="text" name="name" value="{{name.getValue}}">
    </mat-form-field>
    <br><br>
-   <mat-form-field class="example-full-width" style="width:180px;margin-left: 5px">
+   <mat-form-field class="form-line-height example-full-width" style="width:180px;margin-left: 5px">
      <mat-label>Surname</mat-label>
      <input matInput type="text" name="surname" #surname value="{{surname.getValue}}">
    </mat-form-field>
@@ -16,7 +16,7 @@
   <br>
 
   <div style="display: grid;padding-top: 10px">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="form-line-height example-full-width">
       <mat-label>Email</mat-label>
       <input type="email" name="email" #mail value="{{mail.getValue}}" matInput [formControl]="emailFormControl">
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">

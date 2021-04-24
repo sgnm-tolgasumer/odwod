@@ -131,3 +131,16 @@ table {
 ::ng-deep .mat-simple-snackbar-action {
   color: #ff9900;
 }
+
+#btn-get-wo{
+  background-color: #ff9900;
+  color: #470000;
+  height: 50px;
+  margin-top: 30px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
+#btn-get-wo:hover{
+ opacity: 0.88;
+}

@@ -19,6 +19,17 @@ nav {
     margin-bottom: auto;
 }
 
+.small-menu-ul{
+  text-align: left;
+  list-style-type: none;
+  font-size: 14px;
+  padding: 0!important;
+}
+
+.small-menu-ul li{
+ margin-top: 40px!important;
+}
+
 .nav-container {
     width: 1000px;
     max-width: 1000px;
@@ -71,6 +82,10 @@ nav {
     background: #96031a;
     max-width: 100%;
     margin: 0px auto;
+}
+
+#logo-op{
+  opacity: 1.0;
 }
 
 .boxed-layout .main-container,
@@ -261,6 +276,10 @@ footer.classic .social-profiles {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
+}
+
+.footer-contact li{
+  margin-top: 7px;
 }
 
 .nav-bar-item a span:hover {
@@ -771,6 +790,7 @@ input {
 }
 
 .menulabel {
+    margin-left: auto;
     cursor: pointer;
     display: block;
     padding: 5px 10px;
@@ -790,6 +810,8 @@ input {
     overflow: hidden;
     background: #96031a;
     float: right;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
 }
 
 input:checked+.test {
@@ -809,5 +831,7 @@ input:checked+.test {
 }
 
 hr.new1 {
-    border-top: 1px solid white;
+    border-top: 2px solid white;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;
 }
