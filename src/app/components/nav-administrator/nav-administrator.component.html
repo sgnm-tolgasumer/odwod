@@ -9,7 +9,9 @@
       <a mat-list-item [routerLink]="['admin-worker-operations']">Worker Operations</a>
       <a mat-list-item [routerLink]="['admin-customer-operations']">Customer Operations</a>
       <a mat-list-item [routerLink]="['district-jobtype-operations']">District and Job Type Operations</a>
-
+      <a class="nav-link" (click)="authService.SignOut()">
+        <i class="fas fa-sign-out-alt"></i>Log out
+      </a>
 
     </mat-nav-list>
   </mat-sidenav>

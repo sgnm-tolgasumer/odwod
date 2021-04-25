@@ -1,1 +1,29 @@
-<p>administrator-login works!</p>
+<div class="displayTable mat-elevation-z8">
+  <div class="displayTableCell">
+
+    <div class="authBlock admin-sh" style="border-radius: 9px">
+      <h3 class="font-family-angular" style="font-size: 35px;color: #470000">Sign In</h3>
+
+      <br><br>
+      <div class="formGroup">
+        <input type="text" class="formControl" placeholder="Username" #userName required>
+      </div>
+
+      <div class="formGroup">
+        <input type="password" class="formControl" placeholder="Password" #userPassword required>
+      </div>
+
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="formGroup">
+        <input type="button" class="btn btnPrimary" value="Log in as Administrator"
+               (click)="authService.SignIn(userName.value, userPassword.value, 'administrator')">
+
+      </div>
+
+      <div class="forgotPassword">
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div>
+    </div>
+
+  </div>
+</div>
