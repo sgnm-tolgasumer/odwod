@@ -39,7 +39,9 @@ export class AuthService {
         this.ngZone.run(() => {
           if (userType == "customer") {
             this.router.navigate(['nav/initial-page-customer']);
-          } else {
+          } else if (userType == "administrator" && email=="bananenki@gmail.com" && password == "123456789"){
+            this.router.navigate(['nav-administrator/initial-page-administrator']);
+          }else {
             this.router.navigate(['nav-worker/initial-page-worker']);
           }
         });
