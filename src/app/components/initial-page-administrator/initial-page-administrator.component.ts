@@ -32,16 +32,18 @@ export class InitialPageAdministratorComponent {
 
   workerCount: any;
   customerCount: any;
+  activeCount: any;
+  totalDoneWorkOrderCount: any;
 
-  constructor(private breakpointObserver: BreakpointObserver, private http: HttpClient) {}
+  constructor(private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.getCountWorkers();
     this.getCountCustomers();
+    this.getCountActiveWorkOrders();
+    this.getCountDoneWorkOrders();
   }
 
   public getCountWorkers() {
@@ -52,5 +54,15 @@ export class InitialPageAdministratorComponent {
   public getCountCustomers() {
     let countCustomer = this.http.get("http://localhost:8080/customer/customerCount");
     countCustomer.subscribe(response => this.customerCount = response);
+  }
+
+  public getCountActiveWorkOrders() {
+    let countActive = this.http.get("http://localhost:8080/workorder/activeCount");
+    countActive.subscribe(response => this.activeCount = response);
+  }
+
+  public getCountDoneWorkOrders() {
+    let countDone = this.http.get("http://localhost:8080/doneWorkOrder/doneCount");
+    countDone.subscribe(response => this.totalDoneWorkOrderCount = response);
   }
 }
