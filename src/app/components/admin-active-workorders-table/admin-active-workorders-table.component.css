@@ -140,18 +140,8 @@ td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
   display: none;
 }
 
-.pending {
-  color: #ff9900;
-}
-
 .in-progress {
   color: #2b9100;
 }
 
-.done {
-  color: #470000;
-}
 
-.expired {
-  color: #1847acd0;
-}

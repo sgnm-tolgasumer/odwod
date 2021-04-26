@@ -76,6 +76,7 @@ import { AdminWorkerOperationsComponent } from './components/admin-worker-operat
 import { DistrictJobtypeOperationsComponent } from './components/district-jobtype-operations/district-jobtype-operations.component';
 import { CustomerWorkordersTableComponent } from './components/customer-workorders-table/customer-workorders-table.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AdminActiveWorkordersTableComponent } from './components/admin-active-workorders-table/admin-active-workorders-table.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AdminWorkerOperationsComponent,
     DistrictJobtypeOperationsComponent,
     CustomerWorkordersTableComponent,
+    AdminActiveWorkordersTableComponent,
 
   ],
   imports: [
