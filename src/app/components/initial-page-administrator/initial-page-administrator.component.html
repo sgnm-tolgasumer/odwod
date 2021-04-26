@@ -17,7 +17,7 @@
             </div>
           </div>
         </mat-card-content>
-        <mat-card-content class="stats"  *ngIf="workerCount != null">
+        <mat-card-content class="stats" *ngIf="workerCount != null">
           <div id="worker" routerLink="/nav-administrator/admin-worker-operations" class="wrapper mat-elevation-z8">
             <div class="left-space font-titilium" style="display: inline-flex">
               <div class="number" style="--from: 0; --to:{{workerCount.count}}; --duration: 2s;"></div>
@@ -26,12 +26,22 @@
             </div>
           </div>
         </mat-card-content>
-        <mat-card-content class="stats" *ngIf="workerCount != null">
-          <div id="active-work-order" routerLink="/nav-administrator/admin-customer-operations" class="wrapper mat-elevation-z8">
+        <mat-card-content class="stats" *ngIf="activeCount != null">
+          <div id="active-work-order" routerLink="/nav-administrator/admin-customer-operations"
+            class="wrapper mat-elevation-z8">
             <div class="left-space font-titilium" style="display: inline-flex">
-              <div class="number" style="--from: 0; --to:{{workerCount.count}}; --duration: 2s;"></div>
+              <div class="number" style="--from: 0; --to:{{activeCount.count}}; --duration: 2s;"></div>
               <i class="user-type-icon fa fa-users"></i>
               <span class="user-type-span">Active Work Orders</span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-content class="stats" *ngIf="totalDoneWorkOrderCount != null">
+          <div id="worker" routerLink="/nav-administrator/admin-worker-operations" class="wrapper mat-elevation-z8">
+            <div class="left-space font-titilium" style="display: inline-flex">
+              <div class="number" style="--from: 0; --to:{{totalDoneWorkOrderCount.count}}; --duration: 2s;"></div>
+              <i class=" user-type-icon fa fa-users"></i>
+              <span class="user-type-span">Total Completed Work Orders</span>
             </div>
           </div>
         </mat-card-content>
