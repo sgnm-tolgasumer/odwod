@@ -36,8 +36,8 @@
                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
                     <div class="example-element-diagram">
                         <div class="example-element-position"> Current Status </div>
-                        <div [ngClass]="{'pending' : workOrderStatus==='Pending','in-progress' :workOrderStatus==='In Progress'}"
-                             class="example-element-symbol">{{workOrderStatus}}
+                        <div [ngClass]="{'pending' : workOrderStatus==='Pending','in-progress' :workOrderStatus==='In Progress', 'done' :workOrderStatus==='Done', 'expired' :workOrderStatus==='Expired'}"
+                            class="example-element-symbol">{{workOrderStatus}}
                         </div>
                         <div class="example-element-name"> {{element.addressCity}} </div>
                     </div>
@@ -46,17 +46,19 @@
                             Description</span><br> {{element.description}}
                     </p>
                     <p class="example-element-description">
-                        <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;"> District </span><br> {{element.addressDistrict}}
+                        <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;"> District
+                        </span><br> {{element.addressDistrict}}
                     </p>
                 </div>
             </td>
         </ng-container>
 
-      <ng-container matColumnDef="paginator">
-        <td mat-footer-cell *matFooterCellDef [colSpan]="displayedColumns.length">
-          <mat-paginator class="sticky-paginator mat-elevation-z8" [pageSizeOptions]="[10,20]" showFirstLastButtons></mat-paginator>
-        </td>
-      </ng-container>
+        <ng-container matColumnDef="paginator">
+            <td mat-footer-cell *matFooterCellDef [colSpan]="displayedColumns.length">
+                <mat-paginator class="sticky-paginator mat-elevation-z8" [pageSizeOptions]="[10,20]"
+                    showFirstLastButtons></mat-paginator>
+            </td>
+        </ng-container>
 
         <tr mat-footer-row *matFooterRowDef="['paginator']; sticky: true"></tr>
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
