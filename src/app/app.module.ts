@@ -79,6 +79,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AdminActiveWorkordersTableComponent } from './components/admin-active-workorders-table/admin-active-workorders-table.component';
 import { AdminActiveWorkOrdersComponent } from './components/admin-active-work-orders/admin-active-work-orders.component';
 import { AdminCompletedWorkOrdersComponent } from './components/admin-completed-work-orders/admin-completed-work-orders.component';
+import { AdminDoneWorkordersTableComponent } from './components/admin-done-workorders-table/admin-done-workorders-table.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { AdminCompletedWorkOrdersComponent } from './components/admin-completed-
     AdminActiveWorkordersTableComponent,
     AdminActiveWorkOrdersComponent,
     AdminCompletedWorkOrdersComponent,
+    AdminDoneWorkordersTableComponent,
 
   ],
   imports: [
