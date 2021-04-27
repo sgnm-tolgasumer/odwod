@@ -77,6 +77,8 @@ import { DistrictJobtypeOperationsComponent } from './components/district-jobtyp
 import { CustomerWorkordersTableComponent } from './components/customer-workorders-table/customer-workorders-table.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AdminActiveWorkordersTableComponent } from './components/admin-active-workorders-table/admin-active-workorders-table.component';
+import { AdminActiveWorkOrdersComponent } from './components/admin-active-work-orders/admin-active-work-orders.component';
+import { AdminCompletedWorkOrdersComponent } from './components/admin-completed-work-orders/admin-completed-work-orders.component';
 
 @NgModule({
   declarations: [
@@ -119,6 +121,8 @@ import { AdminActiveWorkordersTableComponent } from './components/admin-active-w
     DistrictJobtypeOperationsComponent,
     CustomerWorkordersTableComponent,
     AdminActiveWorkordersTableComponent,
+    AdminActiveWorkOrdersComponent,
+    AdminCompletedWorkOrdersComponent,
 
   ],
   imports: [
