@@ -60,4 +60,8 @@ export class WorkordersTableService {
     return this.http.get("http://localhost:8080/workorder?topicId=in_progress");
   }
 
+  public getAllDoneWorkOrders(){
+    return this.http.get("http://localhost:8080/doneWorkOrder");
+  }
+
 }
