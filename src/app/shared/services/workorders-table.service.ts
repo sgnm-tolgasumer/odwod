@@ -76,4 +76,11 @@ export class WorkordersTableService {
     return this.http.get("http://localhost:8080/doneWorkOrder/byCustomer/" + customerUid);
   }
 
+  /**
+   * It will get all the completed work orders by worker's uid from MySQL database via REST API (for worker job history page).
+   * @returns JSON Array.
+   */
+   public getAllDoneWorkerWorkOrders(workerUid: string) {
+    return this.http.get("http://localhost:8080/doneWorkOrder/byWorker/" + workerUid);
+  }
 }
