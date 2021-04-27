@@ -38,11 +38,11 @@ export class AdminActiveWorkordersTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getAllPendingWorkOrders();
+    this.getAllActiveWorkOrders();
   }
 
-  getAllPendingWorkOrders() {
-    let resp = this.service.getAllPendingWorkOrders();
+  getAllActiveWorkOrders() {
+    let resp = this.service.getAllActiveWorkOrders();
     resp.subscribe(report => this.dataSource.data = report as WorkOrders[]);
   }
 
