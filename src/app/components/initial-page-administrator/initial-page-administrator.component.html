@@ -21,26 +21,26 @@
           <div id="worker" routerLink="/nav-administrator/admin-worker-operations" class="wrapper mat-elevation-z8">
             <div class="left-space font-titilium" style="display: inline-flex">
               <div class="number" style="--from: 0; --to:{{workerCount.count}}; --duration: 2s;"></div>
-              <i class=" user-type-icon fa fa-users"></i>
+              <i class=" user-type-icon fa fa-id-card"></i>
               <span class="user-type-span">Worker</span>
             </div>
           </div>
         </mat-card-content>
         <mat-card-content class="stats" *ngIf="activeCount != null">
-          <div id="active-work-order" routerLink="/nav-administrator/admin-customer-operations"
+          <div id="active-work-order" routerLink="/nav-administrator/admin-active-work-orders"
             class="wrapper mat-elevation-z8">
             <div class="left-space font-titilium" style="display: inline-flex">
               <div class="number" style="--from: 0; --to:{{activeCount.count}}; --duration: 2s;"></div>
-              <i class="user-type-icon fa fa-users"></i>
+              <i class="user-type-icon fa fa-business-time"></i>
               <span class="user-type-span">Active Work Orders</span>
             </div>
           </div>
         </mat-card-content>
         <mat-card-content class="stats" *ngIf="totalDoneWorkOrderCount != null">
-          <div id="worker" routerLink="/nav-administrator/admin-worker-operations" class="wrapper mat-elevation-z8">
+          <div id="worker" routerLink="/nav-administrator/admin-completed-work-orders" class="wrapper mat-elevation-z8">
             <div class="left-space font-titilium" style="display: inline-flex">
               <div class="number" style="--from: 0; --to:{{totalDoneWorkOrderCount.count}}; --duration: 2s;"></div>
-              <i class=" user-type-icon fa fa-users"></i>
+              <i class=" user-type-icon fa fa-clipboard-check"></i>
               <span class="user-type-span">Total Completed Work Orders</span>
             </div>
           </div>

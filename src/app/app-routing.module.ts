@@ -28,6 +28,8 @@ import {AdministratorLoginComponent} from './components/administrator-login/admi
 import {AdminCustomerOperationsComponent} from './components/admin-customer-operations/admin-customer-operations.component';
 import {AdminWorkerOperationsComponent} from './components/admin-worker-operations/admin-worker-operations.component';
 import {DistrictJobtypeOperationsComponent} from './components/district-jobtype-operations/district-jobtype-operations.component';
+import {AdminCompletedWorkOrdersComponent} from './components/admin-completed-work-orders/admin-completed-work-orders.component';
+import {AdminActiveWorkOrdersComponent} from './components/admin-active-work-orders/admin-active-work-orders.component';
 
 
 const routes: Routes = [
@@ -59,7 +61,9 @@ const routes: Routes = [
       { path: 'initial-page-administrator', component: InitialPageAdministratorComponent },
       { path: 'admin-customer-operations', component: AdminCustomerOperationsComponent },
       { path: 'admin-worker-operations', component: AdminWorkerOperationsComponent },
-      { path: 'district-jobtype-operations', component: DistrictJobtypeOperationsComponent }]
+      { path: 'district-jobtype-operations', component: DistrictJobtypeOperationsComponent },
+      { path: 'admin-completed-work-orders', component: AdminCompletedWorkOrdersComponent },
+      { path: 'admin-active-work-orders', component: AdminActiveWorkOrdersComponent }]
   },
   { path: 'index-page', component: IndexPageComponent },
   { path: 'contact-page', component: ContactPageComponent }
