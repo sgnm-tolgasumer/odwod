@@ -43,6 +43,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 // Component imports
 import { SignupCustomerFormComponent } from './components/signup-customer-form/signup-customer-form.component';
@@ -75,12 +76,12 @@ import { AdminCustomerOperationsComponent } from './components/admin-customer-op
 import { AdminWorkerOperationsComponent } from './components/admin-worker-operations/admin-worker-operations.component';
 import { DistrictJobtypeOperationsComponent } from './components/district-jobtype-operations/district-jobtype-operations.component';
 import { CustomerWorkordersTableComponent } from './components/customer-workorders-table/customer-workorders-table.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AdminActiveWorkordersTableComponent } from './components/admin-active-workorders-table/admin-active-workorders-table.component';
 import { AdminActiveWorkOrdersComponent } from './components/admin-active-work-orders/admin-active-work-orders.component';
 import { AdminCompletedWorkOrdersComponent } from './components/admin-completed-work-orders/admin-completed-work-orders.component';
 import { AdminDoneWorkordersTableComponent } from './components/admin-done-workorders-table/admin-done-workorders-table.component';
 import { CustomerDoneWorkordersTableComponent } from './components/customer-done-workorders-table/customer-done-workorders-table.component';
+import { WorkerDoneWorkordersTableComponent } from './components/worker-done-workorders-table/worker-done-workorders-table.component';
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { CustomerDoneWorkordersTableComponent } from './components/customer-done
     AdminCompletedWorkOrdersComponent,
     AdminDoneWorkordersTableComponent,
     CustomerDoneWorkordersTableComponent,
+    WorkerDoneWorkordersTableComponent,
 
   ],
   imports: [
