@@ -56,12 +56,24 @@ export class WorkordersTableService {
    * It will get all the work orders from the Kafka's in_progress topic (for admin page). 
    * @returns JSON Array.
    */
-  public getAllPendingWorkOrders() {
+  public getAllActiveWorkOrders() {
     return this.http.get("http://localhost:8080/workorder?topicId=in_progress");
   }
 
-  public getAllDoneWorkOrders(){
+  /**
+   * It will get all the completed work orders from MySQL database via REST API (for admin page).
+   * @returns JSON Array.
+   */
+  public getAllDoneWorkOrders() {
     return this.http.get("http://localhost:8080/doneWorkOrder");
+  }
+
+  /**
+   * It will get all the completed work orders by customer's uid from MySQL database via REST API (for customer job history page).
+   * @returns JSON Array.
+   */
+  public getAllDoneCustomerWorkOrders(customerUid: string) {
+    return this.http.get("http://localhost:8080/doneWorkOrder/byCustomer/" + customerUid);
   }
 
 }

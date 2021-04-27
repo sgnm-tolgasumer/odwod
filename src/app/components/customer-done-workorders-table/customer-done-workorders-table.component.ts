@@ -5,12 +5,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { WorkOrders } from 'src/app/shared/services/workorders';
 import { WorkordersTableService } from 'src/app/shared/services/workorders-table.service';
-
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
-  selector: 'app-admin-active-workorders-table',
-  templateUrl: './admin-active-workorders-table.component.html',
-  styleUrls: ['./admin-active-workorders-table.component.css'],
+  selector: 'app-customer-done-workorders-table',
+  templateUrl: './customer-done-workorders-table.component.html',
+  styleUrls: ['./customer-done-workorders-table.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -19,18 +19,39 @@ import { WorkordersTableService } from 'src/app/shared/services/workorders-table
     ]),
   ],
 })
-export class AdminActiveWorkordersTableComponent implements OnInit {
-
+export class CustomerDoneWorkordersTableComponent implements OnInit {
   ELEMENT_DATA: WorkOrders[];
   displayedColumns: string[] = ['workOrderId', 'title', 'type'];
   dataSource;
   expandedElement: WorkOrders | null;
-  workOrderStatus = "In Progress";
+  workOrderStatus = "Done";
 
-  constructor(private service: WorkordersTableService) { }
+
+  constructor(public authService: AuthService, private service: WorkordersTableService) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
+  }
+
+  getAllDoneCustomerWorkOrders() {
+    var uid;
+    this.authService.afAuth.onAuthStateChanged(function (user) {
+      if (user) {
+
+        uid = user.uid;
+        //console.log(uid);
+      } else {
+
+        // No user is signed in.
+      }
+    }).then((value) => {
+      setTimeout(() => {
+        let resp = this.service.getAllDoneCustomerWorkOrders(uid);
+        resp.subscribe(report => this.dataSource.data = report as WorkOrders[]);
+      }, 1000);
+    });
+
+
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,15 +59,11 @@ export class AdminActiveWorkordersTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getAllActiveWorkOrders();
-  }
-
-  getAllActiveWorkOrders() {
-    let resp = this.service.getAllActiveWorkOrders();
-    resp.subscribe(report => this.dataSource.data = report as WorkOrders[]);
+    this.getAllDoneCustomerWorkOrders();
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 }
