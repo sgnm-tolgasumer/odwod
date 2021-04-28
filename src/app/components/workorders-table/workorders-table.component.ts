@@ -1,4 +1,3 @@
-import { WorkorderTransferService } from './../../shared/services/workorder-transfer.service';
 import { WorkordersTableService } from './../../shared/services/workorders-table.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -29,7 +28,7 @@ export class WorkordersTableComponent implements OnInit {
   dataSource;
   expandedElement: WorkOrders | null;
 
-  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private transfer: WorkorderTransferService, private _snackBar: MatSnackBar) { }
+  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   workOrderToTransfer: any;
 
@@ -73,7 +72,6 @@ export class WorkordersTableComponent implements OnInit {
   getTheJobButtonClick(workOrder: any) {
     workOrder["workerId"] = this.authService.getCurrentUser().uid;
     this.service.getTheJob(workOrder);
-    this.transfer.setWorkOrder(workOrder);
     this._snackBar.open('You Got The Job Successfully !!!!', 'Close', {
       duration: 3000
     });
