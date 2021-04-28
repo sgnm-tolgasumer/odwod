@@ -1,10 +1,10 @@
+import { WorkordersTableService } from './../../shared/services/workorders-table.service';
+import { WorkOrders } from './../../shared/services/workorders';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { WorkOrders } from 'src/app/shared/services/workorders';
-import { WorkordersTableService } from 'src/app/shared/services/workorders-table.service';
 import { AuthService } from "../../shared/services/auth.service";
 
 @Component({

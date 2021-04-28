@@ -1,35 +1,39 @@
 <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+  <div mat-card-avatar class="example-header-image"></div>
   <mat-card-title class="font-titilium" style="color:#ff9900;font-weight: bold">Your Current Job</mat-card-title>
-  <mat-card-subtitle class="font-titilium" *ngIf="authService.userData as user" >{{(user.displayName) ? user.displayName : 'User'}} </mat-card-subtitle>
-  </mat-card-header>
-  <img  mat-card-image src="../../../assets/worker-in-progress.jpg">
-  <mat-card-content *ngIf="workOrder['title'] != null">
-    <div>
-      <p class="font-titilium">
-        <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job Title</span>
-        <br> {{workOrder.title}} <br>
-      </p>
-      <p class="font-titilium">
-        <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job Description</span>
-        <br> {{workOrder.description}} <br>
-      </p>
-      <p class="font-titilium">
-        <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Open Address</span>
-        <br> {{workOrder.openAddress}} <br>
-      </p>
-      <p class="font-titilium">
-        <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Telephone</span>
-        <br> {{workOrder.telephone}} <br>
-      </p>
+  <mat-card-subtitle class="font-titilium" *ngIf="authService.userData as user">{{(user.displayName) ? user.displayName
+    : 'User'}} </mat-card-subtitle>
+</mat-card-header>
+<img mat-card-image src="../../../assets/worker-in-progress.jpg">
 
-      <button style="background-color: #ff9900;color: #470000; height: 50px" mat-raised-button (click)="closeJobButtonClick(workOrder)">Close WORDER</button>
+<mat-card-content>
 
-    </div>
-  </mat-card-content>
-  <mat-card-content *ngIf="workOrder['title'] == null">
-    <div>
-      <p style="text-align: center;margin-top: 100px;color: #470000;font-weight: bolder;font-size: 35px" class="font-titilium">You Have Currently No Job  </p>
-    </div>
-  </mat-card-content>
+  <div *ngIf="currentWorkOrder !== undefined">
+    <p class="font-titilium">
+      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job Title</span>
+      <br> {{currentWorkOrder.title}} <br>
+    </p>
+    <p class="font-titilium">
+      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job Description</span>
+      <br> {{currentWorkOrder.description}} <br>
+    </p>
+    <p class="font-titilium">
+      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Open Address</span>
+      <br> {{currentWorkOrder.openAddress}} <br>
+    </p>
+    <p class="font-titilium">
+      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Telephone</span>
+      <br> {{currentWorkOrder.telephone}} <br>
+    </p>
 
+    <button style="background-color: #ff9900;color: #470000; height: 50px" mat-raised-button
+      (click)="closeJobButtonClick(currentWorkOrder)">Close WORDER</button>
+  </div>
+
+  <div *ngIf="currentWorkOrder === undefined">
+    <p style="text-align: center;margin-top: 100px;color: #470000;font-weight: bolder;font-size: 35px"
+      class="font-titilium">You Have Currently No Job </p>
+  </div>
+
+
+</mat-card-content>
