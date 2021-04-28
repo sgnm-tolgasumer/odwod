@@ -37,3 +37,12 @@
 #info-wrapper{
   padding-left: 50px;
 }
+
+#done-p{
+  color: #470000;
+  font-size: 25px;
+  background-color: white;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 20px;
+}

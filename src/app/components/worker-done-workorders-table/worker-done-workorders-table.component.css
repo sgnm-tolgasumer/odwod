@@ -3,17 +3,18 @@ table {
   }
 
 .table-container {
-  height: 530px;
   overflow: auto;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
 }
 
+
 .sticky-paginator{
-  border-bottom-left-radius: 9px;
-  border-bottom-right-radius: 9px;
+  bottom: 0px;
   position: sticky;
   z-index: 10;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
 }
   th.mat-sort-header-sorted {
     color: black;
@@ -136,9 +137,6 @@ td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
   padding-left: 0!important;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
 
 .done {
     color: #470000;

@@ -21,7 +21,7 @@ import { AuthService } from "../../shared/services/auth.service";
 })
 export class CustomerDoneWorkordersTableComponent implements OnInit {
   ELEMENT_DATA: WorkOrders[];
-  displayedColumns: string[] = ['workOrderId', 'title', 'type'];
+  displayedColumns: string[] = ['workOrderId', 'title', 'type', 'addressCity', 'addressDistrict'];
   dataSource;
   expandedElement: WorkOrders | null;
   workOrderStatus = "Done";
