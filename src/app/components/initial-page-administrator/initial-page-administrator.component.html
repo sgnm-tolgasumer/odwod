@@ -37,11 +37,11 @@
           </div>
         </mat-card-content>
         <mat-card-content class="stats" *ngIf="totalDoneWorkOrderCount != null">
-          <div id="worker" routerLink="/nav-administrator/admin-completed-work-orders" class="wrapper mat-elevation-z8">
+          <div id="completed" routerLink="/nav-administrator/admin-completed-work-orders" class="wrapper mat-elevation-z8">
             <div class="left-space font-titilium" style="display: inline-flex">
               <div class="number" style="--from: 0; --to:{{totalDoneWorkOrderCount.count}}; --duration: 2s;"></div>
               <i class=" user-type-icon fa fa-clipboard-check"></i>
-              <span class="user-type-span">Total Completed Work Orders</span>
+              <span class="user-type-span">Completed Work Orders</span>
             </div>
           </div>
         </mat-card-content>

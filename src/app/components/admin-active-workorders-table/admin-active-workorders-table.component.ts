@@ -22,7 +22,7 @@ import { WorkordersTableService } from 'src/app/shared/services/workorders-table
 export class AdminActiveWorkordersTableComponent implements OnInit {
 
   ELEMENT_DATA: WorkOrders[];
-  displayedColumns: string[] = ['workOrderId', 'title', 'type'];
+  displayedColumns: string[] = ['workOrderId', 'title', 'type', 'addressCity', 'addressDistrict'];
   dataSource;
   expandedElement: WorkOrders | null;
   workOrderStatus = "In Progress";
