@@ -22,7 +22,7 @@ import { AuthService } from "../../shared/services/auth.service";
 export class WorkerDoneWorkordersTableComponent implements OnInit {
 
   ELEMENT_DATA: WorkOrders[];
-  displayedColumns: string[] = ['workOrderId', 'title', 'type'];
+  displayedColumns: string[] = ['workOrderId', 'title', 'type', 'addressCity', 'addressDistrict'];
   dataSource;
   expandedElement: WorkOrders | null;
   workOrderStatus = "Done";
@@ -33,7 +33,7 @@ export class WorkerDoneWorkordersTableComponent implements OnInit {
     this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
   }
 
-  
+
   getAllDoneWorkerWorkOrders() {
     var uid;
     this.authService.afAuth.onAuthStateChanged(function (user) {

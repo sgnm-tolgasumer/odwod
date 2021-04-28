@@ -627,6 +627,8 @@ input#img-6:checked~.nav-dots label#img-dot-6 {
 }
 
 #why-header {
+    font-family: 'Titillium Web', sans-serif;
+    color: #470000;
     margin-bottom: 50px;
 }
 
