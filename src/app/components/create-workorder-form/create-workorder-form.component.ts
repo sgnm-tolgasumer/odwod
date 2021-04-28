@@ -2,21 +2,15 @@ import { CreateWorkorderFormService } from './../../shared/services/create-worko
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../../shared/services/auth.service";
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DistrictsTableService } from './../../shared/services/districts-table.service';
+import { JobTypeTableService } from './../../shared/services/job-type-table.service';
+import { JobTypes } from 'src/app/shared/services/jobtypes';
+import { Districts } from 'src/app/shared/services/districts';
 
 interface City {
   value: string;
   viewValue: string;
-}
-
-interface Region {
-  valueregion: string;
-  viewValueregion: string;
-}
-
-interface Type {
-  valuetype: string;
-  viewValuetype: string;
 }
 
 @Component({
@@ -26,6 +20,9 @@ interface Type {
 })
 export class CreateWorkorderFormComponent implements OnInit {
 
+  dataSourceTypes: JobTypes[];
+  dataSourceDistricts: Districts[];
+
   selectedValue: string;
   selectedValueregion: string;
   selectedValuetype: string;
@@ -34,38 +31,28 @@ export class CreateWorkorderFormComponent implements OnInit {
     { value: 'Ankara', viewValue: 'Ankara' },
   ];
 
-  regions: Region[] = [
-    { valueregion: 'Cankaya', viewValueregion: 'Cankaya' },
-    { valueregion: 'Yenimahalle', viewValueregion: 'Yenimahalle' },
-    { valueregion: 'Kazan', viewValueregion: 'Kazan' },
-    { valueregion: 'Bilkent', viewValueregion: 'Bilkent' },
-    { valueregion: 'Mamak', viewValueregion: 'Mamak' }
-  ];
+  regionsList: string[] = [];
+  worksList: string[] = [];
 
-  types: Type[] = [
-    { valuetype: 'Fix Jobs', viewValuetype: 'Fix Jobs' },
-    { valuetype: 'Security', viewValuetype: 'Security' },
-    { valuetype: 'Home Jobs', viewValuetype: 'Home Jobs' },
-    { valuetype: 'Cleaning', viewValuetype: 'Cleaning' },
-    { valuetype: 'Recondition', viewValuetype: 'Recondition' }
-  ];
+  constructor(private service: CreateWorkorderFormService, public authService: AuthService, private _snackBar: MatSnackBar, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService) { }
 
-
-  constructor(private service: CreateWorkorderFormService, public authService: AuthService,private _snackBar: MatSnackBar) { }
-  
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    this.getRegionsList();
+    this.getWorkList();
+  }
+
   onSubmit(f: NgForm) {
-    
+
     var workOrder = f.value;
-    if(workOrder["title"]==null || workOrder["type"]==null || workOrder["telephone"]==null || workOrder["description"]=='' || workOrder["addressCity"]==null || workOrder["addressDistrict"]==null || workOrder["openAddress"]=='')
-    {
+    if (workOrder["title"] == null || workOrder["type"] == null || workOrder["telephone"] == null || workOrder["description"] == '' || workOrder["addressCity"] == null || workOrder["addressDistrict"] == null || workOrder["openAddress"] == '') {
       this._snackBar.open('Fields cannot be empty', 'Close', {
         duration: 3000
       });
     }
-    else{
+    else {
       workOrder["status"] = 0;
       var user = this.authService.getCurrentUser();
       workOrder["userId"] = user.uid;
@@ -79,9 +66,36 @@ export class CreateWorkorderFormComponent implements OnInit {
 
   }
 
+  /**
+   * It fills the regionslist from MySQL database over REST API.
+   */
+  public getRegionsList() {
+    this.districtNameService.districtsList().subscribe(data => {
+      this.dataSourceDistricts = data as Districts[];
+      this.dataSourceDistricts.forEach(element => {
+
+        this.regionsList.push(element.districtName);
+
+      });
+    });
+  }
+
+  /**
+   * It fills the work types list from MySQL database over REST API.
+   */
+  public getWorkList() {
+    this.jobTypeService.jobTypeList().subscribe(data => {
+      this.dataSourceTypes = data as JobTypes[];
+      this.dataSourceTypes.forEach(element => {
+
+        this.worksList.push(element.workType);
+      });
+    });
+  }
+
 }
 @Component({
   selector: 'createworkordercontent',
   templateUrl: 'createworkordercontent.html',
 })
-export class createworkordercontent {}
+export class createworkordercontent { }
