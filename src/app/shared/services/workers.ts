@@ -8,5 +8,8 @@ export interface Workers {
     surname: string,
     mail: string,
     telephone: string,
-    addressCity: string
+    addressCity: string,
+    birthDate: string,
+    workableDistricts: string,
+    jobTypes: string
 }
