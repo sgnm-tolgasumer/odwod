@@ -4,9 +4,74 @@
     <mat-grid-tile rowspan="4">
       <mat-card class="dashboard-card mat-elevation-z8">
         <mat-card-header>
-          <mat-card-title>Under Construction
+          <mat-card-title>User Profile Settings
           </mat-card-title>
         </mat-card-header>
+        <div id="user-wrapper" *ngIf="authService.userData as user">
+          <button mat-raised-button color="primary"
+            style="height:50px;width: 180px;margin-left: 5px;background-color:#118e4f"
+            (click)="changeProfilePic()">Change Your Profile Picture </button>
+          <div *ngIf="changePicture" style="display: inline-flex">
+            Select Your New Profile Picture
+            <button (click)="changeProfilePic(0)"> <img class="img-fluid " [src]="profilePictures[0]"></button>
+            <button (click)="changeProfilePic(1)"> <img class="img-fluid " [src]="profilePictures[1]"></button>
+            <button (click)="changeProfilePic(2)"> <img class="img-fluid " [src]="profilePictures[2]"></button>
+            <button (click)="changeProfilePic(3)"> <img class="img-fluid " [src]="profilePictures[3]"></button>
+          </div>
+
+          <div style="display: inline-flex">
+            <div>
+              <img id="usr-img" class="img-fluid" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                alt="{{user.displayName}}">
+              <div *ngIf="workerProfile !== undefined">
+                <form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                  <mat-form-field class="form-line-height" appearance="outline" style="width: 250px;margin-right: 10px">
+                    <mat-label>Change Your Name</mat-label>
+                    <input matInput #name type="text" name="name" [(ngModel)]="workerProfile.name"
+                      value="{{name.getValue}}">
+                    <mat-hint>Enter New Name to Change</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field class="form-line-height" appearance="outline" style="width: 250px;margin-right: 10px">
+                    <mat-label>Change Your Surname</mat-label>
+                    <input matInput #surname type="text" name="surname" [(ngModel)]="workerProfile.surname"
+                      value="surname.getValue">
+                    <mat-hint>Enter New Surname to Change</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field class="form-line-height" appearance="outline" style="width: 250px;margin-right: 10px">
+                    <mat-label>Change Your Telephone Number</mat-label>
+                    <input matInput #telephone type="text" name="telephone" [(ngModel)]="workerProfile.telephone"
+                      value="telephone.getValue">
+                    <mat-hint>Enter New Telephone Number to Change</mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" style="width: 180px;margin-right: 5px;">
+                    <mat-label>Change Your Workable Districts </mat-label>
+                    <mat-select multiple [(ngModel)]="selectedDistricts" #districts name="district">
+                      <mat-option *ngFor="let district of districtList" [value]="district"
+                        value="{{district.getValue}}">
+                        {{district}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-hint>Select New Districts to Change</mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" style="width: 180px;margin-right: 5px;">
+                    <mat-label>Change Work Types</mat-label>
+                    <mat-select multiple [(ngModel)]="selectedJobTypes" name="type">
+                      <mat-option *ngFor="let type of jobTypeList" [value]="type" #jobType value="{{type.getValue}}">
+                        {{type}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-hint>Select New Job Types to Change</mat-hint>
+                  </mat-form-field>
+                  <button type="submit" mat-raised-button color="primary"
+                    style="height:50px;width: 180px;margin-left: 5px;background-color:#118e4f">Update Profile
+                    Settings</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </mat-card>
     </mat-grid-tile>
 
