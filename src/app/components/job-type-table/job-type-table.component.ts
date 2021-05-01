@@ -1,5 +1,5 @@
 import { JobTypeTableService } from './../../shared/services/job-type-table.service';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { JobTypes } from 'src/app/shared/services/jobtypes';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
@@ -47,6 +47,7 @@ export class JobTypeTableComponent implements OnInit {
       this._snackBar.open('New Job Type Added Successfully', 'Close', {
         duration: 3000
       });
+      this.clearAddInput();
     }
   }
 
@@ -69,4 +70,12 @@ export class JobTypeTableComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
+
+  @ViewChild('addName') addNameInput: ElementRef;
+
+  clearAddInput(){
+    this.addNameInput.nativeElement.value = '';
+  }
+
 }

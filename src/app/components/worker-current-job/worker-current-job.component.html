@@ -1,33 +1,41 @@
-<mat-card-header>
-  <div mat-card-avatar class="example-header-image"></div>
-  <mat-card-title class="font-titilium" style="color:#ff9900;font-weight: bold">Your Current Job</mat-card-title>
-  <mat-card-subtitle class="font-titilium" *ngIf="authService.userData as user">{{(user.displayName) ? user.displayName
+
+<mat-card-header id="info-header" *ngIf="authService.userData as user">
+  <img style="height: 60px;margin:8px;width: 60px" mat-card-avatar src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}">
+  <mat-card-title class="font-titilium" style="color:white;margin-top: 10px;font-weight: bold;font-size: 30px">Your Current Job</mat-card-title>
+  <mat-card-subtitle style="font-size: 20px;margin-top: 5px;color: #024800" class="font-titilium">{{(user.displayName) ? user.displayName
     : 'User'}} </mat-card-subtitle>
 </mat-card-header>
-<img mat-card-image src="../../../assets/worker-in-progress.jpg">
-
 <mat-card-content>
 
   <div *ngIf="currentWorkOrder !== undefined">
-    <p class="font-titilium">
-      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job Title</span>
-      <br> {{currentWorkOrder.title}} <br>
-    </p>
-    <p class="font-titilium">
-      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Job Description</span>
-      <br> {{currentWorkOrder.description}} <br>
-    </p>
-    <p class="font-titilium">
-      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Open Address</span>
-      <br> {{currentWorkOrder.openAddress}} <br>
-    </p>
-    <p class="font-titilium">
-      <span style="color:#ff9900;font-size: 18px;font-weight: bold;margin-bottom: 3px;">Telephone</span>
-      <br> {{currentWorkOrder.telephone}} <br>
-    </p>
+    <div class="current-wrapper">
+      <div class="content-current">
+        <div style="width: 100%" class="wrap-elements">
+          <div class="wrap-child-width">
+            <p class="font-titilium current-header"><span><i style="margin-right: 5px;font-size: 20px" class="fa fa-thumbtack"></i></span>Job Title</p>
+            <p class="current-info">{{currentWorkOrder.title}}</p>
+          </div>
+          <div class="wrap-child-width">
+            <p class="font-titilium current-header"><span><i style="margin-right: 5px;font-size: 20px" class="fa fa-phone "></i></span>Telephone</p>
+            <p class="current-info">{{currentWorkOrder.telephone}}</p>
+          </div>
+        </div>
 
-    <button style="background-color: #ff9900;color: #470000; height: 50px" mat-raised-button
-      (click)="closeJobButtonClick(currentWorkOrder)">Close WORDER</button>
+        <div style="width: 100%" class="wrap-elements">
+          <div class="wrap-child-width">
+            <p class="font-titilium current-header"><span><i style="margin-right: 5px;font-size: 20px" class="fa fa-file-alt "></i></span>Job Description</p>
+            <p class="current-info">{{currentWorkOrder.description}}</p>
+          </div>
+          <div class="wrap-child-width">
+            <p class="font-titilium current-header"><span><i style="margin-right: 5px;font-size: 20px" class="fa fa-home "></i></span>Open Address</p>
+            <p class="current-info">{{currentWorkOrder.openAddress}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button style="width:100%;  background: linear-gradient(90deg, rgba(255,64,0,1) 0%, rgba(255,115,0,1) 25%,
+rgba(255,124,0,1) 50%, rgba(255,153,0,1) 75%, rgb(255,171,45) 100%);color: #470000; height: 60px" mat-raised-button
+            (click)="closeJobButtonClick(currentWorkOrder)"><span style="font-size: 25px;font-weight: bold">Close WORDER</span></button>
   </div>
 
   <div *ngIf="currentWorkOrder === undefined">

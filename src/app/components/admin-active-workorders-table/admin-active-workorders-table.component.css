@@ -144,3 +144,10 @@ td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
 }
 
 
+tr.mat-header-row{
+  background: #118E4F !important;
+}
+
+th{
+  color: whitesmoke;
+}
