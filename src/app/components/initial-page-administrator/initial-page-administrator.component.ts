@@ -18,11 +18,11 @@ export class InitialPageAdministratorComponent implements OnInit{
 
 
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 1000) ? 1 : 2;
+    this.breakpoint = (window.innerWidth <= 1449) ? 1 : 2;
   }
 
   onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 1000) ? 1 : 2;
+    this.breakpoint = (event.target.innerWidth <= 1449) ? 1 : 2;
   }
   constructor(private breakpointObserver: BreakpointObserver, private http: HttpClient) { }
 
