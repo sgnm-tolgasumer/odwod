@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
 export class WorkerCurrentJobComponent implements OnInit {
   currentWorkOrder: any;
 
-  constructor(public authService: AuthService, private http: HttpClient) { }
+  constructor(public authService: AuthService, private http: HttpClient, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {}
   ngAfterViewInit() {
@@ -28,7 +29,9 @@ export class WorkerCurrentJobComponent implements OnInit {
    */
   public closeJobButtonClick(workOrder: any) {
     this.http.post("http://localhost:8080/workorder/transfer/" + workOrder["workOrderId"] + "/" + "in_progress" + "/done/" + workOrder["workerId"], httpOptions).subscribe(data => {
-
+      this._snackBar.open('You Completed The Job Successfully !!!!', 'Close', {
+        duration: 3000
+      });
     });
   }
 
