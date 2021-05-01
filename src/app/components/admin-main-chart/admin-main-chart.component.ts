@@ -9,7 +9,7 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./admin-main-chart.component.css']
 })
 export class AdminMainChartComponent implements OnInit {
- 
+
   activeCount: any;
   totalDoneWorkOrderCount: any;
   chart: any;
@@ -24,7 +24,7 @@ export class AdminMainChartComponent implements OnInit {
     this.getCountDoneWorkOrders();
     this.getCountCustomers();
     this.getCountWorkers();
-    
+
   }
   ngAfterViewInit(){
     setTimeout(()=>
@@ -36,8 +36,8 @@ export class AdminMainChartComponent implements OnInit {
           {
             data: [parseInt(this.customerCount["count"]), parseInt(this.workerCount["count"])],
             backgroundColor: [
-              'rgb(144, 12, 63)',
-              'rgb(255, 87, 51)'
+              'rgb(38,38,76)',
+              'rgb(255,124,0)'
             ],
             hoverOffset: 4
           }]
