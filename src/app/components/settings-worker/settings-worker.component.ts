@@ -48,9 +48,9 @@ export class SettingsWorkerComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    var workOrder = f.value;
+    var worker = f.value;
 
-    if (workOrder["name"] == '' || workOrder["surname"] == '' || workOrder["telephone"] == '' || workOrder["type"] == null || workOrder["district"] == null) {
+    if (worker["name"] == '' || worker["surname"] == '' || worker["telephone"] == '' || worker["type"] == null || worker["district"] == null) {
       this._snackBar.open('Fields cannot be empty', 'Close', {
         duration: 3000
       });
@@ -62,7 +62,7 @@ export class SettingsWorkerComponent implements OnInit {
           uid = user.uid;
 
           user.updateProfile({
-            displayName: workOrder["name"] + " " + workOrder["surname"]
+            displayName: worker["name"] + " " + worker["surname"]
           }).then(function () {
 
           }).catch(function (error) {
@@ -73,7 +73,7 @@ export class SettingsWorkerComponent implements OnInit {
         }
       }).then((value) => {
         setTimeout(() => {
-          var workerUpdate = { "name": workOrder["name"], "surname": workOrder["surname"], "telephone": workOrder["telephone"], "workableDistricts": workOrder["district"].join(), "jobTypes": workOrder["type"].join() };
+          var workerUpdate = { "name": worker["name"], "surname": worker["surname"], "telephone": worker["telephone"], "workableDistricts": worker["district"].join(), "jobTypes": worker["type"].join() };
           this.service.updateWorkerProfile(uid, workerUpdate);
           this._snackBar.open('Profile Updated Successfully', 'Close', {
             duration: 3000
