@@ -4,10 +4,59 @@
     <mat-grid-tile rowspan="4">
       <mat-card class="dashboard-card mat-elevation-z8">
         <mat-card-header>
-          <mat-card-title>Under Construction
+          <mat-card-title>User Profile Settings
           </mat-card-title>
         </mat-card-header>
+        <div id="user-wrapper" *ngIf="authService.userData as user">
+          <div style="display: inline-flex">
+            <button id="main-img" style="width: 246px;height: 246px" mat-raised-button (click)="changeProfilePic()">
+              <img id="usr-img" class="img-fluid" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+            </button>
+            <div *ngIf="changePicture">
+              <div>
+                <button class="img-btn-selection" mat-raised-button (click)="changeProfilePic(0)"> <img class="img-fluid " [src]="profilePictures[0]"></button>
+                <button class="img-btn-selection" mat-raised-button (click)="changeProfilePic(1)"> <img class="img-fluid " [src]="profilePictures[1]"></button>
+              </div>
+              <div>
+                <button class="img-btn-selection" mat-raised-button (click)="changeProfilePic(2)"> <img class="img-fluid " [src]="profilePictures[2]"></button>
+                <button class="img-btn-selection" mat-raised-button (click)="changeProfilePic(3)"> <img class="img-fluid " [src]="profilePictures[3]"></button>
+              </div>
+            </div>
+          </div>
 
+
+          <div style="display: inline-flex">
+              <div *ngIf="customerProfile !== undefined">
+                <form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                  <div style="display: inline-flex">
+                    <div>
+                      <mat-form-field class="form-line-height left-form" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput #name type="text" name="name" [(ngModel)]="customerProfile.name"
+                               value="{{name.getValue}}">
+                        <mat-hint>Enter New Name to Change</mat-hint>
+                      </mat-form-field>
+                      <mat-form-field class="form-line-height left-form" appearance="outline">
+                        <mat-label>Surname</mat-label>
+                        <input matInput #surname type="text" name="surname" [(ngModel)]="customerProfile.surname"
+                               value="surname.getValue">
+                        <mat-hint>Enter New Surname to Change</mat-hint>
+                      </mat-form-field>
+                      <mat-form-field class="form-line-height left-form" appearance="outline">
+                        <mat-label>Telephone Number</mat-label>
+                        <input matInput #telephone type="text" name="telephone" [(ngModel)]="customerProfile.telephone"
+                               value="telephone.getValue">
+                        <mat-hint>Enter New Telephone Number to Change</mat-hint>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <button id="update-btn" class="right-form"  type="submit" mat-raised-button color="primary">Update Profile Settings</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
       </mat-card>
     </mat-grid-tile>
 
