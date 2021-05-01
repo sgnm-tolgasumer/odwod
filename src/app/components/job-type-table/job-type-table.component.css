@@ -101,3 +101,8 @@ table {
 ::ng-deep .mat-simple-snackbar-action {
   color: #ff9900;
 }
+
+tr.mat-header-row{
+  background: #f59d25 !important;
+}
+

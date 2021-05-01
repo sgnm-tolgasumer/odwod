@@ -155,3 +155,7 @@ td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
 .expired {
   color: #1847acd0;
 }
+
+tr.mat-header-row{
+  background: #f59d25 !important;
+}

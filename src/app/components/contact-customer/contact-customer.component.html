@@ -2,7 +2,7 @@
   <h1 class="mat-h1">Contact Us</h1>
   <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" cols="1" rowHeight="330px">
     <mat-grid-tile colspan="1" rowspan="2">
-      <mat-card class="dashboard-card mat-elevation-z8">
+      <mat-card class="dashboard-card mat-elevation-z8 customer-contact-back">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
@@ -53,7 +53,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="1" rowspan="2">
-      <mat-card class="dashboard-card mat-elevation-z8">
+      <mat-card class="dashboard-card mat-elevation-z8 customer-map-back">
         <mat-card-header>
           <mat-card-title> Open Address | Telephone
           </mat-card-title>
@@ -67,12 +67,9 @@
           <p>
             No: 8B Kat: 3 / 12 Beytepe 06800 Çankaya / Ankara
           </p>
-          <h2>0312 491 28 13</h2>
-          <h2>worderize@gmail.com</h2>
-          <img id="contact-img" src="./assets/contact-map.png">
+          <h2><span style="color: #ff9900;font-weight: bold;font-size: 17px;margin-right: 3px ">Telephone | </span> 0312 491 28 13</h2>
+          <h2><span style="color: #ff9900;font-weight: bold;font-size: 17px;margin-right: 3px ">E-mail | </span> worderize@gmail.com</h2>
         </div>
-
-
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

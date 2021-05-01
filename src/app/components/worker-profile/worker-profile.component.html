@@ -1,12 +1,12 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Profile</h1>
+  <h1 class="mat-h1">User Profile</h1>
   <mat-grid-list cols="2" rowHeight="360px">
 
 
     <mat-grid-tile colspan="2">
-      <mat-card class="dashboard-card mat-elevation-z8">
+      <mat-card class="dashboard-card mat-elevation-z8 profile-back">
         <mat-card-header>
-          <mat-card-title>User Profile
+          <mat-card-title>
           </mat-card-title>
         </mat-card-header>
         <!-- Show user data when logged in -->
@@ -20,7 +20,9 @@
             <div id="info-wrapper">
               <h1>Hello... <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
               <p><span class="user-info">User ID |</span> <strong style="margin-left: 5px">{{user.uid}}</strong></p>
+              <br>
               <p><span class="user-info">E-mail |</span> <strong style="margin-left: 5px">{{user.email}}</strong></p>
+              <br>
               <p><span class="user-info">E-mail Verified |</span> <strong
                   style="margin-left: 5px">{{user.emailVerified}}</strong></p>
             </div>

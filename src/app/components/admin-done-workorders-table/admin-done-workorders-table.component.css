@@ -142,3 +142,11 @@ td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
 .done {
     color: #470000;
 }
+
+tr.mat-header-row{
+  background: #00496C !important;
+}
+
+th{
+  color: whitesmoke;
+}

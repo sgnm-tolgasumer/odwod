@@ -102,3 +102,7 @@ table {
   color: #ff9900;
 }
 
+
+tr.mat-header-row{
+  background: #f59d25 !important;
+}

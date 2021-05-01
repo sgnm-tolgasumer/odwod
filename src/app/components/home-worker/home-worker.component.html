@@ -1,27 +1,98 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Work Orders</h1>
+  <h1 class="mat-h1">Available Work Orders</h1>
   <app-workorders-table></app-workorders-table>
 
-  <mat-grid-list cols="2" rowHeight="340px">
-    <mat-grid-tile>
-      <mat-card class="dashboard-card mat-elevation-z8">
-        <mat-card-header>
-          <mat-card-title>
-          </mat-card-title>
-        </mat-card-header>
-      </mat-card>
-    </mat-grid-tile>
+  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" cols="2" rowHeight="340px">
+
     <mat-grid-tile rowspan="2">
-      <mat-card class="dashboard-card mat-elevation-z8">
+      <mat-card class="dashboard-card mat-elevation-z8 back-img">
         <app-worker-current-job></app-worker-current-job>
       </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile>
+
+    <mat-grid-tile rowspan="2">
       <mat-card class="dashboard-card mat-elevation-z8">
         <mat-card-header>
-          <mat-card-title>
+          <mat-card-title style="color: #ff9900;font-weight: bolder;font-size: 24px">Rules
           </mat-card-title>
         </mat-card-header>
+
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="color: #470000">
+                <span style="font-weight: bolder;font-size: 20px">Rule 1 </span>: Job Selection
+              </mat-panel-title>
+              <mat-panel-description>
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p style="color: #ff9900;font-size: 17px">When choosing a job, please do not choose a job that is not your area of expertise or a job outside of your field of work. If you see
+              a worder that you do not have expertise or outside of your field of work in the "Work Orders" table, click on "Profile"
+              from the menu on the left and update your job type and work area selections.</p>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="color: #470000">
+                <span style="font-weight: bolder;font-size: 20px">Rule 2 </span>: Be Gentle
+              </mat-panel-title>
+              <mat-panel-description>
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p style="color: #ff9900;font-size: 17px">Be polite to the customer while doing the job. Worderize is
+              very strict in this regard and takes customer feedback into consideration.</p>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="color: #470000">
+                <span style="font-weight: bolder;font-size: 20px">Rule 3 </span>: Drive Safe
+              </mat-panel-title>
+              <mat-panel-description>
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p style="color: #ff9900;font-size: 17px">Use the vehicle carefully while going to worder address.
+              Worderize does not want any worker to be harmed.</p>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="color: #470000">
+                <span style="font-weight: bolder;font-size: 20px">Rule 4 </span>: Customer Privacy
+              </mat-panel-title>
+              <mat-panel-description>
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p style="color: #ff9900;font-size: 17px">After finishing the WORDER, do not contact the customer
+              who gave the work order or do not save the customer’s information.</p>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="color: #470000">
+                <span style="font-weight: bolder;font-size: 20px">Rule 5 </span>: Let us know
+              </mat-panel-title>
+              <mat-panel-description>
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p style="color: #ff9900;font-size: 17px">If you selected  a worder that is somewhere you cannot go or have a job type that you cannot do, access our
+              system as soon as possible. Do not continue by getting a new job by clicking the “Done” button in the "Your Current Job" section.</p>
+          </mat-expansion-panel>
+        </mat-accordion>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

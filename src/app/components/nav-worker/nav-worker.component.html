@@ -1,17 +1,17 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav nav-back" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar style="position:relative;">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['initial-page-worker']">Home</a>
-      <a mat-list-item [routerLink]="['home-worker']">Get Worder</a>
-      <a mat-list-item [routerLink]="['worker-profile']">Profile</a>
-      <a mat-list-item [routerLink]="['contact-worker']">Contact</a>
-      <a mat-list-item [routerLink]="['settings-worker']">Settings</a>
-      <a class="nav-link" (click)="authService.SignOut()">
-        <i class="fas fa-sign-out-alt"></i>Log out
+      <a class="menu-nav" mat-list-item [routerLink]="['initial-page-worker']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-home"></i></span>Home</a>
+      <a class="menu-nav" mat-list-item [routerLink]="['home-worker']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-shipping-fast"></i></span>Get Worder</a>
+      <a class="menu-nav" mat-list-item [routerLink]="['worker-profile']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-user"></i></span>Profile</a>
+      <a class="menu-nav" mat-list-item [routerLink]="['contact-worker']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-paper-plane"></i></span>Contact</a>
+      <a class="menu-nav" mat-list-item [routerLink]="['settings-worker']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-cogs"></i></span>Settings</a>
+      <a style="position:relative;" class="nav-link" (click)="authService.SignOut()">
+        <i style="margin-right: 10px;font-size: 20px" class="fas fa-sign-out-alt"></i>Log out
       </a>
     </mat-nav-list>
   </mat-sidenav>

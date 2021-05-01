@@ -32,7 +32,7 @@ export class SettingsWorkerComponent implements OnInit {
   jobTypeList: string[] = [];
   selectedJobTypes: string[] = [];
 
-  profilePictures: string[] = ["assets/support.png", "assets/prof.png", "assets/easy2.png", "assets/support.png"];
+  profilePictures: string[] = ["assets/painter.svg", "assets/plumber.svg", "assets/maid.svg", "assets/cleaning-staff.svg"];
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 1000) ? 1 : 2;
@@ -49,7 +49,7 @@ export class SettingsWorkerComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     var workOrder = f.value;
-    
+
     if (workOrder["name"] == '' || workOrder["surname"] == '' || workOrder["telephone"] == '' || workOrder["type"] == null || workOrder["district"] == null) {
       this._snackBar.open('Fields cannot be empty', 'Close', {
         duration: 3000
@@ -62,7 +62,7 @@ export class SettingsWorkerComponent implements OnInit {
           uid = user.uid;
 
           user.updateProfile({
-            displayName: workOrder["name"] + workOrder["surname"]
+            displayName: workOrder["name"] + " " + workOrder["surname"]
           }).then(function () {
 
           }).catch(function (error) {
@@ -75,7 +75,10 @@ export class SettingsWorkerComponent implements OnInit {
         setTimeout(() => {
           var workerUpdate = { "name": workOrder["name"], "surname": workOrder["surname"], "telephone": workOrder["telephone"], "workableDistricts": workOrder["district"].join(), "jobTypes": workOrder["type"].join() };
           this.service.updateWorkerProfile(uid, workerUpdate);
-        }, 1300);
+          this._snackBar.open('Profile Updated Successfully', 'Close', {
+            duration: 3000
+          });
+          }, 1300);
       });
 
     }

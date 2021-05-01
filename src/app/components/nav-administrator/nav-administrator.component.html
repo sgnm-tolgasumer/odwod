@@ -1,18 +1,19 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav nav-back" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar style="position:relative;">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['initial-page-administrator']">Home</a>
-      <a mat-list-item [routerLink]="['admin-worker-operations']">Worker Operations</a>
-      <a mat-list-item [routerLink]="['admin-customer-operations']">Customer Operations</a>
-      <a mat-list-item [routerLink]="['district-jobtype-operations']">District and Job Type Operations</a>
-      <a mat-list-item [routerLink]="['admin-active-work-orders']">Active Work Orders</a>
-      <a mat-list-item [routerLink]="['admin-completed-work-orders']">Completed Work Orders</a>
-      <a class="nav-link" (click)="authService.SignOut()">
-        <i class="fas fa-sign-out-alt"></i>Log out
+      <mat-list-item class="menu-nav" mat-list-item [routerLink]="['initial-page-administrator']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-home"></i></span>Home</mat-list-item>
+      <mat-list-item class="menu-nav" mat-list-item [routerLink]="['admin-worker-operations']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-users-cog"></i></span>Worker Operations</mat-list-item>
+      <mat-list-item class="menu-nav" mat-list-item [routerLink]="['admin-customer-operations']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-users"></i></span>Customer Operations</mat-list-item>
+      <mat-list-item class="menu-nav" mat-list-item [routerLink]="['district-jobtype-operations']">
+        <span><i style="margin-right: 10px;font-size: 20px" class="fa fa-map-marked-alt"></i></span>District and Job Type Operations</mat-list-item>
+      <mat-list-item class="menu-nav" mat-list-item [routerLink]="['admin-active-work-orders']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-hourglass-half"></i></span>Active Work Orders</mat-list-item>
+      <mat-list-item class="menu-nav" mat-list-item [routerLink]="['admin-completed-work-orders']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-clipboard-check"></i></span>Completed Work Orders</mat-list-item>
+      <a style="position:relative;" class="nav-link" (click)="authService.SignOut()">
+        <i style="margin-right: 10px;font-size: 20px" class="fas fa-sign-out-alt"></i>Log out
       </a>
 
     </mat-nav-list>

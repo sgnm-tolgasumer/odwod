@@ -1,5 +1,5 @@
 import { DistrictsTableService } from './../../shared/services/districts-table.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Districts } from 'src/app/shared/services/districts';
 import { MatPaginator } from '@angular/material/paginator';
@@ -50,6 +50,8 @@ export class DistrictsTableComponent implements OnInit {
       this._snackBar.open('New District Added Successfully', 'Close', {
         duration: 3000
       });
+      this.clearAddInput();
+
     }
   }
 
@@ -72,6 +74,12 @@ export class DistrictsTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  @ViewChild('addName') addNameInput: ElementRef;
+
+  clearAddInput(){
+    this.addNameInput.nativeElement.value = '';
   }
 
 }

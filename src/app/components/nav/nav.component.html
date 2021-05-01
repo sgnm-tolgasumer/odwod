@@ -1,17 +1,17 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav nav-back" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar style="position: relative">Menu</mat-toolbar>
     <mat-nav-list>
-      <mat-list-item [routerLink]="['initial-page-customer']">Home</mat-list-item>
-      <mat-list-item [routerLink]="['home']">Worder</mat-list-item>
-      <mat-list-item [routerLink]="['customer-profile']">Profile</mat-list-item>
-      <mat-list-item [routerLink]="['contact-customer']">Contact</mat-list-item>
-      <mat-list-item [routerLink]="['settings-customer']">Settings</mat-list-item>
-      <a class="nav-link" (click)="authService.SignOut()">
-        <i class="fas fa-sign-out-alt"></i>Log out
+      <mat-list-item class="menu-nav" [routerLink]="['initial-page-customer']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-home"></i></span>Home</mat-list-item>
+      <mat-list-item class="menu-nav" [routerLink]="['home']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-tasks"></i></span>Worder</mat-list-item>
+      <mat-list-item class="menu-nav" [routerLink]="['customer-profile']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-user"></i></span>Profile</mat-list-item>
+      <mat-list-item class="menu-nav" [routerLink]="['contact-customer']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-paper-plane"></i></span>Contact</mat-list-item>
+      <mat-list-item class="menu-nav" [routerLink]="['settings-customer']"><span><i style="margin-right: 10px;font-size: 20px" class="fa fa-cogs"></i></span>Settings</mat-list-item>
+      <a style="position:relative;" class="nav-link" (click)="authService.SignOut()">
+        <i style="margin-right: 10px;font-size: 20px" class="fas fa-sign-out-alt"></i>Log out
       </a>
 
     </mat-nav-list>
