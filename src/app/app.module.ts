@@ -82,6 +82,7 @@ import { AdminCompletedWorkOrdersComponent } from './components/admin-completed-
 import { AdminDoneWorkordersTableComponent } from './components/admin-done-workorders-table/admin-done-workorders-table.component';
 import { CustomerDoneWorkordersTableComponent } from './components/customer-done-workorders-table/customer-done-workorders-table.component';
 import { WorkerDoneWorkordersTableComponent } from './components/worker-done-workorders-table/worker-done-workorders-table.component';
+import { AdminMainChartComponent } from './components/admin-main-chart/admin-main-chart.component';
 
 @NgModule({
   declarations: [
@@ -129,6 +130,7 @@ import { WorkerDoneWorkordersTableComponent } from './components/worker-done-wor
     AdminDoneWorkordersTableComponent,
     CustomerDoneWorkordersTableComponent,
     WorkerDoneWorkordersTableComponent,
+    AdminMainChartComponent,
 
   ],
   imports: [
