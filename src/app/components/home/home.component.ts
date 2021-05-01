@@ -8,7 +8,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-
+  panelOpenState = false;
   breakpoint: number;
 
   ngOnInit() {

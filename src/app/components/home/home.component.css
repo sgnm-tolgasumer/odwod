@@ -27,7 +27,7 @@ mat-card-header, mat-card-title{
 
 .create-back:before{
   content: "";
-  background-image: url("src/assets/current-back.jpg");
+  background-image: url("src/assets/create-back-1.jpg");
   background-size: cover;
   border-radius: 9px;
   position: absolute;

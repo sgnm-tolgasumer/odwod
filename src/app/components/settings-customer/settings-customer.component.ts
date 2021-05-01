@@ -17,7 +17,7 @@ export class SettingsCustomerComponent implements OnInit{
   customerProfile: Customers;
   breakpoint: number;
 
-  profilePictures: string[] = ["assets/painter.svg", "assets/plumber.svg", "assets/maid.svg", "assets/cleaning-staff.svg"];
+  profilePictures: string[] = ["assets/man.svg", "assets/woman.svg", "assets/man-2.svg", "assets/woman-2.svg"];
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 1000) ? 1 : 2;
