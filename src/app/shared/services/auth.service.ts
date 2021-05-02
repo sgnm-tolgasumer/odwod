@@ -39,7 +39,7 @@ export class AuthService {
         this.ngZone.run(() => {
           if (userType == "customer") {
             this.router.navigate(['nav/initial-page-customer']);
-          } else if (userType == "administrator" && email=="bananenki@gmail.com" && password == "123456789"){
+          } else if (userType == "administrator" && email=="administrator@worderize.com"){
             this.router.navigate(['nav-administrator/initial-page-administrator']);
           }else {
             this.router.navigate(['nav-worker/initial-page-worker']);
@@ -149,7 +149,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['index-page']);
     });
   }
 

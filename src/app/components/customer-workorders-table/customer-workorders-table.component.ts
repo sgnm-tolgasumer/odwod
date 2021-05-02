@@ -1,3 +1,4 @@
+import { WorkorderTransferService } from './../../shared/services/workorder-transfer.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { AuthService } from "../../shared/services/auth.service";
 import { WorkOrders } from 'src/app/shared/services/workorders';
 import { WorkordersTableService } from 'src/app/shared/services/workorders-table.service';
+import { Subscription} from 'rxjs';
 
 
 @Component({
@@ -22,6 +24,7 @@ import { WorkordersTableService } from 'src/app/shared/services/workorders-table
 })
 export class CustomerWorkordersTableComponent implements OnInit {
 
+  clickEventSubscription:Subscription;
   ELEMENT_DATA: WorkOrders[];
   displayedColumns: string[] = ['workOrderId', 'title', 'type'];
   dataSource;
@@ -29,7 +32,11 @@ export class CustomerWorkordersTableComponent implements OnInit {
   workOrderStatus: any;
 
 
-  constructor(public authService: AuthService, private service: WorkordersTableService) { }
+  constructor(public authService: AuthService, private service: WorkordersTableService, private transferService:WorkorderTransferService) {
+    this.clickEventSubscription = this.transferService.getEvent().subscribe(() =>{
+      this.getAllWorkOrdersByCustomer();
+    })
+   }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
@@ -77,6 +84,5 @@ export class CustomerWorkordersTableComponent implements OnInit {
       return this.workOrderStatus;
     });
   }
-
 
 }

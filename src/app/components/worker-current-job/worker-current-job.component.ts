@@ -32,6 +32,7 @@ export class WorkerCurrentJobComponent implements OnInit {
       this._snackBar.open('You Completed The Job Successfully !!!!', 'Close', {
         duration: 3000
       });
+      this.getCurrentJobByWorkerId();
     });
   }
 

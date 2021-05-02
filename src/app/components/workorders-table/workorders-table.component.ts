@@ -72,11 +72,19 @@ export class WorkordersTableComponent implements OnInit {
   getTheJobButtonClick(workOrder: any) {
     workOrder["workerId"] = this.authService.getCurrentUser().uid;
     this.service.getTheJob(workOrder);
+    this.refreshTable();
     this._snackBar.open('You Got The Job Successfully !!!!', 'Close', {
       duration: 3000
     });
   }
+
+  public refreshTable(){
+    setTimeout(() => {
+      this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
+    }, 1000);
+  }
 }
+
 @Component({
   selector: 'workorderscontent',
   templateUrl: 'workorderscontent.html',
