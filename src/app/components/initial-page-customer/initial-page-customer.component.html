@@ -18,10 +18,19 @@
   <mat-grid-list cols="3" rowHeight="300px">
     <mat-grid-tile>
       <mat-card class="dashboard-card mat-elevation-z8" style="display: flex;justify-content: center;align-items: center;">
-        <a class="inner-link" routerLink="/nav/home" style="position: absolute;">
-          <span><b>WORDER</b></span>
-        </a>
-        <img src="./assets/get-worder.jpg">
+
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="./assets/giveWorderNow.png">
+            </div>
+            <div class="flip-card-back" routerLink="/nav/home">
+              <img src="./assets/giveWorderNow.png">
+            </div>
+          </div>
+        </div>
+
       </mat-card>
     </mat-grid-tile>
 
@@ -32,7 +41,16 @@
           <mat-card-title style="position:absolute;height: 30px;margin-top: 240px;font-size: 30px;font-family: 'Titillium Web', sans-serif">
           </mat-card-title>
         </mat-card-header>
-        <img src="./assets/innerContact2.png">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="background-image img-fluid" src="./assets/contactRework2.png">
+            </div>
+            <div class="flip-card-back" routerLink="/nav/contact-customer">
+              <img class="background-image img-fluid" src="./assets/contactRework2.png">
+            </div>
+          </div>
+        </div>
       </mat-card>
     </mat-grid-tile>
 
@@ -43,7 +61,16 @@
           <mat-card-title>
           </mat-card-title>
         </mat-card-header>
-        <img src="./assets/ankara.jpg">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="./assets/ankaraReworkNoBG.png">
+            </div>
+            <div class="flip-card-back">
+              <img src="./assets/ankaraReworkNoBG.png">
+            </div>
+          </div>
+        </div>
       </mat-card>
     </mat-grid-tile>
 
