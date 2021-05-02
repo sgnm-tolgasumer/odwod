@@ -1,3 +1,4 @@
+import { WorkorderTransferService } from './../../shared/services/workorder-transfer.service';
 import { CreateWorkorderFormService } from './../../shared/services/create-workorder-form.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -34,7 +35,7 @@ export class CreateWorkorderFormComponent implements OnInit {
   regionsList: string[] = [];
   worksList: string[] = [];
 
-  constructor(private service: CreateWorkorderFormService, public authService: AuthService, private _snackBar: MatSnackBar, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService) { }
+  constructor(private service: CreateWorkorderFormService, public authService: AuthService, private _snackBar: MatSnackBar, private jobTypeService: JobTypeTableService, private districtNameService: DistrictsTableService, private workorderTransfer:WorkorderTransferService) { }
 
   ngOnInit(): void {
   }
@@ -58,12 +59,17 @@ export class CreateWorkorderFormComponent implements OnInit {
       workOrder["userId"] = user.uid;
       console.log(workOrder);
       this.service.createWorkOrder(workOrder);
+      this.transfer();
       this._snackBar.open('Your Work Order Created Successfully', 'Close', {
         duration: 3000
       });
       f.resetForm();
     }
 
+  }
+
+  public transfer(){
+    this.workorderTransfer.sendClickEvent();
   }
 
   /**

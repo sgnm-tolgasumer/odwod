@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WorkorderTransferService {
-  private messageSource = new BehaviorSubject<any>("You have no job currently :(");
-  workOrderToTransfer = this.messageSource.asObservable();
+  private subject = new Subject<any>();
 
-  constructor() { }
-  setWorkOrder(workOrder: any){
-    this.messageSource.next(workOrder);
+  sendClickEvent(){
+    this.subject.next();
+  }
+
+  getEvent():Observable<any>{
+    return this.subject.asObservable();
   }
 
 }

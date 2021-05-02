@@ -8,6 +8,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { AuthService } from "../../shared/services/auth.service";
 import { MatDialog } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { WorkorderTransferService } from './../../shared/services/workorder-transfer.service';
+
 
 @Component({
   selector: 'app-workorders-table',
@@ -28,7 +30,7 @@ export class WorkordersTableComponent implements OnInit {
   dataSource;
   expandedElement: WorkOrders | null;
 
-  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(private service: WorkordersTableService, public authService: AuthService, public dialog: MatDialog, private _snackBar: MatSnackBar, private workorderTransfer:WorkorderTransferService) { }
 
   workOrderToTransfer: any;
 
@@ -61,7 +63,7 @@ export class WorkordersTableComponent implements OnInit {
       setTimeout(() => {
         let resp = this.service.workorderList(uid);
         resp.subscribe(report => this.dataSource.data = report as WorkOrders[]);
-      }, 1000);
+      }, 1500);
     });
   }
 
@@ -72,11 +74,24 @@ export class WorkordersTableComponent implements OnInit {
   getTheJobButtonClick(workOrder: any) {
     workOrder["workerId"] = this.authService.getCurrentUser().uid;
     this.service.getTheJob(workOrder);
+    this.refreshTable();
+    this.transfer();
     this._snackBar.open('You Got The Job Successfully !!!!', 'Close', {
       duration: 3000
     });
   }
+
+  public transfer(){
+    this.workorderTransfer.sendClickEvent();
+  }
+  
+  public refreshTable(){
+    setTimeout(() => {
+      this.dataSource = new MatTableDataSource<WorkOrders>(this.ELEMENT_DATA);
+    }, 1500);
+  }
 }
+
 @Component({
   selector: 'workorderscontent',
   templateUrl: 'workorderscontent.html',

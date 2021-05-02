@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { WorkorderTransferService } from './../../shared/services/workorder-transfer.service';
+import { Subscription } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,12 +18,16 @@ const httpOptions = {
 })
 export class WorkerCurrentJobComponent implements OnInit {
   currentWorkOrder: any;
-
-  constructor(public authService: AuthService, private http: HttpClient, private _snackBar: MatSnackBar) { }
+  clickEventSubscription:Subscription;
+  
+  constructor(public authService: AuthService, private http: HttpClient, private _snackBar: MatSnackBar, private workorderTransfer:WorkorderTransferService) {
+    this.clickEventSubscription = this.workorderTransfer.getEvent().subscribe(() =>{
+      this.getCurrentJobByWorkerId();
+    })
+   }
 
   ngOnInit(): void {}
   ngAfterViewInit() {
-    console.log(this.currentWorkOrder)
     this.getCurrentJobByWorkerId();
   }
   /**
@@ -32,6 +38,7 @@ export class WorkerCurrentJobComponent implements OnInit {
       this._snackBar.open('You Completed The Job Successfully !!!!', 'Close', {
         duration: 3000
       });
+      this.getCurrentJobByWorkerId();
     });
   }
 
@@ -39,9 +46,7 @@ export class WorkerCurrentJobComponent implements OnInit {
     var uid;
     this.authService.afAuth.onAuthStateChanged(function (user) {
       if (user) {
-
         uid = user.uid;
-        console.log(uid);
       } else {
 
         // No user is signed in.
