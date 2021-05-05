@@ -34,9 +34,9 @@ Worderize developed for web platform with the most recent technologies in Angula
 ## Block Diagram of the Project
 ![block-diagram-poster](https://user-images.githubusercontent.com/34353055/117164490-558ae900-adcd-11eb-8ff5-c24be3b96e0d.png)
  
-### Followed code standard for TypeScript.
+### Followed Code Standard for TypeScript
 https://google.github.io/styleguide/tsguide.html
 
-## Development server
+## Development Server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
