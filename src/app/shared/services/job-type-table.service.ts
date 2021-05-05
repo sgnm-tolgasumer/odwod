@@ -20,14 +20,14 @@ export class JobTypeTableService {
   Sends http GET request to MySQL database server to get all job types.
   */ 
   public jobTypeList(){
-    return this.http.get("http://localhost:8080/worktype");
+    return this.http.get("http://34.107.3.185:8080/worktype");
   }
 
   /*
   Sends http POST request to MySQL database server to create new job type and add to MySQL database.
   */ 
   public addJobType(name: string){
-    return this.http.post("http://localhost:8080/worktype", name, httpOptions).subscribe(data =>
+    return this.http.post("http://34.107.3.185:8080/worktype", name, httpOptions).subscribe(data =>
     {
 
     });
@@ -37,7 +37,7 @@ export class JobTypeTableService {
   Sends http DELETE request to MySQL database server to delete a job type with given id from MySQL database.
   */ 
   public deleteJobType(id: string){
-    return this.http.delete("http://localhost:8080/worktype/" + id).subscribe(data => {
+    return this.http.delete("http://34.107.3.185:8080/worktype/" + id).subscribe(data => {
       console.log(data);
     });
 }

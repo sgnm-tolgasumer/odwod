@@ -34,7 +34,7 @@ export class WorkerCurrentJobComponent implements OnInit {
    * It will transfer the workorder from Kafka's in_progress topic to done topic via REST API.
    */
   public closeJobButtonClick(workOrder: any) {
-    this.http.post("http://localhost:8080/workorder/transfer/" + workOrder["workOrderId"] + "/" + "in_progress" + "/done/" + workOrder["workerId"], httpOptions).subscribe(data => {
+    this.http.post("http://34.107.3.185:8080/workorder/transfer/" + workOrder["workOrderId"] + "/" + "in_progress" + "/done/" + workOrder["workerId"], httpOptions).subscribe(data => {
       this._snackBar.open('You Completed The Job Successfully !!!!', 'Close', {
         duration: 3000
       });
@@ -53,7 +53,7 @@ export class WorkerCurrentJobComponent implements OnInit {
       }
     }).then((value) => {
       setTimeout(() => {
-        let resp = this.http.get("http://localhost:8080/workorder/worker/" + uid, { responseType: 'json' });
+        let resp = this.http.get("http://34.107.3.185:8080/workorder/worker/" + uid, { responseType: 'json' });
         resp.subscribe(report => this.currentWorkOrder = report[0]);
       }, 1000);
     });

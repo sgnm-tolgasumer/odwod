@@ -12,14 +12,14 @@ export class CustomersTableService {
   Sends http GET request to MySQL database server to get all customers.
   */ 
   public customersList(){
-    return this.http.get("http://localhost:8080/customer");
+    return this.http.get("http://34.107.3.185:8080/customer");
   }
 
   /*
   Sends http DELETE request to MySQL database server to delete a customer with given id.
   */ 
   public deleteCustomer(id: string){
-    return this.http.delete("http://localhost:8080/customer/" + id).subscribe(data => {
+    return this.http.delete("http://34.107.3.185:8080/customer/" + id).subscribe(data => {
       console.log(data);
     });
 }

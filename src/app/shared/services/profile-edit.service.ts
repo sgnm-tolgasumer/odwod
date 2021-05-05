@@ -21,14 +21,14 @@ export class ProfileEditService {
   Sends http GET request to MySQL database server to get worker's profile.
   */
   public getWorkerByUid(uid: string) {
-    return this.http.get("http://localhost:8080/worker/" + uid);
+    return this.http.get("http://34.107.3.185:8080/worker/" + uid);
   }
 
   /*
   Sends http GET request to MySQL database server to get customer's profile.
   */
   public getCustomerByUid(uid: string) {
-    return this.http.get("http://localhost:8080/customer/" + uid);
+    return this.http.get("http://34.107.3.185:8080/customer/" + uid);
   }
 
   /**
@@ -39,7 +39,7 @@ export class ProfileEditService {
    * @returns response of request.
    */
   public updateCustomerProfile(uid: string, customerUpdate: any) {
-    return this.http.put("http://localhost:8080/customer/" + uid, customerUpdate, httpOptions).subscribe(data => {
+    return this.http.put("http://34.107.3.185:8080/customer/" + uid, customerUpdate, httpOptions).subscribe(data => {
     });
   }
 
@@ -51,7 +51,7 @@ export class ProfileEditService {
    * @returns response of request.
    */
   public updateWorkerProfile(uid: string, workerUpdate: any) {
-    return this.http.put("http://localhost:8080/worker/" + uid, workerUpdate, httpOptions).subscribe(data => {
+    return this.http.put("http://34.107.3.185:8080/worker/" + uid, workerUpdate, httpOptions).subscribe(data => {
     });
   }
 }

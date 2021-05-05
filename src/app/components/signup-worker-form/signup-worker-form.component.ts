@@ -65,7 +65,7 @@ export class SignupWorkerFormComponent implements OnInit, AfterViewInit {
       uid.then((value) => {
         console.log(value);
         var workerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail, "addressCity": addressCity, "workableDistricts": workableDistricts.join(), "jobTypes": jobTypes.join() };
-        this.http.post("http://localhost:8080/worker", workerCreate, httpOptions).subscribe(data => {
+        this.http.post("http://34.107.3.185:8080/worker", workerCreate, httpOptions).subscribe(data => {
 
         });
       });

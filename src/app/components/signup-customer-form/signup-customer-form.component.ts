@@ -54,7 +54,7 @@ export class SignupCustomerFormComponent implements OnInit {
         uid.then((value) => {
           var customerCreate = { "userId": value, "name": name, "surname": surname, "telephone": telephone, "birthDate": date, "mail": mail };
   
-          this.http.post("http://localhost:8080/customer", customerCreate, httpOptions).subscribe(data => {
+          this.http.post("http://34.107.3.185:8080/customer", customerCreate, httpOptions).subscribe(data => {
           });
         });
       }

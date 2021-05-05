@@ -47,22 +47,22 @@ export class AdminMainChartComponent implements OnInit {
   }
 
   public getCountActiveWorkOrders() {
-    let countActive = this.http.get("http://localhost:8080/workorder/activeCount");
+    let countActive = this.http.get("http://34.107.3.185:8080/workorder/activeCount");
     countActive.subscribe(response => this.activeCount = response);
   }
 
   public getCountDoneWorkOrders() {
-    let countDone = this.http.get("http://localhost:8080/doneWorkOrder/doneCount");
+    let countDone = this.http.get("http://34.107.3.185:8080/doneWorkOrder/doneCount");
     countDone.subscribe(response => this.totalDoneWorkOrderCount = response);
   }
 
   public getCountWorkers() {
-    let countWorker = this.http.get("http://localhost:8080/worker/workerCount");
+    let countWorker = this.http.get("http://34.107.3.185:8080/worker/workerCount");
     countWorker.subscribe(response => this.workerCount = response);
   }
 
   public getCountCustomers() {
-    let countCustomer = this.http.get("http://localhost:8080/customer/customerCount");
+    let countCustomer = this.http.get("http://34.107.3.185:8080/customer/customerCount");
     countCustomer.subscribe(response => this.customerCount = response);
   }
 
