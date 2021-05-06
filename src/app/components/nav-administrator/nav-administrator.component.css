@@ -21,6 +21,8 @@
   color: #ff9900;
 }
 
+/* Navigation Background with Opacity */
+
 .nav-back:before{
   content: "";
   background-image: url("src/assets/nav-back2.jpg");

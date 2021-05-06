@@ -13,6 +13,7 @@
               <img id="usr-img" class="img-fluid" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
             </button>
             <div *ngIf="changePicture">
+              <span style="margin-left: 9px; color: #470000">Select Your Avatar</span>
               <div>
                 <button class="img-btn-selection" mat-raised-button (click)="changeProfilePic(0)"> <img class="img-fluid " [src]="profilePictures[0]"></button>
                 <button class="img-btn-selection" mat-raised-button (click)="changeProfilePic(1)"> <img class="img-fluid " [src]="profilePictures[1]"></button>

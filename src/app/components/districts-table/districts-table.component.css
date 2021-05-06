@@ -8,6 +8,10 @@ table {
 
 }
 
+tr.mat-header-row{
+  background: #f59d25 !important;
+}
+
 .sticky-paginator{
   bottom: 0px;
   position: sticky;
@@ -20,7 +24,6 @@ table {
   right: 0px;
   position: relative;
   z-index: 10;
-
 }
 
 .sticky-button button{
@@ -41,10 +44,12 @@ table {
 .example-form{
   color: #470000 !important;
 }
+
+/*Changing Default Colors*/
+
 ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
   background-color: #ff9900!important;
 }
-
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #ff9900!important;
@@ -89,20 +94,13 @@ table {
   background-color: #ff9900 !important;;
 }
 
-
 .mat-fab.mat-primary {
   background-color: #ff9900!important;
 }
-
 
 ::ng-deep .mat-snack-bar-container{
 
 }
 ::ng-deep .mat-simple-snackbar-action {
   color: #ff9900;
-}
-
-
-tr.mat-header-row{
-  background: #f59d25 !important;
 }

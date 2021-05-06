@@ -53,6 +53,8 @@
   rgba(255,124,0,1) 50%, rgba(255,153,0,1) 75%, rgba(255,171,45,1) 100%);
 }
 
+/* Mat Card Background with Opacity */
+
 .customer-profile-back:before{
   content: "";
   background-image: url("src/assets/profile-back.jpg");

@@ -1,10 +1,26 @@
 .example-form{
   color: #470000 !important;
 }
+
+.text-area-form{
+  border-radius:8px;
+  background-color: rgba(0,0,0,.04);
+  min-height: 225px;
+  max-height:225px;
+  padding: 10px;
+  line-height: 150%;
+  width: 230px;
+}
+
+.form-line-height{
+  line-height: initial;
+}
+
+/*Changing Default Colors*/
+
 ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
   background-color: #ff9900!important;
 }
-
 
   ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #ff9900!important;
@@ -49,24 +65,9 @@
   background-color: #ff9900 !important;;
 }
 
-.text-area-form{
-  border-radius:8px;
-  background-color: rgba(0,0,0,.04);
-  min-height: 225px;
-  max-height:225px;
-  padding: 10px;
-  line-height: 150%;
-  width: 230px;
-}
-
-
 ::ng-deep .mat-snack-bar-container{
 
 }
 ::ng-deep .mat-simple-snackbar-action {
   color: #ff9900;
-}
-
-.form-line-height{
-  line-height: initial;
 }
