@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+.mat-expansion-panel-header {
+  height: 85px!important;
+}
+
+/* Mat Card Background with Opacity */
 
 .back-img:before{
   content: "";
@@ -36,9 +41,4 @@
   opacity: 0.7;
   background-position: 50% 0;
   background-repeat: no-repeat;
-
-}
-
-.mat-expansion-panel-header {
-  height: 85px!important;
 }

@@ -8,7 +8,6 @@ table {
   border-top-right-radius: 9px;
 }
 
-
 .sticky-paginator{
   bottom: 0px;
   position: sticky;
@@ -20,6 +19,7 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+
   .example-form {
     min-width: 150px;
     max-width: 500px;
@@ -85,10 +85,24 @@ table {
 .example-form{
   color: #470000 !important;
 }
+
+.in-progress {
+  color: #2b9100;
+}
+
+tr.mat-header-row{
+  background: #118E4F !important;
+}
+
+th{
+  color: whitesmoke;
+}
+
+/*Changing Default Colors*/
+
 ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
   background-color: #ff9900!important;
 }
-
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #ff9900!important;
@@ -136,18 +150,4 @@ table {
 td.mat-footer-cell:last-of-type,td.mat-footer-cell:first-of-type {
   padding-right: 0!important;
   padding-left: 0!important;
-}
-
-
-.in-progress {
-  color: #2b9100;
-}
-
-
-tr.mat-header-row{
-  background: #118E4F !important;
-}
-
-th{
-  color: whitesmoke;
 }

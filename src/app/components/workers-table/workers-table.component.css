@@ -39,14 +39,14 @@ table {
   margin-right: 10px;
 }
 
-
 .example-form{
   color: #470000 !important;
 }
+
+/* Changing Default Colors */
 ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
   background-color: #ff9900!important;
 }
-
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #ff9900!important;
@@ -94,8 +94,6 @@ table {
 ::-webkit-scrollbar {
   display: none;
 }
-
-
 
 ::ng-deep .mat-snack-bar-container{
 

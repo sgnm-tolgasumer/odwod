@@ -25,6 +25,8 @@ mat-card-header, mat-card-title{
   color: #470000;
 }
 
+/* Mat Card Background with Opacity */
+
 .create-back:before{
   content: "";
   background-image: url("src/assets/create-back-1.jpg");

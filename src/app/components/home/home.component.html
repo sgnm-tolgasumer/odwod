@@ -3,8 +3,8 @@
   <mat-grid-list cols="2" [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="340px">
     <mat-grid-tile rowspan="2">
       <mat-card class="dashboard-card mat-elevation-z8 create-back">
-        <mat-card-header>Create Work Order
-          <mat-card-title>Form
+        <mat-card-header>
+          <mat-card-title>Create Work Order
           </mat-card-title>
         </mat-card-header>
         <app-create-workorder-form></app-create-workorder-form>
@@ -21,7 +21,6 @@
             <app-customer-workorders-table></app-customer-workorders-table>
           </div>
         </div>
-
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
