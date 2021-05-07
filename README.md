@@ -8,8 +8,11 @@
 - RxJs, Vanta.js, Chart.js are added and used in the project.
 - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2. 
 
+## Live Demo Server on Google Cloud
+http://worderize.codes
+
 ## Poster of the Project
-![Worderize_poster_github](https://user-images.githubusercontent.com/34353055/117163026-ee206980-adcb-11eb-9634-16d44f393932.jpeg)
+![POSTER_LAST](https://user-images.githubusercontent.com/34353055/117437855-7708e380-af39-11eb-9e62-1fb3b9403e14.jpeg)
 
 ### What is Worderize
 A work order is a task or job that can be scheduled and assigned to someone who wants to get this job. Worderize is a platform in which customers can create and workers can get the work orders. Worderize brings customers and workers together to manage work orders in an easy way. 
@@ -19,7 +22,6 @@ Registered workers can select a "worder" from filtered work orders list accordin
 The whole process can be monitored by customers so they can track their work orders via application. They can create multiple work orders and manage each of them.
 
 Worderize developed for web platform with the most recent technologies in Angular Framework and also using Apache Kafka to data streaming with the Quarkus in the backend.
-
 
 ### Features and Benefits
 - Quick and easy work order creation
