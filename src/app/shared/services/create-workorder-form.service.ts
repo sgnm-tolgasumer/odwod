@@ -21,7 +21,7 @@ export class CreateWorkorderFormService {
   */ 
   public createWorkOrder(workOrder: any){
     
-    return this.http.post("http://localhost:8080/workorder", workOrder, httpOptions).subscribe(data =>
+    return this.http.post("http://34.107.3.185:8080/workorder", workOrder, httpOptions).subscribe(data =>
       {
 
       });

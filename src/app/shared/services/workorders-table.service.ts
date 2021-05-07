@@ -23,7 +23,7 @@ export class WorkordersTableService {
   public workorderList(uid: string) {
     //console.log(uid);
     //var user = this.authService.getCurrentUser();
-    return this.http.get("http://localhost:8080/workorder/" + uid);
+    return this.http.get("http://34.107.3.185:8080/workorder/" + uid);
   }
 
   /**
@@ -31,7 +31,7 @@ export class WorkordersTableService {
    */
   public getTheJob(workOrder: any) {
 
-    this.http.post("http://localhost:8080/workorder/transfer/" + workOrder["workOrderId"] + "/" + "pending" + "/in_progress/" + workOrder["workerId"], httpOptions).subscribe(data => {
+    this.http.post("http://34.107.3.185:8080/workorder/transfer/" + workOrder["workOrderId"] + "/" + "pending" + "/in_progress/" + workOrder["workerId"], httpOptions).subscribe(data => {
 
     });
   }
@@ -42,14 +42,14 @@ export class WorkordersTableService {
   public workorderListCustomer(uid: string) {
     //console.log(uid);
     //var user = this.authService.getCurrentUser();
-    return this.http.get("http://localhost:8080/workorder/customer/" + uid);
+    return this.http.get("http://34.107.3.185:8080/workorder/customer/" + uid);
   }
 
   /**
     * It gets the single workorder's status with its unique workOrderId.
     */
   public workorderStatus(workOrderId: string) {
-    return this.http.get("http://localhost:8080/workorder/status/" + workOrderId, { responseType: 'text' });
+    return this.http.get("http://34.107.3.185:8080/workorder/status/" + workOrderId, { responseType: 'text' });
   }
 
   /**
@@ -57,7 +57,7 @@ export class WorkordersTableService {
    * @returns JSON Array.
    */
   public getAllActiveWorkOrders() {
-    return this.http.get("http://localhost:8080/workorder?topicId=in_progress");
+    return this.http.get("http://34.107.3.185:8080/workorder?topicId=in_progress");
   }
 
   /**
@@ -65,7 +65,7 @@ export class WorkordersTableService {
    * @returns JSON Array.
    */
   public getAllDoneWorkOrders() {
-    return this.http.get("http://localhost:8080/doneWorkOrder");
+    return this.http.get("http://34.107.3.185:8080/doneWorkOrder");
   }
 
   /**
@@ -73,7 +73,7 @@ export class WorkordersTableService {
    * @returns JSON Array.
    */
   public getAllDoneCustomerWorkOrders(customerUid: string) {
-    return this.http.get("http://localhost:8080/doneWorkOrder/byCustomer/" + customerUid);
+    return this.http.get("http://34.107.3.185:8080/doneWorkOrder/byCustomer/" + customerUid);
   }
 
   /**
@@ -81,6 +81,6 @@ export class WorkordersTableService {
    * @returns JSON Array.
    */
    public getAllDoneWorkerWorkOrders(workerUid: string) {
-    return this.http.get("http://localhost:8080/doneWorkOrder/byWorker/" + workerUid);
+    return this.http.get("http://34.107.3.185:8080/doneWorkOrder/byWorker/" + workerUid);
   }
 }
